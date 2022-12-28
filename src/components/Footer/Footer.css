@@ -1,0 +1,14 @@
+.footerDesign {
+  height: 8vh;
+  width: 100vw;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  color: wheat;
+}
+
+@media only screen and (max-width: 750px) {
+  .footerDesign {
+    display: none;
+  }
+}

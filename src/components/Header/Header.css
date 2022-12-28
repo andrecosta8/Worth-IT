@@ -1,0 +1,24 @@
+.headerDesign{
+height: 12vh;
+width: 100vw;
+background-color: grey;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-end;
+}
+
+.linkDesign {
+    font-weight: bold;
+    margin-right: 3em;
+    margin-bottom: 0.5em;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 2em;
+}
+
+.linkDesign:hover {
+    color: lightslategray;
+    transition: 0.5s;
+}
