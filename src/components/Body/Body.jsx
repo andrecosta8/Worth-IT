@@ -6,6 +6,7 @@ import Login from "../../containers/Login/Login";
 import Profile from "../../containers/Profile/Profile";
 import Products from "../../containers/Products/Products";
 import Detail from "../../containers/Detail/Detail";
+import Admin from "../../containers/Admin/Admin";
 
 const Body = () => {
   return (
@@ -17,6 +18,7 @@ const Body = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/products" element={<Products/>} />
       <Route path="/detail" element={<Detail />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   </>
   )
