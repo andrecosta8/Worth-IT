@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
-  let adminToken = true;
+  let isAdmin = true;
   let navigate = useNavigate();
   return (
     <div className='headerDesign'>
@@ -12,9 +12,7 @@ const Header = () => {
     <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/products")},250)}>Products</div>
     <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/login")},250)}>Login</div>
     <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/register")},250)}>Register</div>
-    {adminToken === true ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/admin")},250)}>Admin</div> : null}
-    
-    
+    {isAdmin === true ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/admin")},250)}>Admin</div> : null} 
  </div>
   )
 }
