@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "name": "user1",
+      "email": "user1@email.com",
+      "password": "12345",
+      "id": 1,
+      "isAdmin": "true"
+    },
+    {
+      "name": "user2",
+      "email": "user2@email.com",
+      "password": "12345",
+      "id": 2,
+      "isAdmin": "false"
+    },
+    {
+      "name": "user3",
+      "email": "user3@email.com",
+      "password": "12345",
+      "id": 3,
+      "isAdmin": "false"
+    },
+    {
+      "name": "user4",
+      "email": "user4@email.com",
+      "password": "12345",
+      "id": 4,
+      "isAdmin": "false"
+    },
+    {
+      "name": "sdf",
+      "email": "sdf",
+      "password": "sdf",
+      "isAdmin": "false",
+      "id": 5
+    },
+    {
+      "name": "test",
+      "email": "asdasda",
+      "password": "sdasdasd",
+      "isAdmin": "false",
+      "id": 6
+    },
+    {
+      "name": "André",
+      "email": "example@email.com",
+      "password": "As8asdasd",
+      "isAdmin": "false",
+      "id": 7
+    },
+    {
+      "name": "André",
+      "email": "exampleemail.com",
+      "password": "As8asdasd",
+      "isAdmin": "false",
+      "id": 8
+    }
+  ],
+  "products": [
+    {
+      "name": "MacBook Pro",
+      "brand": "Apple",
+      "model": "Pro 14",
+      "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
+      "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
+      "rating": 3,
+      "id": 1
+    },
+    {
+      "name": "Mouse Steelseries Rival 3",
+      "brand": "Steelseries",
+      "model": "Rival 3 Wireless",
+      "description": "Mouse Steelseries Rival 3 Wireless, dual connection, bluetooth and 2.4Ghz switch, up to 400 hours of battery",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/1400-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro.jpg",
+      "rating": 3,
+      "id": 2
+    }
+  ]
+}
