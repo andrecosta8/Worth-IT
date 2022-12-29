@@ -1,60 +1,18 @@
 {
   "users": [
     {
-      "name": "user1",
+      "name": "User1",
       "email": "user1@email.com",
-      "password": "12345",
-      "id": 1,
-      "isAdmin": "true"
-    },
-    {
-      "name": "user2",
-      "email": "user2@email.com",
-      "password": "12345",
-      "id": 2,
-      "isAdmin": "false"
-    },
-    {
-      "name": "user3",
-      "email": "user3@email.com",
-      "password": "12345",
-      "id": 3,
-      "isAdmin": "false"
-    },
-    {
-      "name": "user4",
-      "email": "user4@email.com",
-      "password": "12345",
-      "id": 4,
-      "isAdmin": "false"
-    },
-    {
-      "name": "sdf",
-      "email": "sdf",
-      "password": "sdf",
+      "password": "Asd123",
       "isAdmin": "false",
-      "id": 5
+      "id": 1
     },
     {
-      "name": "test",
-      "email": "asdasda",
-      "password": "sdasdasd",
+      "name": "asd",
+      "email": "email@email.com",
+      "password": "Asd123fff",
       "isAdmin": "false",
-      "id": 6
-    },
-    {
-      "name": "André",
-      "email": "example@email.com",
-      "password": "As8asdasd",
-      "isAdmin": "false",
-      "id": 7
-    },
-    {
-      "name": "André",
-      "email": "exampleemail.com",
-      "password": "As8asdasd",
-      "isAdmin": "false",
-      "id": 8
+      "id": 2
     }
   ],
   "products": [

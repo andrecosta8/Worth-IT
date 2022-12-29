@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
-import {registerNewUser} from '../../services/apiCalls'
-import {validateForm} from '../../services/validate'
+import { registerNewUser } from "../../services/apiCalls";
+import { validateForm } from "../../services/validate";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -20,12 +20,10 @@ const Register = () => {
   };
 
   const register = (user) => {
-    let errorResponse = validateForm(user);
-    setError(errorResponse);
-    if (error === ""){
-      registerNewUser(user);
-    }
-  }
+    let validationError = validateForm(user);
+    setError(validationError);
+    if (error === "no error") registerNewUser(user);
+  };
 
   return (
     <div className="registerDesign">
@@ -67,10 +65,16 @@ const Register = () => {
         }}
       />
       <div className="bottomSection">
-        <div className="designRegisterButton" onClick={() => register(user)}>
+        <div
+          className="designRegisterButton"
+          onClick={() => {
+            register(user);
+          }}
+        >
           Register
         </div>
       </div>
+      <div>{error === "no error" ? null : error}</div>
     </div>
   );
 };
