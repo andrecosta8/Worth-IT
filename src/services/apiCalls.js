@@ -21,3 +21,7 @@ export const checkEmail = async (email) => {
 export const createNewComment = async (comment) => {
   return await axios.post(`${API_BASE_URL}comments`, comment);
 };
+
+export const getAllComments = async () => {
+  return await axios.get(`${API_BASE_URL}comments`);
+};

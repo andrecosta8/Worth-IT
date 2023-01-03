@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -27,7 +27,7 @@ import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
 
-import { createNewComment } from "../../services/apiCalls";
+import { createNewComment, getAllComments } from "../../services/apiCalls";
 import { BorderStyle } from "@mui/icons-material";
 
 const ExpandMore = styled((props) => {
@@ -46,25 +46,25 @@ export default function ProductCard({ product }) {
   const [italic, setItalic] = useState(false);
   const [fontWeight, setFontWeight] = useState("normal");
   const [anchorEl, setAnchorEl] = useState(null);
-  const [commentInput, setCommentInput] = useState("");
-  const [comment, setComment] =  useState({
-    body:"",
-    productId: "",
-    user: "",
-  })
+  const [comment, setComment] = useState("");
+  const [allComments, setAllComments] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let result = await getAllComments();
+      setAllComments(result.data);
+    })();
+  },[comment]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const handleComment = (e) => {
-    setCommentInput(e.target.value,
-    );
-
     setComment({
-        body: commentInput,
-        productId: product.id,
-        user: "test"
+      body: e.target.value,
+      productId: product.id,
+      user: "test",
     });
   };
 
@@ -118,12 +118,16 @@ export default function ProductCard({ product }) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Comments:</Typography>
-          {product.comments}
+            {allComments.map((comment) => {
+                return(
+                    {comment}
+                )    
+            })}
           <FormControl>
             <FormLabel>Your comment</FormLabel>
             <Textarea
-            name="commentBody"
-             onChange={(e) => {
+              name="commentBody"
+              onChange={(e) => {
                 handleComment(e);
               }}
               placeholder="Type something here…"
@@ -142,7 +146,7 @@ export default function ProductCard({ product }) {
                   <IconButton
                     variant="plain"
                     color="neutral"
-                    onClick={(event) => setAnchorEl(event.currentTarget)}
+                    onClick={(e) => setAnchorEl(e.currentTarget)}
                   >
                     <FormatBold />
                     <KeyboardArrowDown fontSize="md" />
@@ -181,8 +185,8 @@ export default function ProductCard({ product }) {
                     <FormatItalic />
                   </IconButton>
                   <Button
-                    onClick={() => {
-                      createComment();
+                    onClick={(e) => {
+                      createComment(e);
                     }}
                     sx={{ ml: "auto" }}
                   >
