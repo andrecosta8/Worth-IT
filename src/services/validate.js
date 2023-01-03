@@ -1,4 +1,3 @@
-import { checkEmail } from "./apiCalls";
 const uppercaseRegExp = /(?=.*?[A-Z])/;
 const lowercaseRegExp = /(?=.*?[a-z])/;
 const digitsRegExp = /(?=.*?[0-9])/;
@@ -14,8 +13,6 @@ export const validateForm = (user) => {
     user.email.length === 0
   ) {
     validationError = "Every field must to be filled";
-  } else if (checkEmail(user.email) === false) {
-    validationError = "E-mail is already in use" 
   } else if (!emailRegExp.test(user.email)) {
     validationError = "Please insert a valid email format (example@email.com)";
   } else if (!uppercaseRegExp.test(user.password)) {

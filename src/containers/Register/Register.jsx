@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import { registerNewUser } from "../../services/apiCalls";
 import { validateForm } from "../../services/validate";
+import { checkEmail } from "../../services/apiCalls";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -19,8 +20,13 @@ const Register = () => {
     }));
   };
 
-  const register = (user) => {
-    let validationError = validateForm(user);
+  const register = async (user) => {
+    let validationError;
+    if (await checkEmail(user.email) === false) {
+    validationError = "E-mail is already in use"
+    }else {
+    validationError = validateForm(user);
+    }
     setError(validationError);
     if (error === "no error") registerNewUser(user);
   };

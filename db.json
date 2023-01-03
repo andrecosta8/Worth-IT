@@ -13,6 +13,13 @@
       "password": "Asd123fff",
       "isAdmin": "false",
       "id": 2
+    },
+    {
+      "name": "test",
+      "email": "email@emil.com",
+      "password": "Asdf123123",
+      "isAdmin": "false",
+      "id": 3
     }
   ],
   "products": [
