@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Products.css";
 import { getProducts } from "../../services/apiCalls";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -13,18 +14,11 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      {products.map((elem) => {
-        return (
-          <div key={elem.id}>
-            <div>{elem.name}</div>
-            <div>{elem.brand}</div>
-            <div>{elem.model}</div>
-            <div>{elem.description}</div>
-            <img className= "productImage" src={elem.url} alt={elem.name}></img>
-            <div>{elem.rating}</div>
-          </div>
-        );
+    <div className="productsPageDesign">
+      {products.map((product) => {
+        return(
+        <ProductCard product={product} />
+        )
       })}
     </div>
   );

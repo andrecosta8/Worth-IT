@@ -1,3 +1,7 @@
 .productImage{
     width: 50vw;
 }
+
+.productsPageDesign {
+    display: flex;
+}
