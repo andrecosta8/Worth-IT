@@ -46,21 +46,24 @@
   ],
   "comments": [
     {
-      "body": "Teste ",
-      "productId": 1,
+      "body": "see some things here",
+      "productId": 2,
       "user": "test",
+      "createdAt": "2023-01-04T12:01:43.332Z",
       "id": 1
     },
     {
-      "body": "dfgsdfsdf",
-      "productId": 2,
+      "body": "best computer ever\n",
+      "productId": 1,
       "user": "test",
+      "createdAt": "2023-01-04T14:45:11.163Z",
       "id": 2
     },
     {
-      "body": "testing 3 ",
+      "body": "Helllo",
       "productId": 2,
       "user": "test",
+      "createdAt": "2023-01-04T14:58:21.506Z",
       "id": 3
     }
   ]

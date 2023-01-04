@@ -29,6 +29,8 @@ import Check from "@mui/icons-material/Check";
 
 import { createNewComment, getAllComments } from "../../services/apiCalls";
 import { BorderStyle } from "@mui/icons-material";
+import CommentCard from "../CommentCard/CommentCard";
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -48,6 +50,7 @@ export default function ProductCard({ product }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
+  
 
   useEffect(() => {
     (async () => {
@@ -55,6 +58,7 @@ export default function ProductCard({ product }) {
       setAllComments(result.data);
     })();
   },[comment]);
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -65,15 +69,17 @@ export default function ProductCard({ product }) {
       body: e.target.value,
       productId: product.id,
       user: "test",
+      createdAt: new Date(Date.now()),
     });
   };
 
   const createComment = () => {
-    createNewComment(comment);
+    createNewComment(comment); 
+    setComment("");
   };
 
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card sx={{ width: 650 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -119,18 +125,21 @@ export default function ProductCard({ product }) {
         <CardContent>
           <Typography paragraph>Comments:</Typography>
             {allComments.map((comment) => {
+                if(comment.productId === product.id){
                 return(
-                    {comment}
-                )    
+                    <CommentCard comment={comment} />
+                )}   
             })}
+            <br></br>
           <FormControl>
-            <FormLabel>Your comment</FormLabel>
+            <FormLabel>Please notice that bad words are not allowed</FormLabel>
+
             <Textarea
               name="commentBody"
               onChange={(e) => {
                 handleComment(e);
               }}
-              placeholder="Type something here…"
+              placeholder="Comment here..."
               minRows={3}
               endDecorator={
                 <Box
@@ -185,8 +194,8 @@ export default function ProductCard({ product }) {
                     <FormatItalic />
                   </IconButton>
                   <Button
-                    onClick={(e) => {
-                      createComment(e);
+                    onClick={() => {
+                      createComment();
                     }}
                     sx={{ ml: "auto" }}
                   >
