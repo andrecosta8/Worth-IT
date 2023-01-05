@@ -4,7 +4,7 @@
       "name": "User1",
       "email": "user1@email.com",
       "password": "Asd123",
-      "isAdmin": "false",
+      "isAdmin": "true",
       "id": 1
     },
     {
@@ -65,6 +65,13 @@
       "user": "test",
       "createdAt": "2023-01-04T14:58:21.506Z",
       "id": 3
+    },
+    {
+      "body": "teste 2",
+      "productId": 1,
+      "user": "test",
+      "createdAt": "2023-01-04T18:43:37.795Z",
+      "id": 4
     }
   ]
 }

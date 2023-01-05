@@ -28,7 +28,6 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
 
 import { createNewComment, getAllComments } from "../../services/apiCalls";
-import { BorderStyle } from "@mui/icons-material";
 import CommentCard from "../CommentCard/CommentCard";
 
 
