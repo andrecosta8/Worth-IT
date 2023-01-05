@@ -20,6 +20,20 @@
       "password": "Asdf123123",
       "isAdmin": "false",
       "id": 3
+    },
+    {
+      "name": "André",
+      "email": "andre.costa@xing.com",
+      "password": "Hello123",
+      "isAdmin": "false",
+      "id": 4
+    },
+    {
+      "name": "teste3",
+      "email": "emaildeteste@email.com",
+      "password": "Asd123",
+      "isAdmin": "false",
+      "id": 5
     }
   ],
   "products": [
@@ -53,13 +67,6 @@
       "id": 1
     },
     {
-      "body": "best computer ever\n",
-      "productId": 1,
-      "user": "test",
-      "createdAt": "2023-01-04T14:45:11.163Z",
-      "id": 2
-    },
-    {
       "body": "Helllo",
       "productId": 2,
       "user": "test",
@@ -67,11 +74,39 @@
       "id": 3
     },
     {
-      "body": "teste 2",
+      "body": "Top product",
       "productId": 1,
       "user": "test",
-      "createdAt": "2023-01-04T18:43:37.795Z",
+      "createdAt": "2023-01-05T15:38:27.751Z",
       "id": 4
+    },
+    {
+      "body": "test user",
+      "productId": 1,
+      "user": "User1",
+      "createdAt": "2023-01-05T15:47:03.802Z",
+      "id": 5
+    },
+    {
+      "body": "teste André",
+      "productId": 2,
+      "user": "André",
+      "createdAt": "2023-01-05T16:12:36.623Z",
+      "id": 6
+    },
+    {
+      "body": "teste 3\n",
+      "productId": 1,
+      "user": "User1",
+      "createdAt": "2023-01-05T16:45:17.046Z",
+      "id": 7
+    },
+    {
+      "body": "asdasd",
+      "productId": 1,
+      "user": "User1",
+      "createdAt": "2023-01-05T16:45:49.269Z",
+      "id": 8
     }
   ]
 }

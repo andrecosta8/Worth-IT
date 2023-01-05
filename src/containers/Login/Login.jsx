@@ -24,14 +24,13 @@ const Login = () => {
 
   const login = async (user) => {
     let response = await loginUser(user);
-    // console.log(response[0].isAdmin)
     if (response.length === 0 || response === false){
       setError("E-mail or password doesn't match");
     } else {
-      addUserToContext(response);
+      addUserToContext(response[0]);
       setError("no error")
-      if(response[0].isAdmin === true){
-      addAdminToContext(response);
+      if(response[0].isAdmin === "true"){
+      addAdminToContext(response[0]);
       navigate("/admin")
       }else
       navigate("/")

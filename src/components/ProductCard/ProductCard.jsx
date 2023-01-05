@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -29,6 +29,7 @@ import Check from "@mui/icons-material/Check";
 
 import { createNewComment, getAllComments } from "../../services/apiCalls";
 import CommentCard from "../CommentCard/CommentCard";
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const ExpandMore = styled((props) => {
@@ -49,6 +50,8 @@ export default function ProductCard({ product }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
+  const {user} = useContext(AuthContext)
+
   
 
   useEffect(() => {
@@ -67,7 +70,7 @@ export default function ProductCard({ product }) {
     setComment({
       body: e.target.value,
       productId: product.id,
-      user: "test",
+      user: user.name,
       createdAt: new Date(Date.now()),
     });
   };

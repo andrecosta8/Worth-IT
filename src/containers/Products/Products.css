@@ -4,5 +4,8 @@
 
 .productsPageDesign {
     display: flex;
-    height: 92vh;
+    overflow-y: scroll; 
+    padding-bottom: 8vh;
+    padding-top: 15vh;
+    z-index: -1;
 }

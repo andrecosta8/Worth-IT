@@ -8,6 +8,10 @@ export const getProducts = async () => {
 };
 
 //USERS
+
+export const getAllUsers = async () => {
+  return await axios.get(`${API_BASE_URL}users`);
+};
 export const registerNewUser = async (user) => {
   return await axios.post(`${API_BASE_URL}users`, user);
 };

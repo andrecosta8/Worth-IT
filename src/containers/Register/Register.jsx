@@ -3,6 +3,7 @@ import "./Register.css";
 import { registerNewUser } from "../../services/apiCalls";
 import { validateForm } from "../../services/validate";
 import { checkEmail } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -12,6 +13,7 @@ const Register = () => {
     isAdmin: "false",
   });
   const [error, setError] = useState("");
+  const navigate = useNavigate("/profile")
 
   const handleData = (e) => {
     setUser((prevState) => ({
@@ -28,7 +30,10 @@ const Register = () => {
     validationError = validateForm(user);
     }
     setError(validationError);
-    if (error === "no error") registerNewUser(user);
+    if (error === "no error") {
+      registerNewUser(user);
+      navigate("/profile")
+    }
   };
 
   return (
