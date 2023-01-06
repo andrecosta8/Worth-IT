@@ -20,6 +20,7 @@ useEffect(()=>{
 
   return (
     <div className='adminHomeDesign'>Admin
+    <div>LIST OF USERS:</div>
     {users.map((user) => {
       return (
         <div>
@@ -30,6 +31,16 @@ useEffect(()=>{
         </div>
       )
     })}
+    <div>LIST OF PRODUCTS:</div>
+    {products.map((product) => {
+      return (
+        <div>
+        <div>{product.name}</div>
+        <br></br>
+        </div>
+      )
+    })}
+  
     </div>
   )
 }

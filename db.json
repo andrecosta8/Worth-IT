@@ -43,7 +43,7 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "rating": 3,
+      "rating": 5,
       "comments": [],
       "id": 1
     },
@@ -60,53 +60,52 @@
   ],
   "comments": [
     {
-      "body": "see some things here",
-      "productId": 2,
-      "user": "test",
-      "createdAt": "2023-01-04T12:01:43.332Z",
+      "body": "teste 1",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "createdAt": "2023-01-06T09:51:33.454Z",
       "id": 1
     },
     {
-      "body": "Helllo",
-      "productId": 2,
-      "user": "test",
-      "createdAt": "2023-01-04T14:58:21.506Z",
+      "body": "teste 2",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "createdAt": "2023-01-06T09:51:38.461Z",
+      "id": 2
+    },
+    {
+      "body": "teste 3",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "createdAt": "2023-01-06T09:51:44.702Z",
       "id": 3
     },
     {
-      "body": "Top product",
-      "productId": 1,
-      "user": "test",
-      "createdAt": "2023-01-05T15:38:27.751Z",
+      "body": "test 1\n",
+      "productId": 2,
+      "user": "User1",
+      "userID": 1,
+      "createdAt": "2023-01-06T09:51:53.787Z",
       "id": 4
     },
     {
-      "body": "test user",
-      "productId": 1,
-      "user": "User1",
-      "createdAt": "2023-01-05T15:47:03.802Z",
+      "body": "test 2 ",
+      "productId": 2,
+      "user": "André",
+      "userID": 4,
+      "createdAt": "2023-01-06T09:58:09.274Z",
       "id": 5
     },
     {
-      "body": "teste André",
+      "body": "test 23",
       "productId": 2,
       "user": "André",
-      "createdAt": "2023-01-05T16:12:36.623Z",
+      "userID": 4,
+      "createdAt": "2023-01-06T09:58:13.541Z",
       "id": 6
-    },
-    {
-      "body": "teste 3\n",
-      "productId": 1,
-      "user": "User1",
-      "createdAt": "2023-01-05T16:45:17.046Z",
-      "id": 7
-    },
-    {
-      "body": "asdasd",
-      "productId": 1,
-      "user": "User1",
-      "createdAt": "2023-01-05T16:45:49.269Z",
-      "id": 8
     }
   ]
 }

@@ -30,6 +30,7 @@ import Check from "@mui/icons-material/Check";
 import { createNewComment, getAllComments } from "../../services/apiCalls";
 import CommentCard from "../CommentCard/CommentCard";
 import { AuthContext } from '../../providers/AuthProvider';
+import HoverRating from "../HoverRating/HoverRating";
 
 
 const ExpandMore = styled((props) => {
@@ -71,6 +72,7 @@ export default function ProductCard({ product }) {
       body: e.target.value,
       productId: product.id,
       user: user.name,
+      userID: user.id,
       createdAt: new Date(Date.now()),
     });
   };
@@ -108,12 +110,7 @@ export default function ProductCard({ product }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <HoverRating rating={product.rating} />
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
