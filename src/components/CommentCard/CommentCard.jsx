@@ -14,8 +14,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { AuthContext } from '../../providers/AuthProvider';
 
-
-
 export default function CommentCard({comment}) {
     let filteredDate = (comment.createdAt).split("T");
     let filteredTime = filteredDate[1].split(".")

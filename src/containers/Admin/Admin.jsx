@@ -40,7 +40,18 @@ useEffect(()=>{
         </div>
       )
     })}
-  
+  <div>LIST OF FLAGED COMMENTS:</div>
+    {comments.map((comment) => {
+      if(comment.badWordFlaged === true)
+      return (
+        <div>
+        <div>{comment.user}</div>
+        <div>{comment.createdAt}</div>
+        <div>{comment.body}</div>
+        <br></br>
+        </div>
+      )
+    })}
     </div>
   )
 }

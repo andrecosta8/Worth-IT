@@ -60,52 +60,22 @@
   ],
   "comments": [
     {
-      "body": "teste 1",
+      "body": "hello my name is hakuna",
       "productId": 1,
       "user": "User1",
       "userID": 1,
-      "createdAt": "2023-01-06T09:51:33.454Z",
+      "badWordFlaged": false,
+      "createdAt": "2023-01-06T11:34:08.155Z",
       "id": 1
     },
     {
-      "body": "teste 2",
+      "body": "hello my name is fuck you",
       "productId": 1,
       "user": "User1",
       "userID": 1,
-      "createdAt": "2023-01-06T09:51:38.461Z",
+      "badWordFlaged": true,
+      "createdAt": "2023-01-06T11:34:19.582Z",
       "id": 2
-    },
-    {
-      "body": "teste 3",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "createdAt": "2023-01-06T09:51:44.702Z",
-      "id": 3
-    },
-    {
-      "body": "test 1\n",
-      "productId": 2,
-      "user": "User1",
-      "userID": 1,
-      "createdAt": "2023-01-06T09:51:53.787Z",
-      "id": 4
-    },
-    {
-      "body": "test 2 ",
-      "productId": 2,
-      "user": "André",
-      "userID": 4,
-      "createdAt": "2023-01-06T09:58:09.274Z",
-      "id": 5
-    },
-    {
-      "body": "test 23",
-      "productId": 2,
-      "user": "André",
-      "userID": 4,
-      "createdAt": "2023-01-06T09:58:13.541Z",
-      "id": 6
     }
   ]
 }

@@ -27,7 +27,7 @@ import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
 
-import { createNewComment, getAllComments } from "../../services/apiCalls";
+import { badWords, createNewComment, getAllComments } from "../../services/apiCalls";
 import CommentCard from "../CommentCard/CommentCard";
 import { AuthContext } from '../../providers/AuthProvider';
 import HoverRating from "../HoverRating/HoverRating";
@@ -67,17 +67,19 @@ export default function ProductCard({ product }) {
     setExpanded(!expanded);
   };
 
-  const handleComment = (e) => {
+  const handleComment = async (e) => {
+    let badWordCheck = await badWords(comment.body);
     setComment({
       body: e.target.value,
       productId: product.id,
       user: user.name,
       userID: user.id,
+      badWordFlaged: badWordCheck.data,
       createdAt: new Date(Date.now()),
     });
   };
 
-  const createComment = () => {
+  const createComment = async () => {
     createNewComment(comment); 
     setComment("");
   };
@@ -124,7 +126,7 @@ export default function ProductCard({ product }) {
         <CardContent>
           <Typography paragraph>Comments:</Typography>
             {allComments.map((comment) => {
-                if(comment.productId === product.id){
+                if(comment.productId === product.id && comment.badWordFlaged === false){
                 return(
                     <CommentCard comment={comment} />
                 )}   

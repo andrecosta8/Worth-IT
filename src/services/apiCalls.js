@@ -36,3 +36,9 @@ export const createNewComment = async (comment) => {
 export const getAllComments = async () => {
   return await axios.get(`${API_BASE_URL}comments`);
 };
+
+//BAD WORDS CHECK
+
+export const badWords = async (comment) => {
+  return await axios.get(`https://www.purgomalum.com/service/containsprofanity?text=${comment}`)
+}
