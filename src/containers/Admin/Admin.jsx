@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { getAllComments, getAllUsers, getProducts } from '../../services/apiCalls';
 import './Admin.css'
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
   const [comments, setComments] = useState([]);
+  const { admin } = useContext(AuthContext)
+  const navigate = useNavigate();
+
+useEffect(()=>{
+  if (!admin) navigate ("/")
+})
 
 useEffect(()=>{
   (async () => {

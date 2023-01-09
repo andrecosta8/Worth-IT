@@ -34,6 +34,20 @@
       "password": "Asd123",
       "isAdmin": "false",
       "id": 5
+    },
+    {
+      "name": "teste3 ",
+      "email": "teste3@teste.com",
+      "password": "Hello123",
+      "isAdmin": "false",
+      "id": 6
+    },
+    {
+      "name": "test4 ",
+      "email": "test4@email.com",
+      "password": "Hello123",
+      "isAdmin": "false",
+      "id": 7
     }
   ],
   "products": [

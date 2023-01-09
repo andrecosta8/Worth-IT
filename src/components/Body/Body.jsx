@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Routes } from "react-router-dom";
 import Home from "../../containers/Home/Home";
 import Register from "../../containers/Register/Register";
@@ -18,7 +18,7 @@ const Body = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/products" element={<Products/>} />
       <Route path="/detail" element={<Detail />} />
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/admin" element={<Admin />} /> 
     </Routes>
   </>
   )

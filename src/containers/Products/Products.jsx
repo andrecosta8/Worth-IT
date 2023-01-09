@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(user === null){navigate("/login")}
+    if(user === null) {navigate("/login")}
     (async () => {
       let result = await getProducts();
       setProducts(result.data);

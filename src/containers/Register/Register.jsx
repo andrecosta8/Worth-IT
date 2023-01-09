@@ -13,7 +13,7 @@ const Register = () => {
     isAdmin: "false",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate("/profile")
+  const navigate = useNavigate()
 
   const handleData = (e) => {
     setUser((prevState) => ({
@@ -32,7 +32,7 @@ const Register = () => {
     setError(validationError);
     if (error === "no error") {
       registerNewUser(user);
-      navigate("/profile")
+      navigate("/login")
     }
   };
 

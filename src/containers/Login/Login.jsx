@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { loginUser } from '../../services/apiCalls';
 import './Login.css'
 
 const Login = () => {
+ 
   const [user, setUser] = useState({
     email:"",
     password:"",
@@ -33,7 +34,7 @@ const Login = () => {
       addAdminToContext(response[0]);
       navigate("/admin")
       }else
-      navigate("/")
+      navigate("/profile")
     }
   }
 
