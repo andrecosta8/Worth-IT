@@ -1,9 +1,10 @@
 import React from 'react'
 import './Detail.css'
 
-const Detail = () => {
+const Detail = ({product}) => {
+  console.log(product)
   return (
-    <div>Detail</div>
+    <div className='detailProductDesign'>HERE</div>
   )
 }
 

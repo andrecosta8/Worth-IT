@@ -10,27 +10,15 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import FormControl from "@mui/joy/FormControl";
-import FormLabel from "@mui/joy/FormLabel";
-import Textarea from "@mui/joy/Textarea";
-import Menu from "@mui/joy/Menu";
-import MenuItem from "@mui/joy/MenuItem";
-import ListItemDecorator from "@mui/joy/ListItemDecorator";
-import FormatBold from "@mui/icons-material/FormatBold";
-import FormatItalic from "@mui/icons-material/FormatItalic";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import Check from "@mui/icons-material/Check";
-
-import { badWords, createNewComment, getAllComments } from "../../services/apiCalls";
+import { getAllComments } from "../../services/apiCalls";
 import CommentCard from "../CommentCard/CommentCard";
 import { AuthContext } from '../../providers/AuthProvider';
 import HoverRating from "../HoverRating/HoverRating";
+import CommentBox from "../CommentBox/CommentBox";
+import { useNavigate } from "react-router-dom";
+
 
 
 const ExpandMore = styled((props) => {
@@ -46,42 +34,27 @@ const ExpandMore = styled((props) => {
 
 export default function ProductCard({ product }) {
   const [expanded, setExpanded] = useState(false);
-  const [italic, setItalic] = useState(false);
-  const [fontWeight, setFontWeight] = useState("normal");
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [comment, setComment] = useState("");
-  const [allComments, setAllComments] = useState([]);
+  const [comments, setComments] = useState([]);
   const {user} = useContext(AuthContext)
-
+  let navigate = useNavigate();
   
+  const getComments = async () => {
+    let response = await getAllComments();
+    setComments(response.data);
+  };
 
   useEffect(() => {
-    (async () => {
-      let result = await getAllComments();
-      setAllComments(result.data);
-    })();
-  },[comment]);
-
+    getComments()
+  },[]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const handleComment = async (e) => {
-    let badWordCheck = await badWords(comment.body);
-    setComment({
-      body: e.target.value,
-      productId: product.id,
-      user: user.name,
-      userID: user.id,
-      badWordFlaged: badWordCheck.data,
-      createdAt: new Date(Date.now()),
-    });
-  };
-
-  const createComment = async () => {
-    createNewComment(comment); 
-    setComment("");
+  const goDetail = () => {
+    setTimeout(() => {
+      navigate("/productdetail");
+    }, 200);
   };
 
   return (
@@ -94,7 +67,7 @@ export default function ProductCard({ product }) {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <MoreVertIcon onClick={()=> goDetail()}/>
           </IconButton>
         }
         title={product.name}
@@ -125,92 +98,14 @@ export default function ProductCard({ product }) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Comments:</Typography>
-            {allComments.map((comment) => {
+            {comments.map((comment) => {
                 if(comment.productId === product.id && comment.badWordFlaged === false){
                 return(
-                    <CommentCard comment={comment} />
+                    <CommentCard comment={comment} getComments={getComments} />
                 )}   
             })}
             <br></br>
-          <FormControl>
-            <FormLabel>Please notice that bad words are not allowed</FormLabel>
-
-            <Textarea
-              name="commentBody"
-              onChange={(e) => {
-                handleComment(e);
-              }}
-              placeholder="Comment here..."
-              minRows={3}
-              endDecorator={
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: "var(--Textarea-paddingBlock)",
-                    pt: "var(--Textarea-paddingBlock)",
-                    borderTop: "1px solid",
-                    borderColor: "divider",
-                    flex: "auto",
-                  }}
-                >
-                  <IconButton
-                    variant="plain"
-                    color="neutral"
-                    onClick={(e) => setAnchorEl(e.currentTarget)}
-                  >
-                    <FormatBold />
-                    <KeyboardArrowDown fontSize="md" />
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={() => setAnchorEl(null)}
-                    size="sm"
-                    placement="bottom-start"
-                    sx={{ "--List-decorator-size": "24px" }}
-                  >
-                    {["200", "normal", "bold"].map((weight) => (
-                      <MenuItem
-                        key={weight}
-                        selected={fontWeight === weight}
-                        onClick={() => {
-                          setFontWeight(weight);
-                          setAnchorEl(null);
-                        }}
-                        sx={{ fontWeight: weight }}
-                      >
-                        <ListItemDecorator>
-                          {fontWeight === weight && <Check fontSize="sm" />}
-                        </ListItemDecorator>
-                        {weight === "200" ? "lighter" : weight}
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                  <IconButton
-                    variant={italic ? "soft" : "plain"}
-                    color={italic ? "primary" : "neutral"}
-                    aria-pressed={italic}
-                    onClick={() => setItalic((bool) => !bool)}
-                  >
-                    <FormatItalic />
-                  </IconButton>
-                  <Button
-                    onClick={() => {
-                      createComment();
-                    }}
-                    sx={{ ml: "auto" }}
-                  >
-                    Send
-                  </Button>
-                </Box>
-              }
-              sx={{
-                minWidth: 300,
-                fontWeight,
-                fontStyle: italic ? "italic" : "initial",
-              }}
-            />
-          </FormControl>
+        <CommentBox product={product} getComments={getComments} />
         </CardContent>
       </Collapse>
     </Card>

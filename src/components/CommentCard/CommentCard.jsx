@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -14,17 +13,21 @@ import EditIcon from '@mui/icons-material/Edit';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { AuthContext } from '../../providers/AuthProvider';
 import { deleteComment } from '../../services/apiCalls';
+import { Collapse } from '@mui/material';
+import CommentBox from '../CommentBox/CommentBox';
+import { ExpandMore } from '@mui/icons-material';
 
-export default function CommentCard({comment}) {
+export default function CommentCard({comment, getComments}) {
     let filteredDate = (comment.createdAt).split("T");
     let filteredTime = filteredDate[1].split(".")
     let createdAt = filteredDate[0] + " - " + filteredTime[0];
     const { admin, user } = useContext(AuthContext)
-
+    
     const deleteThisComment = (comment) =>{
       deleteComment(comment);
+      getComments();
     }
-    
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -59,3 +62,4 @@ export default function CommentCard({comment}) {
     </Card>
   );
 }
+

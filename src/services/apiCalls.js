@@ -3,7 +3,7 @@ import axios from "axios";
 const API_BASE_URL = "http://localhost:5000/";
 
 //PRODUCTS
-export const getProducts = async () => {
+export const getAllProducts = async () => {
   return await axios.get(`${API_BASE_URL}products`);
 };
 

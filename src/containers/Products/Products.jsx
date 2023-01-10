@@ -1,40 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Products.css";
-import { getProducts } from "../../services/apiCalls";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import { AuthContext } from '../../providers/AuthProvider';
+import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { Search } from "@mui/icons-material";
+import SearchProducts from "../../components/SearchProducts/SearchProducts";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
-  const { user } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const [searchProducts, setSearchProducts] = useState("");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if(!user) {navigate("/login")}
-    (async () => {
-      let result = await getProducts();
-      setProducts(result.data);
-    })();
-  }, []);
-
-
+ 
+  const inputSearchHandler = (e) => {
+    let timeOutId;
+    if(timeOutId){clearTimeout(timeOutId)}
+     timeOutId =  setTimeout(() => {setSearchProducts(e.target.value)},500)
+  }
+  
   return (
     <div className="productsPageDesign">
-      {/* <div>
+      <div>
         <input
-        name="food"
-        placeholder="Search your meal..."
-        className="searchInput"
-        onChange={(e) => inputSearchHandler(e)}
-      />
-      </div> */}
-      {products.map((product) => {
-        return(
-        <ProductCard product={product} />
-        )
-      })}
+          name="product"
+          placeholder="Search your product..."
+          className="searchInput"
+          onChange={(e) => inputSearchHandler(e)}
+        />
+        <SearchProducts searchProducts ={searchProducts} />
+      </div>
     </div>
   );
 };
