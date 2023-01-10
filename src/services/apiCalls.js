@@ -37,6 +37,10 @@ export const getAllComments = async () => {
   return await axios.get(`${API_BASE_URL}comments`);
 };
 
+export const deleteComment = async (comment) => {
+  return await axios.delete(`${API_BASE_URL}comments/${comment.id}`);
+};
+
 //BAD WORDS CHECK
 
 export const badWords = async (comment) => {

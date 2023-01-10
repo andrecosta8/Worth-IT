@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className='headerDesign'>
     <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/")},250)}>Home</div>
-    {user !== null ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/profile")},250)}>Profile</div> : null}
+    {user !== null && admin === null ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/profile")},250)}>Profile</div> : null}
     {user !== null ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/products")},250)}>Products</div> : null}
     {user === null ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/register")},250)}>Register</div> : null}
     {admin !== null ? <div className="linkDesign" onClick={()=>setTimeout(()=>{navigate("/admin")},250)}>Admin</div> : null}

@@ -7,19 +7,29 @@ import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
   const { user } = useContext(AuthContext)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(user === null) {navigate("/login")}
+    if(!user) {navigate("/login")}
     (async () => {
       let result = await getProducts();
       setProducts(result.data);
     })();
   }, []);
 
+
   return (
     <div className="productsPageDesign">
+      {/* <div>
+        <input
+        name="food"
+        placeholder="Search your meal..."
+        className="searchInput"
+        onChange={(e) => inputSearchHandler(e)}
+      />
+      </div> */}
       {products.map((product) => {
         return(
         <ProductCard product={product} />

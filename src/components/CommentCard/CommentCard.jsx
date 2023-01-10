@@ -13,12 +13,17 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { AuthContext } from '../../providers/AuthProvider';
+import { deleteComment } from '../../services/apiCalls';
 
 export default function CommentCard({comment}) {
     let filteredDate = (comment.createdAt).split("T");
     let filteredTime = filteredDate[1].split(".")
     let createdAt = filteredDate[0] + " - " + filteredTime[0];
     const { admin, user } = useContext(AuthContext)
+
+    const deleteThisComment = (comment) =>{
+      deleteComment(comment);
+    }
     
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -39,7 +44,7 @@ export default function CommentCard({comment}) {
       {user.id === comment.userID ? 
       <CardActions disableSpacing>
         <IconButton >
-          <DeleteIcon />
+          <DeleteIcon onClick={() => deleteThisComment(comment)}/>
         </IconButton>
         <IconButton >
           <EditIcon />

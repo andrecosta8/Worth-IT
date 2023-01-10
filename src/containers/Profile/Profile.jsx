@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
-  useEffect(()=> {
-    if(user === null) {navigate("/login")}
-  }, []);
+  // useEffect(()=> {
+  //   if(user === null) {navigate("/login")}
+  // }, []);
+
   return (
     <div className='profileDesign'>
       <div>USER INFO:
