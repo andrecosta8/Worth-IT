@@ -7,6 +7,7 @@ import Profile from "../../containers/Profile/Profile";
 import Products from "../../containers/Products/Products";
 import Detail from "../../containers/Detail/Detail";
 import Admin from "../../containers/Admin/Admin";
+import CreateProduct from '../../containers/CreateProduct/CreateProduct';
 
 const Body = () => {
   return (
@@ -19,6 +20,7 @@ const Body = () => {
       <Route path="/products" element={<Products/>} />
       <Route path="/productdetail" element={<Detail />} />
       <Route path="/admin" element={<Admin />} /> 
+      <Route path="/admin/createproduct" element={<CreateProduct/>} />
     </Routes>
   </>
   )

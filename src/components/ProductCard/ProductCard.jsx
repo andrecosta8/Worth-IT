@@ -8,11 +8,12 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
+import DeleteIcon from '@mui/icons-material/Delete';
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { getAllComments } from "../../services/apiCalls";
+import { deleteProduct, getAllComments } from "../../services/apiCalls";
 import CommentCard from "../CommentCard/CommentCard";
 import { AuthContext } from '../../providers/AuthProvider';
 import HoverRating from "../HoverRating/HoverRating";
@@ -32,10 +33,10 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, getProductsList }) {
   const [expanded, setExpanded] = useState(false);
   const [comments, setComments] = useState([]);
-  const {user} = useContext(AuthContext)
+  const {user, admin} = useContext(AuthContext)
   let navigate = useNavigate();
   
   const getComments = async () => {
@@ -56,6 +57,11 @@ export default function ProductCard({ product }) {
       navigate("/productdetail");
     }, 200);
   };
+
+  const deleteThisProduct = (product) => {
+    deleteProduct(product);
+    getProductsList()
+  }
 
   return (
     <Card sx={{ width: 650 }}>
@@ -86,6 +92,11 @@ export default function ProductCard({ product }) {
       </CardContent>
       <CardActions disableSpacing>
         <HoverRating rating={product.rating} />
+        {admin !== null ? 
+        <IconButton >
+          <DeleteIcon onClick={() => deleteThisProduct(product) } />
+        </IconButton>
+        : null}
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

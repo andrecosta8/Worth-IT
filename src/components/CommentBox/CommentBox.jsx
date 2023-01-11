@@ -44,7 +44,6 @@ export default function CommentBox({ product, getComments }) {
         name="commentBody"
         value={textAreaValue}
         onChange={(e) => {
-          // handleComment(e);
           setTextAreaValue(e.target.value);
         }}
         placeholder="Type something here…"

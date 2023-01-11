@@ -7,6 +7,15 @@ export const getAllProducts = async () => {
   return await axios.get(`${API_BASE_URL}products`);
 };
 
+export const createNewProduct = async (product) => {
+  return await axios.post(`${API_BASE_URL}products`, product)
+}
+
+export const deleteProduct = async(product) => {
+  console.log("HERE", product)
+  return await axios.delete(`${API_BASE_URL}products/${product.id}`)
+}
+
 //USERS
 
 export const getAllUsers = async () => {

@@ -19,14 +19,14 @@ const SearchProducts = ({ searchProducts }) => {
     <div>
       {!searchProducts
         ? products.map((product) => {
-            return <ProductCard product={product} />;
+            return <ProductCard product={product} getProductsList={getProductsList} />;
           })
         : products
             .filter((products) =>
               products.name.toLowerCase().includes((searchProducts.trim()).toLowerCase())
             )
             .map((filteredProduct) => {
-              return <ProductCard product={filteredProduct} />;
+              return <ProductCard product={filteredProduct} getProductsList={getProductsList}  />;
             })}
     </div>
   );
