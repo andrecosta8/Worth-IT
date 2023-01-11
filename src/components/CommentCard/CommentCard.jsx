@@ -17,7 +17,7 @@ import { Collapse } from '@mui/material';
 import CommentBox from '../CommentBox/CommentBox';
 import { ExpandMore } from '@mui/icons-material';
 
-export default function CommentCard({comment, getComments}) {
+export default function CommentCard({comment, getComments, isEditing}) {
     let filteredDate = (comment.createdAt).split("T");
     let filteredTime = filteredDate[1].split(".")
     let createdAt = filteredDate[0] + " - " + filteredTime[0];
@@ -29,7 +29,7 @@ export default function CommentCard({comment, getComments}) {
     }
 
     const editThisComment = (comment) =>{
-      
+      isEditing(comment)
     }
 
   return (

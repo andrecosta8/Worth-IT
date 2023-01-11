@@ -28,6 +28,8 @@ const Detail = () => {
   const { user, admin } = useContext(AuthContext);
   const [expanded, setExpanded] = useState(false);
   const [comments, setComments] = useState([]);
+  const [edit, setEdit] = useState(false)
+  const [commentToEdit, setCommentToEdit]= useState({})
   let navigate = useNavigate()
 
   const handleExpandClick = () => {
@@ -47,6 +49,12 @@ const Detail = () => {
     deleteProduct(product);
     navigate("/products")
   };
+
+  const isEditing = (editingComment) => {
+    console.log(editingComment, "HERE")
+    setCommentToEdit(editingComment);
+    setEdit(true)
+  }
 
   return (
     <div className="detailProductDesign">
@@ -93,7 +101,11 @@ const Detail = () => {
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
+          {edit === true ?<CardContent>
+            <Typography paragraph>Comments:</Typography>
+            <CommentCard comment={commentToEdit} getComments={getComments}/>
+            <CommentBox product={product} getComments={getComments} />
+          </CardContent> :<CardContent>
             <Typography paragraph>Comments:</Typography>
             {comments.map((comment) => {
               if (
@@ -101,13 +113,14 @@ const Detail = () => {
                 comment.badWordFlaged === false
               ) {
                 return (
-                  <CommentCard  comment={comment} getComments={getComments} />
+                  <CommentCard isEditing={isEditing} comment={comment} getComments={getComments} />
                 );
               }
             })}
             <br></br>
             <CommentBox product={product} getComments={getComments} />
-          </CardContent>
+          </CardContent> }
+          
         </Collapse>
       </Card>
     </div>
