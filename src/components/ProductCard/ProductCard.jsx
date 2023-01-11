@@ -19,49 +19,21 @@ import { AuthContext } from '../../providers/AuthProvider';
 import HoverRating from "../HoverRating/HoverRating";
 import CommentBox from "../CommentBox/CommentBox";
 import { useNavigate } from "react-router-dom";
+import { useProductChangeContext } from "../../providers/ProductProvider";
 
 
+export default function ProductCard({ product }) {
+  const {user, admin} = useContext(AuthContext);
+  const productSelect = useProductChangeContext();
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
-export default function ProductCard({ product, getProductsList }) {
-  const [expanded, setExpanded] = useState(false);
-  const [comments, setComments] = useState([]);
-  const {user, admin} = useContext(AuthContext)
   let navigate = useNavigate();
-  
-  const getComments = async () => {
-    let response = await getAllComments();
-    setComments(response.data);
-  };
-
-  useEffect(() => {
-    getComments()
-  },[]);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   const goDetail = () => {
     setTimeout(() => {
+      productSelect(product);
       navigate("/productdetail");
     }, 200);
   };
-
-  const deleteThisProduct = (product) => {
-    deleteProduct(product);
-    getProductsList()
-  }
 
   return (
     <Card sx={{ width: 650 }}>
@@ -92,33 +64,7 @@ export default function ProductCard({ product, getProductsList }) {
       </CardContent>
       <CardActions disableSpacing>
         <HoverRating rating={product.rating} />
-        {admin !== null ? 
-        <IconButton >
-          <DeleteIcon onClick={() => deleteThisProduct(product) } />
-        </IconButton>
-        : null}
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Comments:</Typography>
-            {comments.map((comment) => {
-                if(comment.productId === product.id && comment.badWordFlaged === false){
-                return(
-                    <CommentCard comment={comment} getComments={getComments} />
-                )}   
-            })}
-            <br></br>
-        <CommentBox product={product} getComments={getComments} />
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }

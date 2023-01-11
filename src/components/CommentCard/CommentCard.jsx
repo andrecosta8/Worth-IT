@@ -28,6 +28,10 @@ export default function CommentCard({comment, getComments}) {
       getComments();
     }
 
+    const editThisComment = (comment) =>{
+      
+    }
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -50,15 +54,14 @@ export default function CommentCard({comment, getComments}) {
           <DeleteIcon onClick={() => deleteThisComment(comment)}/>
         </IconButton>
         <IconButton >
-          <EditIcon />
+          <EditIcon onClick={()=> editThisComment(comment)}/>
         </IconButton> 
       </CardActions> : 
       <CardActions disableSpacing>
         <IconButton >
           <ThumbUpIcon />
         </IconButton> 
-      </CardActions> }
-      
+      </CardActions> } 
     </Card>
   );
 }
