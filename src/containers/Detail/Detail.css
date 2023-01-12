@@ -1,4 +1,23 @@
 .detailProductDesign {
     padding-top: 15vh;
     padding-bottom: 8vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightside {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+img {
+    max-width: 30vw;
 }

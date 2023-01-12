@@ -189,24 +189,6 @@
       "id": 28
     },
     {
-      "body": "teste 2\n",
-      "productId": 2,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-11T16:16:54.429Z",
-      "id": 30
-    },
-    {
-      "body": "",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-11T17:24:43.104Z",
-      "id": 31
-    },
-    {
       "body": "sdfsdf",
       "productId": 1,
       "user": "User1",
@@ -223,6 +205,25 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-12T09:53:26.415Z",
       "id": 33
+    },
+    {
+      "body": "teste closing",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T14:04:46.834Z",
+      "id": 35
+    },
+    {
+      "body": "gts ffff",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T15:03:39.683Z",
+      "id": 36,
+      "editedAt": "2023-01-12T15:05:51.175Z"
     }
   ]
 }

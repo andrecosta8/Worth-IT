@@ -1,40 +1,22 @@
-import {
-  Avatar,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
-import { useProductContext } from "../../providers/ProductProvider";
-import { red } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import HoverRating from "../../components/HoverRating/HoverRating";
 import { AuthContext } from "../../providers/AuthProvider";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { ExpandMore } from "@mui/icons-material";
-import Collapse from "@mui/material/Collapse";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CommentCard from "../../components/CommentCard/CommentCard";
-import CommentBox from "../../components/CommentBox/CommentBox";
-import { deleteProduct, getAllComments } from "../../services/apiCalls";
+import { getAllComments } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import "./Detail.css";
+import { useProductContext } from "../../providers/ProductProvider";
+import { useContext, useEffect, useState } from "react";
+import CommentCard from "../../components/CommentCard/CommentCard";
+import CommentBox from "../../components/CommentBox/CommentBox";
+
 const Detail = () => {
   const product = useProductContext();
-  const { user, admin } = useContext(AuthContext);
-  const [expanded, setExpanded] = useState(false);
   const [comments, setComments] = useState([]);
-  const [edit, setEdit] = useState(false)
-  const [commentToEdit, setCommentToEdit]= useState({})
-  let navigate = useNavigate()
+  const [commentBox, setCommentBox] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const { user, admin } = useContext(AuthContext);
+  const [edit, setEdit] = useState(false);
+  const [commentToEdit, setCommentToEdit] = useState({});
+
+  let navigate = useNavigate();
 
   const getComments = async () => {
     let response = await getAllComments();
@@ -45,86 +27,95 @@ const Detail = () => {
     getComments();
   }, []);
 
-  const deleteThisProduct = (product) => {
-    deleteProduct(product);
-    navigate("/products")
+  const openCommentBox = () => {
+    setCommentBox(!commentBox);
   };
 
+  // const deleteThisProduct = (product) => {
+  //   deleteProduct(product);
+  //   navigate("/products");
+  // };
+
   const isEditing = (editingComment) => {
-    console.log(editingComment, "HERE")
     setCommentToEdit(editingComment);
-    setEdit(true)
-  }
+    setEdit(!edit);
+  };
 
   return (
     <div className="detailProductDesign">
-      <Card sx={{ width: 650 }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
-            </Avatar>
+      <div className="lefside">
+        {edit === true ? (
+          <>
+            <img src={product.url} alt={product.name}></img>
+            <div>{product.name}</div>
+            <div>{product.description}</div>
+            <div>{product.rating}</div>
+            <CommentBox
+              comment={commentToEdit}
+              openCommentBox={openCommentBox}
+              product={product}
+              getComments={getComments}
+            />
+          </>
+        ) : (
+          <>
+            <img src={product.url} alt={product.name}></img>
+            <div>{product.name}</div>
+            <div>{product.description}</div>
+            <div>{product.rating}</div>
+            {commentBox === false ? (
+              <button onClick={() => openCommentBox()}>
+                Create new comment
+              </button>
+            ) : (
+              <button onClick={() => openCommentBox()}>Close</button>
+            )}
+            {commentBox === true ? (
+              <CommentBox
+                openCommentBox={openCommentBox}
+                product={product}
+                getComments={getComments}
+              />
+            ) : null}
+          </>
+        )}
+      </div>
+      <div className="rightside">
+        {comments.map((comment) => {
+          if (
+            comment.productId === product.id &&
+            comment.badWordFlaged === false
+          ) {
+            return (
+              <CommentCard
+                isEditing={isEditing}
+                comment={comment}
+                getComments={getComments}
+              />
+            );
           }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={product.name}
-          subheader="September 14, 2016"
-        />
-        <CardMedia
-          component="img"
-          height="194"
-          image={product.url}
-          alt={product.name}
-        />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {product.description}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <HoverRating rating={product.rating} />
-          {admin !== null ? (
-            <IconButton>
-              <DeleteIcon onClick={() => deleteThisProduct(product)} />
-            </IconButton>
-          ) : null}
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          {edit === true ?<CardContent>
-            <Typography paragraph>Comments:</Typography>
-            <CommentCard comment={commentToEdit} getComments={getComments}/>
-            <CommentBox product={product} getComments={getComments} />
-          </CardContent> :<CardContent>
-            <Typography paragraph>Comments:</Typography>
-            {comments.map((comment) => {
-              if (
-                comment.productId === product.id &&
-                comment.badWordFlaged === false
-              ) {
-                return (
-                  <CommentCard isEditing={isEditing} comment={comment} getComments={getComments} />
-                );
-              }
-            })}
-            <br></br>
-            <CommentBox product={product} getComments={getComments} />
-          </CardContent> }
-          
-        </Collapse>
-      </Card>
+        })}
+      </div>
     </div>
   );
 };
 
 export default Detail;
+
+//
+// {edit === true ?<CardContent>
+//   <Typography paragraph>Comments:</Typography>
+//   <CommentCard comment={commentToEdit} getComments={getComments}/>
+//   <CommentBox product={product} getComments={getComments} />
+// </CardContent> :<CardContent>
+//   <Typography paragraph>Comments:</Typography>
+
+//   <br></br>
+//   <CommentBox product={product} getComments={getComments} />
+// </CardContent> }
+
+{
+  /* <IconButton>
+<DeleteIcon onClick={() => deleteThisProduct(product)} />
+</IconButton> */
+}

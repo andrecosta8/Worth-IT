@@ -26,7 +26,7 @@ const SearchProducts = ({ searchProducts }) => {
               products.name.toLowerCase().includes((searchProducts.trim()).toLowerCase())
             )
             .map((filteredProduct) => {
-              return <ProductCard product={filteredProduct} getProductsList={getProductsList}  />;
+              return <ProductCard product={filteredProduct}  />;
             })}
     </div>
   );

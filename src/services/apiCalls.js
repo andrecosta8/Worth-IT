@@ -50,6 +50,10 @@ export const deleteComment = async (comment) => {
   return await axios.delete(`${API_BASE_URL}comments/${comment.id}`);
 };
 
+export const updateComment = async (comment) => {
+  return await axios.patch(`${API_BASE_URL}comments/${comment.id}`, comment)
+}
+
 //BAD WORDS CHECK
 
 export const badWords = async (comment) => {

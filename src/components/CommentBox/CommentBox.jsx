@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import FormControl from "@mui/joy/FormControl";
@@ -12,15 +12,20 @@ import FormatBold from "@mui/icons-material/FormatBold";
 import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
-import { badWords, createNewComment } from "../../services/apiCalls";
+import { badWords, createNewComment, updateComment } from "../../services/apiCalls";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useHref } from "react-router-dom";
 
-export default function CommentBox({ product, getComments }) {
+export default function CommentBox({ product, getComments, openCommentBox, comment }) {
   const [italic, setItalic] = useState(false);
   const [fontWeight, setFontWeight] = useState("normal");
   const [anchorEl, setAnchorEl] = useState(null);
   const [textAreaValue, setTextAreaValue] = useState("");
   const { user } = useContext(AuthContext);
+
+  useEffect(()=> {
+    if (comment) setTextAreaValue(comment.body);
+  },[comment])
 
   const createComment = async () => {
     let badWordCheck = await badWords(textAreaValue);
@@ -35,7 +40,21 @@ export default function CommentBox({ product, getComments }) {
     await createNewComment(newComment);
     getComments();
     setTextAreaValue("");
+    openCommentBox()
   };
+
+  const updateThisComment = async() => {
+    let badWordCheck = await badWords(textAreaValue);
+    const updatedComment = {
+      body: textAreaValue,
+      badWordFlaged: badWordCheck.data,
+      editedAt: new Date(Date.now()),
+      id: comment.id,
+    }
+    await updateComment(updatedComment)
+    getComments();
+    setTextAreaValue("");
+  }
 
   return (
     <FormControl>
@@ -100,14 +119,22 @@ export default function CommentBox({ product, getComments }) {
             >
               <FormatItalic />
             </IconButton>
-            <Button
+            {comment ?<Button
+              onClick={() => {
+                updateThisComment();
+              }}
+              sx={{ ml: "auto" }}
+            >
+              Send
+            </Button> : <Button
               onClick={() => {
                 createComment();
               }}
               sx={{ ml: "auto" }}
             >
               Send
-            </Button>
+            </Button>}
+        
           </Box>
         }
         sx={{
