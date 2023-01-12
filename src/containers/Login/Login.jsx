@@ -30,7 +30,7 @@ const Login = () => {
     } else {
       addUserToContext(response[0]);
       setError("no error")
-      if(response[0].isAdmin === "true"){
+      if(response[0].isAdmin === true){
       addAdminToContext(response[0]);
       navigate("/admin")
       }else

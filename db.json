@@ -4,57 +4,43 @@
       "name": "User1",
       "email": "user1@email.com",
       "password": "Asd123",
-      "isAdmin": "true",
+      "isAdmin": true,
       "id": 1
     },
     {
       "name": "asd",
       "email": "email@email.com",
       "password": "Asd123fff",
-      "isAdmin": "false",
+      "isAdmin": false,
       "id": 2
     },
     {
       "name": "test",
       "email": "email@emil.com",
       "password": "Asdf123123",
-      "isAdmin": "false",
+      "isAdmin": false,
       "id": 3
     },
     {
       "name": "André",
       "email": "andre.costa@xing.com",
       "password": "Hello123",
-      "isAdmin": "false",
+      "isAdmin": false,
       "id": 4
     },
     {
       "name": "teste3",
       "email": "emaildeteste@email.com",
       "password": "Asd123",
-      "isAdmin": "false",
+      "isAdmin": false,
       "id": 5
     },
     {
       "name": "teste3 ",
       "email": "teste3@teste.com",
       "password": "Hello123",
-      "isAdmin": "false",
+      "isAdmin": false,
       "id": 6
-    },
-    {
-      "name": "test4 ",
-      "email": "test4@email.com",
-      "password": "Hello123",
-      "isAdmin": "false",
-      "id": 7
-    },
-    {
-      "name": "test5",
-      "email": "anana@snsns.com",
-      "password": "Asd123",
-      "isAdmin": "false",
-      "id": 8
     }
   ],
   "products": [
@@ -77,18 +63,19 @@
       "rating": 3,
       "comments": [],
       "id": 2
+    },
+    {
+      "name": "test",
+      "rating": "",
+      "comments": [],
+      "brand": "test",
+      "model": "tes",
+      "description": "test",
+      "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
+      "id": 3
     }
   ],
   "comments": [
-    {
-      "body": "hello my name is fuck you",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-06T11:34:19.582Z",
-      "id": 2
-    },
     {
       "body": "hello again this one goes to fucking flagled",
       "productId": 1,
@@ -126,42 +113,6 @@
       "id": 18
     },
     {
-      "body": "oijad",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-10T17:35:08.980Z",
-      "id": 21
-    },
-    {
-      "body": "asdasd",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-10T17:41:30.905Z",
-      "id": 22
-    },
-    {
-      "body": "test",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-10T17:41:43.093Z",
-      "id": 23
-    },
-    {
-      "body": "ssssssss",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-10T17:43:16.939Z",
-      "id": 24
-    },
-    {
       "body": "fuck test",
       "productId": 1,
       "user": "test4 ",
@@ -189,13 +140,14 @@
       "id": 28
     },
     {
-      "body": "sdfsdf",
+      "body": "que se passou? NN",
       "productId": 1,
       "user": "User1",
       "userID": 1,
       "badWordFlaged": false,
       "createdAt": "2023-01-11T17:24:46.783Z",
-      "id": 32
+      "id": 32,
+      "editedAt": "2023-01-12T16:05:26.471Z"
     },
     {
       "body": "hello test date\n",
@@ -207,23 +159,54 @@
       "id": 33
     },
     {
-      "body": "teste closing",
+      "body": "comment editing from ",
       "productId": 1,
-      "user": "User1",
-      "userID": 1,
+      "user": "André",
+      "userID": 4,
       "badWordFlaged": false,
-      "createdAt": "2023-01-12T14:04:46.834Z",
-      "id": 35
+      "createdAt": "2023-01-12T16:56:24.339Z",
+      "id": 34,
+      "editedAt": "2023-01-12T17:34:35.982Z"
     },
     {
-      "body": "gts ffff",
+      "body": "sorry",
       "productId": 1,
-      "user": "User1",
-      "userID": 1,
+      "user": "André",
+      "userID": 4,
       "badWordFlaged": false,
-      "createdAt": "2023-01-12T15:03:39.683Z",
+      "createdAt": "2023-01-12T17:31:01.633Z",
+      "id": 35,
+      "editedAt": "2023-01-12T17:31:26.668Z"
+    },
+    {
+      "body": "hello",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T17:33:26.722Z",
       "id": 36,
-      "editedAt": "2023-01-12T15:05:51.175Z"
+      "editedAt": "2023-01-12T17:33:36.619Z"
+    },
+    {
+      "body": "testc",
+      "productId": 2,
+      "user": "André",
+      "userID": 4,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T17:39:21.080Z",
+      "id": 37,
+      "editedAt": "2023-01-12T17:39:37.412Z"
+    },
+    {
+      "body": "asdasd",
+      "productId": 2,
+      "user": "André",
+      "userID": 4,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T17:39:26.902Z",
+      "id": 38,
+      "editedAt": "2023-01-12T17:41:52.313Z"
     }
   ]
 }

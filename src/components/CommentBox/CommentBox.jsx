@@ -14,7 +14,7 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
 import { badWords, createNewComment, updateComment } from "../../services/apiCalls";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useHref } from "react-router-dom";
+
 
 export default function CommentBox({ product, getComments, openCommentBox, comment }) {
   const [italic, setItalic] = useState(false);
@@ -40,7 +40,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
     await createNewComment(newComment);
     getComments();
     setTextAreaValue("");
-    openCommentBox()
+    openCommentBox();
   };
 
   const updateThisComment = async() => {
@@ -54,6 +54,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
     await updateComment(updatedComment)
     getComments();
     setTextAreaValue("");
+    openCommentBox();
   }
 
   return (
@@ -119,7 +120,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
             >
               <FormatItalic />
             </IconButton>
-            {comment ?<Button
+            {comment ? <Button
               onClick={() => {
                 updateThisComment();
               }}

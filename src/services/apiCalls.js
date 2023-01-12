@@ -12,30 +12,43 @@ export const createNewProduct = async (product) => {
 }
 
 export const deleteProduct = async(product) => {
-  console.log("HERE", product)
   return await axios.delete(`${API_BASE_URL}products/${product.id}`)
 }
 
-//USERS
+export const updateProduct = async(product) => {
+  return await axios.patch(`${API_BASE_URL}products/${product.id}`,product)
+}
 
+//USERS
 export const getAllUsers = async () => {
   return await axios.get(`${API_BASE_URL}users`);
 };
+
 export const registerNewUser = async (user) => {
   return await axios.post(`${API_BASE_URL}users`, user);
 };
+
 export const checkEmail = async (email) => {
   let response = await axios.get(`${API_BASE_URL}users?email_like=${email}`);
   if (response.data.length === 0) return true;
   else return false;
 };
+
 export const loginUser = async (user) => {
   let response = await axios.get(`${API_BASE_URL}users?email_like=${user.email}`);
-  //console.log("RESPONSE", response.data[0].password) 
   if (response.data.length === 0) return false;
   else if(user.password === response.data[0].password) return response.data
   else return false
 }
+
+export const deleteUser = async (user) => {
+  return await axios.delete(`${API_BASE_URL}users/${user.id}`);
+}
+
+export const updateUser = async (user) => {
+  return await axios.patch(`${API_BASE_URL}users/${user.id}`,user);
+}
+
 
 //COMMENTS
 export const createNewComment = async (comment) => {
@@ -55,7 +68,6 @@ export const updateComment = async (comment) => {
 }
 
 //BAD WORDS CHECK
-
 export const badWords = async (comment) => {
   return await axios.get(`https://www.purgomalum.com/service/containsprofanity?text=${comment}`)
 }

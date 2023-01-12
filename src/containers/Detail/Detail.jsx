@@ -21,6 +21,7 @@ const Detail = () => {
   const getComments = async () => {
     let response = await getAllComments();
     setComments(response.data);
+    setEdit(false);
   };
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Detail = () => {
 
   const isEditing = (editingComment) => {
     setCommentToEdit(editingComment);
-    setEdit(!edit);
+    setEdit(true);
   };
 
   return (

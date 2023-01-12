@@ -8,6 +8,9 @@ import Products from "../../containers/Products/Products";
 import Detail from "../../containers/Detail/Detail";
 import Admin from "../../containers/Admin/Admin";
 import CreateProduct from '../../containers/CreateProduct/CreateProduct';
+import UsersManagement from '../../containers/UsersManagement/UsersManagement';
+import CommentsManagement from '../../containers/CommentsManagement/CommentsManagement';
+import ProductsManagement from '../../containers/ProductsManagement/ProductsManagement';
 
 const Body = () => {
   return (
@@ -21,6 +24,9 @@ const Body = () => {
       <Route path="/productdetail" element={<Detail />} />
       <Route path="/admin" element={<Admin />} /> 
       <Route path="/admin/createproduct" element={<CreateProduct/>} />
+      <Route path="/admin/users"  element={<UsersManagement/>} />
+      <Route path="/admin/comments" element={<CommentsManagement />}/>
+      <Route path="/admin/products" element={<ProductsManagement />}/>
     </Routes>
   </>
   )
