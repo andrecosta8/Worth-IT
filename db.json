@@ -48,6 +48,13 @@
       "password": "Hello123",
       "isAdmin": "false",
       "id": 7
+    },
+    {
+      "name": "test5",
+      "email": "anana@snsns.com",
+      "password": "Asd123",
+      "isAdmin": "false",
+      "id": 8
     }
   ],
   "products": [
@@ -117,15 +124,6 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:56:00.555Z",
       "id": 18
-    },
-    {
-      "body": "asdasd",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-10T17:34:59.142Z",
-      "id": 20
     },
     {
       "body": "oijad",
@@ -216,6 +214,15 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-11T17:24:46.783Z",
       "id": 32
+    },
+    {
+      "body": "hello test date\n",
+      "productId": 2,
+      "user": "test4 ",
+      "userID": 7,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-12T09:53:26.415Z",
+      "id": 33
     }
   ]
 }

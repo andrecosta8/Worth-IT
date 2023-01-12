@@ -25,12 +25,12 @@ const Profile = () => {
         <div>{user.name}</div>
         <div>{user.email}</div>
       </div>
+      <div>FLAGED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.badWordFlaged === true && comment.userID === user.id)
           return (
             <div>
               {" "}
-              FLAGED COMMENTS:
               <div>{comment.user}</div>
               <div>{comment.createdAt}</div>
               <div>{comment.body}</div>
