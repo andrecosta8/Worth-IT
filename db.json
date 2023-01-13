@@ -43,8 +43,11 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "rating": "",
-      "comments": [],
+      "OverallRating": "",
+      "ratingValues": {
+        "userID": "",
+        "rating" : ""
+      },
       "id": 1
     },
     {
