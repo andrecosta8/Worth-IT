@@ -5,7 +5,6 @@ import { loginUser } from '../../services/apiCalls';
 import './Login.css'
 
 const Login = () => {
- 
   const [user, setUser] = useState({
     email:"",
     password:"",
@@ -15,7 +14,7 @@ const Login = () => {
 
   const { addUserToContext } = useContext(AuthContext);
   const { addAdminToContext } = useContext(AuthContext);
-  
+ 
   const handleData = (e) => {
     setUser((prevState) => ({
       ...prevState,

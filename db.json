@@ -43,7 +43,7 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "rating": 5,
+      "rating": "",
       "comments": [],
       "id": 1
     },
@@ -151,14 +151,14 @@
       "reported": false
     },
     {
-      "body": "comment editing ",
+      "body": "comment editing re",
       "productId": 1,
       "user": "André",
       "userID": 4,
       "badWordFlaged": false,
       "createdAt": "2023-01-12T16:56:24.339Z",
       "id": 34,
-      "editedAt": "2023-01-13T10:07:53.336Z",
+      "editedAt": "2023-01-13T16:17:44.453Z",
       "reported": false
     },
     {
@@ -170,7 +170,7 @@
       "createdAt": "2023-01-12T17:31:01.633Z",
       "id": 35,
       "editedAt": "2023-01-12T17:31:26.668Z",
-      "reported": true
+      "reported": false
     },
     {
       "body": "testc",
@@ -206,7 +206,7 @@
       "editedAt": "2023-01-13T09:42:22.200Z"
     },
     {
-      "body": "sorry",
+      "body": "sorry lolol",
       "productId": 1,
       "user": "André",
       "userID": 4,
@@ -214,7 +214,17 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-13T10:07:35.308Z",
       "id": 40,
-      "editedAt": "2023-01-13T10:07:47.378Z"
+      "editedAt": "2023-01-13T16:11:14.764Z"
+    },
+    {
+      "body": "toggle test",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-13T16:15:00.046Z",
+      "id": 41
     }
   ]
 }

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { deleteComment, getAllComments, updateComment } from "../../services/apiCalls";
 import "./CommentsManagement.css";
@@ -6,14 +7,20 @@ import "./CommentsManagement.css";
 const CommentsManagement = () => {
   const [comments, setComments] = useState([]);
   const { admin } = useContext(AuthContext);
-  const getCommentsList = async () => {
-    let response = await getAllComments();
-    setComments(response.data);
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCommentsList();
   }, []);
+
+  useEffect(()=>{
+    if(admin === null) navigate("/");
+  })
+
+  const getCommentsList = async () => {
+    let response = await getAllComments();
+    setComments(response.data);
+  };
 
   const deleteThisComment = (comment) => {
     deleteComment(comment);

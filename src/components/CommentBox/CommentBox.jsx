@@ -16,7 +16,7 @@ import { badWords, createNewComment, updateComment } from "../../services/apiCal
 import { AuthContext } from "../../providers/AuthProvider";
 
 
-export default function CommentBox({ product, getComments, openCommentBox, comment }) {
+export default function CommentBox({ product, getComments, toggleCommentBox, comment }) {
   const [italic, setItalic] = useState(false);
   const [fontWeight, setFontWeight] = useState("normal");
   const [anchorEl, setAnchorEl] = useState(null);
@@ -41,7 +41,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
     await createNewComment(newComment);
     getComments();
     setTextAreaValue("");
-    openCommentBox();
+    toggleCommentBox();
   };
 
   const updateThisComment = async() => {
@@ -56,7 +56,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
     await updateComment(updatedComment)
     getComments();
     setTextAreaValue("");
-    openCommentBox();
+    toggleCommentBox();
   }
 
   return (

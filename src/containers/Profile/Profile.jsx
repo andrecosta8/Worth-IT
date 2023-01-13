@@ -6,20 +6,23 @@ import { useNavigate } from "react-router-dom";
 import CommentBox from "../../components/CommentBox/CommentBox";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [commentBox, setCommentBox] = useState(false);
-  
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getCommentsList();
+  }, []);
+
+  useEffect(() => {
+    if (user === null) navigate("/");
+  });
 
   const getCommentsList = async () => {
     let response = await getAllComments();
     setComments(response.data);
   };
-
-  useEffect(() => {
-    getCommentsList();
-  }, []);
 
   const deleteThisComment = (comment) => {
     deleteComment(comment)

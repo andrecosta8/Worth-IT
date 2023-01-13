@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import Home from "../../containers/Home/Home";
 import Register from "../../containers/Register/Register";

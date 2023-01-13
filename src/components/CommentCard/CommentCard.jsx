@@ -65,9 +65,6 @@ export default function CommentCard({ comment, getComments, isEditing }) {
         </CardActions>
       ) : (
         <CardActions disableSpacing>
-          <IconButton>
-            <ThumbUpIcon />
-          </IconButton>
           <button onClick={()=> reportThisComment(comment)}>REPORT</button>
         </CardActions>
       )}

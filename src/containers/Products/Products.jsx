@@ -3,20 +3,27 @@ import "./Products.css";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { Search } from "@mui/icons-material";
-import SearchProducts from "../../components/SearchProducts/SearchProducts";
+import  ShowProducts  from "../../components/ShowProducts/ShowProducts";
 
 const Products = () => {
   const [searchProducts, setSearchProducts] = useState("");
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
- 
+  useEffect(() => {
+    if (user === null) navigate("/");
+  });
+
   const inputSearchHandler = (e) => {
     let timeOutId;
-    if(timeOutId){clearTimeout(timeOutId)}
-     timeOutId =  setTimeout(() => {setSearchProducts(e.target.value)},500)
-  }
-  
+    if (timeOutId) {
+      clearTimeout(timeOutId);
+    }
+    timeOutId = setTimeout(() => {
+      setSearchProducts(e.target.value);
+    }, 500);
+  };
+
   return (
     <div className="productsPageDesign">
       <div>
@@ -26,7 +33,7 @@ const Products = () => {
           className="searchInput"
           onChange={(e) => inputSearchHandler(e)}
         />
-        <SearchProducts searchProducts ={searchProducts} />
+        <ShowProducts searchProducts={searchProducts} />
       </div>
     </div>
   );

@@ -11,12 +11,18 @@ const Detail = () => {
   const product = useProductContext();
   const [comments, setComments] = useState([]);
   const [commentBox, setCommentBox] = useState(false);
-
-  const { user, admin } = useContext(AuthContext);
   const [edit, setEdit] = useState(false);
   const [commentToEdit, setCommentToEdit] = useState({});
+  const { user, admin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  let navigate = useNavigate();
+  useEffect(() => {
+    getComments();
+  }, []);
+
+  useEffect(() => {
+    if (user === null) navigate("/");
+  });
 
   const getComments = async () => {
     let response = await getAllComments();
@@ -24,11 +30,7 @@ const Detail = () => {
     setEdit(false);
   };
 
-  useEffect(() => {
-    getComments();
-  }, []);
-
-  const openCommentBox = () => {
+  const toggleCommentBox = () => {
     setCommentBox(!commentBox);
   };
 
@@ -39,6 +41,7 @@ const Detail = () => {
 
   const isEditing = (editingComment) => {
     setCommentToEdit(editingComment);
+    toggleCommentBox();
     setEdit(true);
   };
 
@@ -53,7 +56,7 @@ const Detail = () => {
             <div>{product.rating}</div>
             <CommentBox
               comment={commentToEdit}
-              openCommentBox={openCommentBox}
+              toggleCommentBox={toggleCommentBox}
               product={product}
               getComments={getComments}
             />
@@ -65,15 +68,15 @@ const Detail = () => {
             <div>{product.description}</div>
             <div>{product.rating}</div>
             {commentBox === false ? (
-              <button onClick={() => openCommentBox()}>
+              <button onClick={() => toggleCommentBox()}>
                 Create new comment
               </button>
             ) : (
-              <button onClick={() => openCommentBox()}>Close</button>
+              <button onClick={() => toggleCommentBox()}>Close</button>
             )}
             {commentBox === true ? (
               <CommentBox
-                openCommentBox={openCommentBox}
+                toggleCommentBox={toggleCommentBox}
                 product={product}
                 getComments={getComments}
               />
@@ -85,7 +88,8 @@ const Detail = () => {
         {comments.map((comment) => {
           if (
             comment.productId === product.id &&
-            comment.badWordFlaged === false && comment.reported === false
+            comment.badWordFlaged === false &&
+            comment.reported === false
           ) {
             return (
               <CommentCard

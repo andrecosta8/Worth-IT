@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
 
-const ProductForm = ({productToEdit}) => {
+const ProductForm = ({productToEdit, toggleForm, getProductsList}) => {
   const [product, setProduct] = useState("");
   const [error, setError] = useState("");
 
@@ -24,7 +24,9 @@ const ProductForm = ({productToEdit}) => {
   const createProduct = async (product) => {
     try {
       await createNewProduct(product);
-      navigate("/admin/products")
+      toggleForm();
+      getProductsList();
+
     } catch (error) {
       setError(error);
     }
@@ -33,6 +35,8 @@ const ProductForm = ({productToEdit}) => {
   const updateThisProduct = async (product) => {
     try {
       await updateProduct(product);
+      toggleForm();
+      getProductsList();
     } catch (error) {
       setError(error);
     }
@@ -58,6 +62,7 @@ const ProductForm = ({productToEdit}) => {
         className="myInput"
         type="brand"
         name="brand"
+        value={product.brand}
         id="brand"
         title="brand"
         placeholder="Brand:"
@@ -70,6 +75,7 @@ const ProductForm = ({productToEdit}) => {
         className="myInput"
         type="model"
         name="model"
+        value={product.model}
         id="model"
         title="model"
         placeholder="Model:"
@@ -82,6 +88,7 @@ const ProductForm = ({productToEdit}) => {
         className="myInput"
         type="description"
         name="description"
+        value={product.description}
         id="description"
         title="description"
         placeholder="Description:"
@@ -94,6 +101,7 @@ const ProductForm = ({productToEdit}) => {
         className="myInput"
         type="url"
         name="url"
+        value={product.url}
         id="url"
         title="url"
         placeholder="Image URL:"
