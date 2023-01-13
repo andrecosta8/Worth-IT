@@ -49,6 +49,22 @@ const Profile = () => {
               <button onClick={() => deleteThisComment(comment)}>Delete</button>
               <button onClick={()=> editThisComment(comment)}>Edit</button>
               <br></br>
+              {commentBox === true ? <CommentBox getComments={getCommentsList} comment={comment} aproval={"aproval"} /> : null}
+            </div>
+          );
+      })}
+<div>REPORTED COMMENTS:</div>
+{comments.map((comment) => {
+        if (comment.reported === true && comment.userID === user.id)
+          return (
+            <div>
+              {" "}
+              <div>{comment.user}</div>
+              <div>{comment.createdAt}</div>
+              <div>{comment.body}</div>
+              <button onClick={() => deleteThisComment(comment)}>Delete</button>
+              <span>Waiting Admin aproval</span>
+              <br></br>
               {commentBox === true ? <CommentBox getComments={getCommentsList} comment={comment}  /> : null}
             </div>
           );

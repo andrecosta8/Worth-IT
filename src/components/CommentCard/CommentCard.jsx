@@ -12,7 +12,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { AuthContext } from "../../providers/AuthProvider";
-import { deleteComment } from "../../services/apiCalls";
+import { deleteComment, updateComment } from "../../services/apiCalls";
 import { Collapse } from "@mui/material";
 import CommentBox from "../CommentBox/CommentBox";
 import { ExpandMore } from "@mui/icons-material";
@@ -30,6 +30,15 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   const editThisComment = (comment) => {
     isEditing(comment);
   };
+
+  const reportThisComment = (comment) => {
+    const reportedComment = {
+       reported: true,
+       id:comment.id
+    }
+    updateComment(reportedComment);
+    getComments();
+  }
 
   return (
     <Card sx={{ width: 400 }}>
@@ -59,6 +68,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           <IconButton>
             <ThumbUpIcon />
           </IconButton>
+          <button onClick={()=> reportThisComment(comment)}>REPORT</button>
         </CardActions>
       )}
     </Card>

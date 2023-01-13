@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
 
 const ProductForm = ({productToEdit}) => {
   const [product, setProduct] = useState("");
   const [error, setError] = useState("");
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (productToEdit) setProduct(productToEdit);
@@ -21,6 +24,7 @@ const ProductForm = ({productToEdit}) => {
   const createProduct = async (product) => {
     try {
       await createNewProduct(product);
+      navigate("/admin/products")
     } catch (error) {
       setError(error);
     }

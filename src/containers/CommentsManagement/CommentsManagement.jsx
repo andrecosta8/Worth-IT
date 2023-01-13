@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { deleteComment, getAllComments } from "../../services/apiCalls";
+import { deleteComment, getAllComments, updateComment } from "../../services/apiCalls";
 import "./CommentsManagement.css";
 
 const CommentsManagement = () => {
@@ -20,6 +20,14 @@ const CommentsManagement = () => {
     getCommentsList();
   };
 
+  const approveThisComment = (comment) => {
+    updateComment({
+      id:comment.id,
+      reported: false
+    })
+    getCommentsList();
+  }
+
   return (
     <div>
       <div className="adminDesign">LIST OF FLAGED COMMENTS:</div>
@@ -31,6 +39,20 @@ const CommentsManagement = () => {
               <div>{comment.createdAt}</div>
               <div>{comment.body}</div>
               <button onClick={() => deleteThisComment(comment)}>DELETE</button>
+              <br></br>
+            </div>
+          );
+      })}
+       <div className="adminDesign">LIST OF REPORTED COMMENTS:</div>
+      {comments.map((comment) => {
+        if (comment.reported === true)
+          return (
+            <div>
+              <div>{comment.user}</div>
+              <div>{comment.createdAt}</div>
+              <div>{comment.body}</div>
+              <button onClick={() => deleteThisComment(comment)}>DELETE</button>
+              <button onClick={() => approveThisComment(comment) }>APPROVE</button>
               <br></br>
             </div>
           );

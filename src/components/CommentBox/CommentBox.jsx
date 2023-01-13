@@ -34,6 +34,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
       productId: product.id,
       user: user.name,
       userID: user.id,
+      reported: false,
       badWordFlaged: badWordCheck.data,
       createdAt: new Date(Date.now()),
     };
@@ -48,6 +49,7 @@ export default function CommentBox({ product, getComments, openCommentBox, comme
     const updatedComment = {
       body: textAreaValue,
       badWordFlaged: badWordCheck.data,
+      reported: false,
       editedAt: new Date(Date.now()),
       id: comment.id,
     }

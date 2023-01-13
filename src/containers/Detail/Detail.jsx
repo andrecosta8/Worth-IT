@@ -85,7 +85,7 @@ const Detail = () => {
         {comments.map((comment) => {
           if (
             comment.productId === product.id &&
-            comment.badWordFlaged === false
+            comment.badWordFlaged === false && comment.reported === false
           ) {
             return (
               <CommentCard

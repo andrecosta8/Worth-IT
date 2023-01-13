@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { getAllProducts } from "../../services/apiCalls";
+import { getAllProducts, deleteProduct } from "../../services/apiCalls";
 import "./ProductsManagement.css";
 
 const ProductsManagement = () => {
@@ -17,6 +17,11 @@ const ProductsManagement = () => {
   useEffect(() => {
     getProductsList();
   }, []);
+
+  const deleteThisProduct = (product) => {
+    deleteProduct(product);
+    getProductsList();
+  }
   return (
     <div className="adminDesign">
       <div>LIST OF PRODUCTS:</div>
@@ -34,6 +39,7 @@ const ProductsManagement = () => {
           <div>
             <div>{product.name}</div>
             <button>EDIT</button>
+            <button onClick={()=> deleteThisProduct(product)} >DELETE</button>
             <br></br>
           </div>
         );
