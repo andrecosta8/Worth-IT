@@ -8,7 +8,6 @@ export default function BasicRating({user, product}) {
   const [value, setValue] = useState("");
   console.log(user.id, product.id, value) 
 
-  
     const updateRating = () => {
         updateProduct({
             ratingValues: {
@@ -16,7 +15,6 @@ export default function BasicRating({user, product}) {
                 rating: value
             }
         })
-
     }
   return (
     <Box
