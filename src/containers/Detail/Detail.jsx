@@ -6,6 +6,7 @@ import { useProductContext } from "../../providers/ProductProvider";
 import { useContext, useEffect, useState } from "react";
 import CommentCard from "../../components/CommentCard/CommentCard";
 import CommentBox from "../../components/CommentBox/CommentBox";
+import Rating from "../../components/Rating/Rating";
 
 const Detail = () => {
   const product = useProductContext();
@@ -34,11 +35,6 @@ const Detail = () => {
     setCommentBox(!commentBox);
   };
 
-  // const deleteThisProduct = (product) => {
-  //   deleteProduct(product);
-  //   navigate("/products");
-  // };
-
   const isEditing = (editingComment) => {
     setCommentToEdit(editingComment);
     toggleCommentBox();
@@ -53,7 +49,7 @@ const Detail = () => {
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            <div>{product.rating}</div>
+            <Rating user={user} product={product} />
             <CommentBox
               comment={commentToEdit}
               toggleCommentBox={toggleCommentBox}
@@ -66,7 +62,7 @@ const Detail = () => {
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            <div>{product.rating}</div>
+            <Rating user={user} product={product} />
             {commentBox === false ? (
               <button onClick={() => toggleCommentBox()}>
                 Create new comment
@@ -107,20 +103,3 @@ const Detail = () => {
 
 export default Detail;
 
-//
-// {edit === true ?<CardContent>
-//   <Typography paragraph>Comments:</Typography>
-//   <CommentCard comment={commentToEdit} getComments={getComments}/>
-//   <CommentBox product={product} getComments={getComments} />
-// </CardContent> :<CardContent>
-//   <Typography paragraph>Comments:</Typography>
-
-//   <br></br>
-//   <CommentBox product={product} getComments={getComments} />
-// </CardContent> }
-
-{
-  /* <IconButton>
-<DeleteIcon onClick={() => deleteThisProduct(product)} />
-</IconButton> */
-}

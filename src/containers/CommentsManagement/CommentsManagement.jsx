@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { deleteComment, getAllComments, updateComment } from "../../services/apiCalls";
+import {
+  deleteComment,
+  getAllComments,
+  updateComment,
+} from "../../services/apiCalls";
 import "./CommentsManagement.css";
 
 const CommentsManagement = () => {
@@ -13,9 +17,9 @@ const CommentsManagement = () => {
     getCommentsList();
   }, []);
 
-  useEffect(()=>{
-    if(admin === null) navigate("/");
-  })
+  useEffect(() => {
+    if (admin === null) navigate("/");
+  });
 
   const getCommentsList = async () => {
     let response = await getAllComments();
@@ -29,15 +33,15 @@ const CommentsManagement = () => {
 
   const approveThisComment = (comment) => {
     updateComment({
-      id:comment.id,
-      reported: false
-    })
+      id: comment.id,
+      reported: false,
+    });
     getCommentsList();
-  }
+  };
 
   return (
-    <div>
-      <div className="adminDesign">LIST OF FLAGED COMMENTS:</div>
+    <div className="adminDesign">
+      <div>LIST OF FLAGED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.badWordFlaged === true)
           return (
@@ -50,7 +54,7 @@ const CommentsManagement = () => {
             </div>
           );
       })}
-       <div className="adminDesign">LIST OF REPORTED COMMENTS:</div>
+      <div>LIST OF REPORTED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.reported === true)
           return (
@@ -59,7 +63,9 @@ const CommentsManagement = () => {
               <div>{comment.createdAt}</div>
               <div>{comment.body}</div>
               <button onClick={() => deleteThisComment(comment)}>DELETE</button>
-              <button onClick={() => approveThisComment(comment) }>APPROVE</button>
+              <button onClick={() => approveThisComment(comment)}>
+                APPROVE
+              </button>
               <br></br>
             </div>
           );

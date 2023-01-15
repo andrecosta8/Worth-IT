@@ -6,6 +6,7 @@ const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
 export const validateForm = (user) => {
+  console.log(user)
   let validationError;
   if (
     user.password.length === 0 ||
@@ -28,3 +29,4 @@ export const validateForm = (user) => {
   }
   return validationError;
 };
+ 

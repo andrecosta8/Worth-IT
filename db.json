@@ -43,11 +43,7 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "OverallRating": "",
-      "ratingValues": {
-        "userID": "",
-        "rating" : ""
-      },
+      "overallRating": 5,
       "id": 1
     },
     {
@@ -56,8 +52,7 @@
       "model": "Rival 3 Wireless",
       "description": "Mouse Steelseries Rival 3 Wireless, dual connection, bluetooth and 2.4Ghz switch, up to 400 hours of battery",
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/1400-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro.jpg",
-      "rating": 3,
-      "comments": [],
+      "overallRating": 3,
       "id": 2
     }
   ],
@@ -110,16 +105,6 @@
       "badWordFlaged": true,
       "createdAt": "2023-01-10T17:58:10.998Z",
       "id": 26,
-      "reported": false
-    },
-    {
-      "body": "fuck 2",
-      "productId": 1,
-      "user": "test4 ",
-      "userID": 7,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-10T18:01:21.674Z",
-      "id": 27,
       "reported": false
     },
     {

@@ -4,10 +4,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { deleteComment, getAllComments } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import CommentBox from "../../components/CommentBox/CommentBox";
+import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
 
 const Profile = () => {
   const [comments, setComments] = useState([]);
   const [commentBox, setCommentBox] = useState(false);
+  const [passForm, setPassForm] = useState(false)
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -33,12 +35,18 @@ const Profile = () => {
     setCommentBox(!commentBox);
   };
 
+  const togglePassForm = () => {
+    setPassForm(!passForm)
+  }
+
   return (
     <div className="profileDesign">
       <div>
         USER INFO:
         <div>{user.name}</div>
         <div>{user.email}</div>
+        <button onClick={() => togglePassForm()}>Change PASSWORD</button>
+        {passForm === true ? <PasswordForm user={user} togglePassForm={togglePassForm}/>: null }
       </div>
       <div>FLAGED COMMENTS:</div>
       {comments.map((comment) => {
