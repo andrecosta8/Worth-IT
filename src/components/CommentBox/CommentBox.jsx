@@ -12,56 +12,85 @@ import FormatBold from "@mui/icons-material/FormatBold";
 import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
-import { badWords, createNewComment, updateComment } from "../../services/apiCalls";
+import {
+  badWords,
+  createNewComment,
+  updateComment,
+} from "../../services/apiCalls";
 import { AuthContext } from "../../providers/AuthProvider";
+import './CommentBox.css'
 
-
-export default function CommentBox({ product, getComments, toggleCommentBox, comment }) {
+export default function CommentBox({
+  product,
+  getComments,
+  toggleCommentBox,
+  comment,
+}) {
   const [italic, setItalic] = useState(false);
   const [fontWeight, setFontWeight] = useState("normal");
   const [anchorEl, setAnchorEl] = useState(null);
   const [textAreaValue, setTextAreaValue] = useState("");
+  const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
 
-  useEffect(()=> {
+  useEffect(() => {
     if (comment) setTextAreaValue(comment.body);
-  },[comment])
+  }, [comment]);
 
   const createComment = async () => {
-    let badWordCheck = await badWords(textAreaValue);
-    const newComment = {
-      body: textAreaValue,
-      productId: product.id,
-      user: user.name,
-      userID: user.id,
-      reported: false,
-      badWordFlaged: badWordCheck.data,
-      createdAt: new Date(Date.now()),
-    };
-    await createNewComment(newComment);
-    getComments();
-    setTextAreaValue("");
-    toggleCommentBox();
+    if (textAreaValue.length === 0) {
+      setError("Comment can not be empty");
+    } else {
+      let badWordCheck = await badWords(textAreaValue);
+      const newComment = {
+        body: textAreaValue,
+        productId: product.id,
+        user: user.name,
+        userID: user.id,
+        reported: false,
+        badWordFlaged: badWordCheck.data,
+        createdAt: new Date(Date.now()),
+      };
+      try {
+        await createNewComment(newComment);
+        getComments();
+        setTextAreaValue("");
+        toggleCommentBox();
+      } catch (error) {
+        setError(error);
+      }
+    }
   };
 
-  const updateThisComment = async() => {
-    let badWordCheck = await badWords(textAreaValue);
-    const updatedComment = {
-      body: textAreaValue,
-      badWordFlaged: badWordCheck.data,
-      reported: false,
-      editedAt: new Date(Date.now()),
-      id: comment.id,
+  const updateThisComment = async () => {
+    if (textAreaValue.length === 0) {
+      setError("Comment can not be empty");
+    } else {
+      let badWordCheck = await badWords(textAreaValue);
+      const updatedComment = {
+        body: textAreaValue,
+        badWordFlaged: badWordCheck.data,
+        reported: false,
+        editedAt: new Date(Date.now()),
+        id: comment.id,
+      };
+      try {
+        await updateComment(updatedComment);
+        getComments();
+        setTextAreaValue("");
+        toggleCommentBox();
+      } catch (error) {
+        setError(error);
+      }
     }
-    await updateComment(updatedComment)
-    getComments();
-    setTextAreaValue("");
-    toggleCommentBox();
-  }
+  };
 
   return (
     <FormControl>
-      <FormLabel>Your comment</FormLabel>
+      <FormLabel>
+        
+        {error === null ? <p>Your Comment:</p>  : <p className="errorMessage">{error}</p>}
+      </FormLabel>
       <Textarea
         name="commentBody"
         value={textAreaValue}
@@ -122,22 +151,25 @@ export default function CommentBox({ product, getComments, toggleCommentBox, com
             >
               <FormatItalic />
             </IconButton>
-            {comment ? <Button
-              onClick={() => {
-                updateThisComment();
-              }}
-              sx={{ ml: "auto" }}
-            >
-              Send
-            </Button> : <Button
-              onClick={() => {
-                createComment();
-              }}
-              sx={{ ml: "auto" }}
-            >
-              Send
-            </Button>}
-        
+            {comment ? (
+              <Button
+                onClick={() => {
+                  updateThisComment();
+                }}
+                sx={{ ml: "auto" }}
+              >
+                Send
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  createComment();
+                }}
+                sx={{ ml: "auto" }}
+              >
+                Send
+              </Button>
+            )}
           </Box>
         }
         sx={{

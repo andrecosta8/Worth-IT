@@ -6,7 +6,6 @@ import { validateForm } from "../../services/validate";
 export const PasswordForm = ({user, togglePassForm}) => {
   const [error, setError] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleData = (e) => {
     setNewPassword((prevState) => ({
@@ -22,7 +21,7 @@ const changePassword = () => {
         email: user.email,
         password: newPassword.newPassword,
     })
-    if (validationError === "no error") {updateUser({
+    if (validationError === null) {updateUser({
         password: newPassword.newPassword,
         id: user.id,
     })
@@ -65,7 +64,7 @@ const changePassword = () => {
           Update Password
         </button>
       </div>
-      <div>{error === "no error" ? null : error}</div>
+      <div>{error === null ? null : error}</div>
     </div>
   );
 };

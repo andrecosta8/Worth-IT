@@ -18,22 +18,34 @@ const UsersManagement = () => {
   });
 
   const getUsersList = async () => {
-    let response = await getAllUsers();
-    setUsers(response.data);
+    try {
+      let response = await getAllUsers();
+      setUsers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const deleteThisUser = (user) => {
-    deleteUser(user);
-    getUsersList();
+  const deleteThisUser = async (user) => {
+    try {
+      await deleteUser(user);
+      getUsersList();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const makeAdmin = (user) => {
+  const makeAdmin = async (user) => {
     let updatedUser = {
       id: user.id,
       isAdmin: !user.isAdmin,
     };
-    updateUser(updatedUser);
-    getUsersList();
+    try {
+      await updateUser(updatedUser);
+      getUsersList();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

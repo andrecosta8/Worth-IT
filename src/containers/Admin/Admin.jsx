@@ -1,18 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { AuthContext } from "../../providers/AuthProvider";
+import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
 
 const Admin = () => {
-  const { admin } = useContext(AuthContext);
+  const { admin, user } = useContext(AuthContext);
+  const [passForm, setPassForm] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     if (admin === null) navigate("/");
   });
+  const togglePassForm = () => {
+    setPassForm(!passForm)
+  }
 
   return (
     <div className="adminHomeDesign">
+      <button onClick={() => togglePassForm()}>Change PASSWORD</button>
+        {passForm === true ? <PasswordForm user={user} togglePassForm={togglePassForm}/>: null }
       <div
         className="linkDesign"
         onClick={() =>

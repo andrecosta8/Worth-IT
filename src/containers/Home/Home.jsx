@@ -3,7 +3,9 @@ import './Home.css'
 
 const Home = () => {
   return (
-    <div className='homeDesign'>Home</div>
+    <div className='homeDesign'>
+      AQUI VAI TER UM CAROUSEL!!!!
+    </div>
   )
 }
 

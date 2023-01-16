@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import { updateProduct } from "../../services/apiCalls";
 
 export default function BasicRating({ user, product}) {
   const[readOnly, setReadOnly] = useState(true);
   
-  const updateRating = (newValue) => {
-   
+  const updateThisRating = (newValue, product, user) => {
+  
   };
 
   const toggleRating = () =>{
@@ -40,9 +39,9 @@ export default function BasicRating({ user, product}) {
           <Typography component="legend">Controlled</Typography>
           <Rating
             name="simple-controlled"
-            value={product.overallRating}
+            value=""
             onChange={(event, newValue) => {
-              updateRating(newValue);
+              updateThisRating(newValue);
               toggleRating();
             }}
           />

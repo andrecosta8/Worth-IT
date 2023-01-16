@@ -25,7 +25,7 @@ export const validateForm = (user) => {
   } else if (!minLengthRegExp.test(user.password)) {
     validationError = "Password needs at least 6 characters";
   } else {
-    validationError = "no error";
+    validationError = null;
   }
   return validationError;
 };

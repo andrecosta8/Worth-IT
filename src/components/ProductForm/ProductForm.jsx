@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
 
-const ProductForm = ({productToEdit, toggleForm, getProductsList}) => {
+const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
   const [product, setProduct] = useState("");
   const [error, setError] = useState("");
-
-  let navigate = useNavigate();
 
   useEffect(() => {
     if (productToEdit) setProduct(productToEdit);
@@ -17,7 +15,6 @@ const ProductForm = ({productToEdit, toggleForm, getProductsList}) => {
       ...prevState,
       [e.target.name]: e.target.value,
       rating: "",
-      comments: [],
     }));
   };
 
@@ -26,7 +23,6 @@ const ProductForm = ({productToEdit, toggleForm, getProductsList}) => {
       await createNewProduct(product);
       toggleForm();
       getProductsList();
-
     } catch (error) {
       setError(error);
     }
@@ -131,7 +127,7 @@ const ProductForm = ({productToEdit, toggleForm, getProductsList}) => {
           </button>
         )}
       </div>
-      <div>{error === "" ? null : error}</div>
+      <div>{error === null ? null : error}</div>
     </div>
   );
 };

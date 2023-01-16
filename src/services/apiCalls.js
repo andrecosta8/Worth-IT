@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL = "http://localhost:5000/";
 
+
 //PRODUCTS
 export const getAllProducts = async () => {
   return await axios.get(`${API_BASE_URL}products`);
@@ -11,13 +12,14 @@ export const createNewProduct = async (product) => {
   return await axios.post(`${API_BASE_URL}products`, product)
 }
 
-export const deleteProduct = async(product) => {
+export const deleteProduct = async (product) => {
   return await axios.delete(`${API_BASE_URL}products/${product.id}`)
 }
 
-export const updateProduct = async(product) => {
+export const updateProduct = async (product) => {
   return await axios.patch(`${API_BASE_URL}products/${product.id}`,product)
 }
+
 
 //USERS
 export const getAllUsers = async () => {
@@ -66,6 +68,7 @@ export const deleteComment = async (comment) => {
 export const updateComment = async (comment) => {
   return await axios.patch(`${API_BASE_URL}comments/${comment.id}`, comment)
 }
+
 
 //BAD WORDS CHECK
 export const badWords = async (comment) => {

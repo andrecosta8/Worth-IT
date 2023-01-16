@@ -4,7 +4,9 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { loginUser } from '../../services/apiCalls';
 import './Login.css'
 
+
 const Login = () => {
+  
   const [user, setUser] = useState({
     email:"",
     password:"",
@@ -23,6 +25,7 @@ const Login = () => {
   };
 
   const login = async (user) => {
+
     let response = await loginUser(user);
     if (response.length === 0 || response === false){
       setError("E-mail or password doesn't match");
@@ -74,7 +77,7 @@ const Login = () => {
           Login
         </div>
       </div>
-      <div>{error === "no error" ? null : error}</div>
+      <div>{error === null ? null : error}</div>
     </div>
   )
 }

@@ -26,9 +26,13 @@ const Detail = () => {
   });
 
   const getComments = async () => {
-    let response = await getAllComments();
-    setComments(response.data);
-    setEdit(false);
+    try {
+      let response = await getAllComments();
+      setComments(response.data);
+      setEdit(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const toggleCommentBox = () => {
@@ -102,4 +106,3 @@ const Detail = () => {
 };
 
 export default Detail;
-

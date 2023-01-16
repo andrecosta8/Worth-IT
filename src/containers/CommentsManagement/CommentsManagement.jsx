@@ -22,8 +22,12 @@ const CommentsManagement = () => {
   });
 
   const getCommentsList = async () => {
-    let response = await getAllComments();
-    setComments(response.data);
+    try {
+      let response = await getAllComments();
+      setComments(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteThisComment = (comment) => {

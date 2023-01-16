@@ -30,7 +30,7 @@ const Register = () => {
     validationError = validateForm(user);
     }
     setError(validationError);
-    if (error === "no error") {
+    if (error === null) {
       registerNewUser(user);
       navigate("/login")
     }
@@ -85,7 +85,7 @@ const Register = () => {
           Register
         </div>
       </div>
-      <div>{error === "no error" ? null : error}</div>
+      <div>{error === null ? null : error}</div>
     </div>
   );
 };

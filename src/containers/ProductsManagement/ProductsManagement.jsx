@@ -21,23 +21,34 @@ const ProductsManagement = () => {
   });
 
   const getProductsList = async () => {
-    let response = await getAllProducts();
-    setProducts(response.data);
+    try {
+      let response = await getAllProducts();
+      setProducts(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const deleteThisProduct = (product) => {
-    deleteProduct(product);
-    getProductsList();
+  const deleteThisProduct = async (product) => {
+    try {
+      await deleteProduct(product);
+      getProductsList();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const toggleForm = (product) => {
     setProductToEdit(product);
-    console.log(productToEdit);
     setForm(!form);
   };
   return (
     <div className="adminDesign">
-      {form === true ? <button onClick={() => toggleForm()}>Close</button> : <button onClick={() => toggleForm()}>Create New Product</button>}
+      {form === true ? (
+        <button onClick={() => toggleForm()}>Close</button>
+      ) : (
+        <button onClick={() => toggleForm()}>Create New Product</button>
+      )}
       {form === true ? (
         <ProductForm
           productToEdit={productToEdit}
