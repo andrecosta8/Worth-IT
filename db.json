@@ -43,7 +43,6 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "overallRating": 5,
       "id": 1
     },
     {
@@ -54,20 +53,19 @@
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/1400-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro.jpg",
       "overallRating": 3,
       "id": 2
+    },
+    {
+      "name": "Apple Magic Keyboard with Numeric Keypad (Wireless, Rechargable) - US English - Silver",
+      "overallRating": 5,
+      "description": "ss",
+      "brand": "Apple",
+      "model": "Magic Keyboard",
+      "url": "https://m.media-amazon.com/images/I/718oX4EkcGL._AC_SL1500_.jpg",
+      "id": 3,
+      "rating": ""
     }
   ],
   "comments": [
-    {
-      "body": "hello again this one goes to fucking flagled",
-      "productId": 1,
-      "user": "test4 ",
-      "userID": 7,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-09T18:12:43.808Z",
-      "id": 3,
-      "reported": false,
-      "editingCredentials": false
-    },
     {
       "body": "teste",
       "productId": 2,
@@ -76,8 +74,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:05:26.658Z",
       "id": 13,
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "is working\n",
@@ -87,8 +84,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:07:54.200Z",
       "id": 15,
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "not",
@@ -98,19 +94,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:56:00.555Z",
       "id": 18,
-      "reported": false,
-      "editingCredentials": false
-    },
-    {
-      "body": "fuck test",
-      "productId": 1,
-      "user": "test4 ",
-      "userID": 7,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-10T17:58:10.998Z",
-      "id": 26,
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "que se passou? NN nnn",
@@ -121,8 +105,7 @@
       "createdAt": "2023-01-11T17:24:46.783Z",
       "id": 32,
       "editedAt": "2023-01-16T16:55:12.949Z",
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "hello test date\n",
@@ -132,32 +115,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-12T09:53:26.415Z",
       "id": 33,
-      "reported": false,
-      "editingCredentials": false
-    },
-    {
-      "body": "comment editing redsfdsf",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-12T16:56:24.339Z",
-      "id": 34,
-      "editedAt": "2023-01-16T14:36:36.340Z",
-      "reported": true,
-      "editingCredentials": false
-    },
-    {
-      "body": "sorry",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-12T17:31:01.633Z",
-      "id": 35,
-      "editedAt": "2023-01-12T17:31:26.668Z",
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "testc",
@@ -168,8 +126,7 @@
       "createdAt": "2023-01-12T17:39:21.080Z",
       "id": 37,
       "editedAt": "2023-01-12T17:39:37.412Z",
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "asdasd",
@@ -180,8 +137,7 @@
       "createdAt": "2023-01-12T17:39:26.902Z",
       "id": 38,
       "editedAt": "2023-01-12T17:41:52.313Z",
-      "reported": false,
-      "editingCredentials": false
+      "reported": false
     },
     {
       "body": "this",
@@ -192,52 +148,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-13T09:42:02.647Z",
       "id": 39,
-      "editedAt": "2023-01-13T09:42:22.200Z",
-      "editingCredentials": false
-    },
-    {
-      "body": "sorry testing",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-13T10:07:35.308Z",
-      "id": 40,
-      "editedAt": "2023-01-16T14:41:13.564Z",
-      "editingCredentials": true
-    },
-    {
-      "body": "toggle testting",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-13T16:15:00.046Z",
-      "id": 41,
-      "editingCredentials": true,
-      "editedAt": "2023-01-16T14:41:27.464Z"
-    },
-    {
-      "body": "fuck this",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-16T15:23:40.711Z",
-      "id": 42
-    },
-    {
-      "body": "fuck fuck",
-      "productId": 2,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": true,
-      "createdAt": "2023-01-16T15:26:19.706Z",
-      "id": 43
+      "editedAt": "2023-01-13T09:42:22.200Z"
     },
     {
       "body": "",

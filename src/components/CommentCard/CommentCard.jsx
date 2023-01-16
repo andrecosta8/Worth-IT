@@ -34,7 +34,6 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   const reportThisComment = async (comment) => {
     const reportedComment = {
       reported: true,
-      editingCredentials: false,
       id: comment.id,
     };
     try {

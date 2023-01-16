@@ -69,8 +69,23 @@ export const updateComment = async (comment) => {
   return await axios.patch(`${API_BASE_URL}comments/${comment.id}`, comment)
 }
 
+//RATINGS
+
+export const getAllRatings = async () => {
+  return await axios.get(`${API_BASE_URL}ratings`)
+}
+
+export const createRating = async (newRating) => {
+  return await axios.post(`${API_BASE_URL}ratings`, newRating)
+}
+
+export const updateRating = async (newRating) => {
+  return await axios.patch(`${API_BASE_URL}ratings/${newRating.id}`, newRating)
+}
+
 
 //BAD WORDS CHECK
 export const badWords = async (comment) => {
   return await axios.get(`https://www.purgomalum.com/service/containsprofanity?text=${comment}`)
 }
+

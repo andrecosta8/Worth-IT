@@ -3,18 +3,26 @@
     padding-bottom: 8vh;
     display: flex;
     justify-content: space-between;
+    width: 100vw;
 }
 
 .rightside {
     width: 50vw;
+    height: 77vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: scroll;   
+}
+
+.rightside::-webkit-scrollbar{
+    display:none;
 }
 
 .leftside {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 50vw;
 }
 

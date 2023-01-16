@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Products.css";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { Search } from "@mui/icons-material";
 import  ShowProducts  from "../../components/ShowProducts/ShowProducts";
 
 const Products = () => {

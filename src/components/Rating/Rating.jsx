@@ -3,16 +3,12 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 
-export default function BasicRating({ user, product}) {
-  const[readOnly, setReadOnly] = useState(true);
-  
-  const updateThisRating = (newValue, product, user) => {
-  
-  };
+export default function BasicRating({ user, product }) {
+  const [readOnly, setReadOnly] = useState(true);
 
-  const toggleRating = () =>{
-    setReadOnly(!readOnly)
-  }
+  const toggleRating = () => {
+    setReadOnly(!readOnly);
+  };
 
   return (
     <>
@@ -23,12 +19,10 @@ export default function BasicRating({ user, product}) {
           }}
         >
           <Typography component="legend">Rating</Typography>
-          <Rating
-            name="read-only"
-            value={product.overallRating}
-            readOnly
-          />
-          {readOnly === true ? <button onClick={()=> toggleRating()}>Rate this product</button> : null }
+          <Rating name="read-only" value={product.overallRating} readOnly />
+          {readOnly === true ? (
+            <button onClick={() => toggleRating()}>Rate this product</button>
+          ) : null}
         </Box>
       ) : (
         <Box
@@ -41,13 +35,12 @@ export default function BasicRating({ user, product}) {
             name="simple-controlled"
             value=""
             onChange={(event, newValue) => {
-              updateThisRating(newValue);
               toggleRating();
             }}
           />
-          {readOnly === false ? 
-          <button onClick={()=> toggleRating()}>Close</button> 
-          : null }
+          {readOnly === false ? (
+            <button onClick={() => toggleRating()}>Close</button>
+          ) : null}
         </Box>
       )}
     </>

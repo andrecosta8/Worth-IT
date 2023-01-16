@@ -1,0 +1,6 @@
+.productCardDesign {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}

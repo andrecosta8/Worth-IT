@@ -53,7 +53,7 @@ const Detail = () => {
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            <Rating user={user} product={product} />
+            {/* <Rating user={user} product={product} /> */}
             <CommentBox
               comment={commentToEdit}
               toggleCommentBox={toggleCommentBox}
@@ -66,7 +66,7 @@ const Detail = () => {
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            <Rating user={user} product={product} />
+            {/* <Rating user={user} product={product} /> */}
             {commentBox === false ? (
               <button onClick={() => toggleCommentBox()}>
                 Create new comment
