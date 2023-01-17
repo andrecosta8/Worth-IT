@@ -47,6 +47,7 @@ const Profile = () => {
 
   return (
     <div className="profileDesign">
+      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <div>
         USER INFO:
         <div>{user.name}</div>

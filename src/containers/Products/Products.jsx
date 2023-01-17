@@ -25,6 +25,7 @@ const Products = () => {
 
   return (
     <div className="productsPageDesign">
+      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <div>
         <input
           name="product"

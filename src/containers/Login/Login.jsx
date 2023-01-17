@@ -1,12 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react';
+import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
+import Sheet from '@mui/joy/Sheet';
+import Typography from '@mui/joy/Typography';
+import TextField from '@mui/joy/TextField';
+import Button from '@mui/joy/Button';
+import Link from '@mui/joy/Link';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { loginUser } from '../../services/apiCalls';
 import './Login.css'
 
+function ModeToggle() {
+  const { mode, setMode } = useColorScheme();
+  
+  return (
+    <Button
+      variant="outlined"
+      onClick={() => {
+        setMode(mode === 'light' ? 'dark' : 'light');
+      }}
+    >
+      {mode === 'light' ? 'Turn dark' : 'Turn light'}
+    </Button>
+  );
+}
 
 const Login = () => {
-  
   const [user, setUser] = useState({
     email:"",
     password:"",
@@ -40,46 +59,68 @@ const Login = () => {
     }
   }
 
+
   return (
-    
+    <CssVarsProvider>
       <div className="loginDesign">
-      <input
-        className="myInput"
-        type="email"
-        name="email"
-        id="email"
-        title="email"
-        placeholder="E-mail:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <input
-        className="myInput"
-        type="password"
-        name="password"
-        id="password"
-        title="password"
-        placeholder="Password:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <div className="bottomSection">
-        <div
-          className="designLoginButton"
-          onClick={() => {
-            login(user);
+      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
+      <main>
+        <Sheet
+          sx={{
+            width: "80vw",
+            mx: 'auto', // margin left & right
+            my: 4, // margin top & botom
+            py: 3, // padding top & bottom
+            px: 2, // padding left & right
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+            borderRadius: 'sm',
+            boxShadow: 'md',
           }}
+          variant="outlined"
         >
-          Login
-        </div>
+          <div>
+            <Typography level="h4" component="h1">
+              <b>Welcome to Worth IT!</b>
+            </Typography>
+            <Typography level="body2">Sign in to continue.</Typography>
+          </div>
+          <TextField
+            // html input attribute
+            name="email"
+            type="email"
+            placeholder="johndoe@email.com"
+            // pass down to FormLabel as children
+            label="Email"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+          <TextField
+            name="password"
+            type="password"
+            placeholder="password"
+            label="Password"onChange={(e) => {
+              handleData(e);
+            }}
+          />
+          <Button onClick={() => {
+            login(user);
+          }} sx={{ mt: 1 /* margin top */ }}>Log in</Button>
+          <Typography
+            endDecorator={<Link href="/register">Register</Link>}
+            fontSize="sm"
+            sx={{ alignSelf: 'center' }}
+          >
+            Don&apos;t have an account?
+          </Typography>
+          <div>{error === null ? null : error}</div>
+        </Sheet>
+      </main>
       </div>
-      <div>{error === null ? null : error}</div>
-    </div>
-  )
+    </CssVarsProvider>
+  );
 }
 
-export default Login
+export default Login;

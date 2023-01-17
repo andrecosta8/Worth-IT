@@ -47,6 +47,7 @@ const Detail = () => {
 
   return (
     <div className="detailProductDesign">
+      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <div className="lefside">
         {edit === true ? (
           <>
@@ -54,12 +55,14 @@ const Detail = () => {
             <div>{product.name}</div>
             <div>{product.description}</div>
             {/* <Rating user={user} product={product} /> */}
+            <button onClick={setEdit(false)}>Close</button>
             <CommentBox
               comment={commentToEdit}
               toggleCommentBox={toggleCommentBox}
               product={product}
               getComments={getComments}
             />
+            
           </>
         ) : (
           <>
