@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { CssVarsProvider, useColorScheme } from "@mui/joy/styles";
+import Sheet from "@mui/joy/Sheet";
+import Typography from "@mui/joy/Typography";
+import TextField from "@mui/joy/TextField";
+import Button from "@mui/joy/Button";
+import Link from "@mui/joy/Link";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
 
-const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
+ const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
   const [product, setProduct] = useState("");
   const [error, setError] = useState("");
 
@@ -37,98 +42,95 @@ const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
       setError(error);
     }
   };
-
   return (
-    <div className="createProductDesign">
-      <input
-        className="myInput"
-        type="text"
-        name="name"
-        value={product.name}
-        id="name"
-        title="name"
-        placeholder="Name:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-
-      <input
-        className="myInput"
-        type="brand"
-        name="brand"
-        value={product.brand}
-        id="brand"
-        title="brand"
-        placeholder="Brand:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <input
-        className="myInput"
-        type="model"
-        name="model"
-        value={product.model}
-        id="model"
-        title="model"
-        placeholder="Model:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <input
-        className="myInput"
-        type="description"
-        name="description"
-        value={product.description}
-        id="description"
-        title="description"
-        placeholder="Description:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <input
-        className="myInput"
-        type="url"
-        name="url"
-        value={product.url}
-        id="url"
-        title="url"
-        placeholder="Image URL:"
-        autoComplete="off"
-        onChange={(e) => {
-          handleData(e);
-        }}
-      />
-      <div className="bottomSection">
-        {productToEdit ? (
-          <button
-            className="designCreateProductButton"
-            onClick={() => {
+    <CssVarsProvider>
+      <main>
+        <Sheet
+          sx={{
+            width: 300,
+            mx: "auto", // margin left & right
+            my: 4, // margin top & botom
+            py: 3, // padding top & bottom
+            px: 2, // padding left & right
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            borderRadius: "sm",
+            boxShadow: "md",
+          }}
+          variant="outlined"
+        >
+          <div>
+            <Typography level="h4" component="h1">
+            {productToEdit ? <b>{product.name}</b> : null}
+            </Typography>
+            {productToEdit ? <Typography level="body2">Please edit this product:</Typography> : <Typography level="body2">Create a new product:</Typography> }
+            
+          </div>
+          <TextField
+            // html input attribute
+            type="text"
+            name="name"
+            label="Name:"
+            value={product.name}
+            placeholder="Name"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+            <TextField
+            // html input attribute
+            type="text"
+            name="brand"
+            label="Brand:"
+            value={product.brand}
+            placeholder="Brand"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+            <TextField
+            // html input attribute
+            type="text"
+            name="model"
+            label="Model:"
+            value={product.model}
+            placeholder="Model"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+            <TextField
+            // html input attribute
+            type="text"
+            name="description"
+            label="Description:"
+            value={product.description}
+            placeholder="Description"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+            <TextField
+            // html input attribute
+            type="text"
+            name="url"
+            label="Image URL:"
+            value={product.url}
+            placeholder="Image Url"
+            onChange={(e) => {
+              handleData(e);
+            }}
+          />
+          {productToEdit ? <Button  onClick={() => {
               updateThisProduct(product);
-            }}
-          >
-            EDIT
-          </button>
-        ) : (
-          <button
-            className="designCreateProductButton"
-            onClick={() => {
-              createProduct(product);
-            }}
-          >
-            CREATE
-          </button>
-        )}
-      </div>
-      <div>{error === null ? null : error}</div>
-    </div>
+            }} sx={{ mt: 1 /* margin top */ }}>Edit</Button>  : <Button  onClick={() => {
+                createProduct(product);
+              }} sx={{ mt: 1 /* margin top */ }}>Create</Button> }
+          
+        </Sheet>
+      </main>
+    </CssVarsProvider>
   );
 };
 

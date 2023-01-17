@@ -25,6 +25,7 @@ function ModeToggle() {
   );
 }
 
+
 const Login = () => {
   const [user, setUser] = useState({
     email:"",
@@ -50,12 +51,17 @@ const Login = () => {
       setError("E-mail or password doesn't match");
     } else {
       addUserToContext(response[0]);
-      setError("no error")
+      setError(null)
       if(response[0].isAdmin === true){
       addAdminToContext(response[0]);
-      navigate("/admin")
+      setTimeout(() => {
+        navigate("/admin")
+      }, 250)
+      
       }else
-      navigate("/profile")
+      setTimeout(() => {
+        navigate("/profile");
+      }, 250)
     }
   }
 

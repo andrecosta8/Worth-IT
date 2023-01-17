@@ -62,7 +62,6 @@ const Detail = () => {
               product={product}
               getComments={getComments}
             />
-            
           </>
         ) : (
           <>
@@ -79,6 +78,7 @@ const Detail = () => {
             )}
             {commentBox === true ? (
               <CommentBox
+                comment={commentToEdit}
                 toggleCommentBox={toggleCommentBox}
                 product={product}
                 getComments={getComments}

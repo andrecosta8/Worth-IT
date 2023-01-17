@@ -14,12 +14,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Badge } from "@mui/material";
 import { getAllComments } from "../../services/apiCalls";
 import HomeIcon from "@mui/icons-material/Home";
-import './Header.css'
+import "./Header.css";
+
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [notifications, setNotifications] = useState(0);
-
+  
   let navigate = useNavigate();
 
   const { admin, user } = useContext(AuthContext);
@@ -62,6 +63,7 @@ function Header() {
     navigate("/");
   };
 
+
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
@@ -94,6 +96,17 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
+            <Button
+              onClick={() =>
+                setTimeout(() => {
+                  navigate("/");
+                }, 250)
+              }
+            >
+              <IconButton>
+                <HomeIcon />
+              </IconButton>
+            </Button>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -117,7 +130,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/profile");
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -129,7 +142,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/products");
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -141,7 +154,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/register");
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -153,7 +166,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/admin");
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -165,7 +178,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       logOut();
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -176,7 +189,7 @@ function Header() {
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/login");
-                      handleCloseNavMenu()
+                      handleCloseNavMenu();
                     }, 250)
                   }
                 >
@@ -203,7 +216,7 @@ function Header() {
             Worth IT?
           </Typography>
 
-          <Box  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               onClick={() =>
                 setTimeout(() => {
@@ -211,93 +224,95 @@ function Header() {
                 }, 250)
               }
             >
-              <IconButton><HomeIcon /></IconButton>
+              <IconButton>
+                <HomeIcon />
+              </IconButton>
             </Button>
             {user !== null && admin === null ? (
-              
-              <IconButton><Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/profile");
-                  }, 250)
-                }
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Badge badgeContent={notifications} color="error">
-                  Profile
-                </Badge>
-              </Button>
+              <IconButton>
+                <Button
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/profile");
+                    }, 250)
+                  }
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <Badge badgeContent={notifications} color="error">
+                    Profile
+                  </Badge>
+                </Button>
               </IconButton>
             ) : null}
             {user !== null ? (
               <IconButton>
-              <Button
-              className="NavBar-buttons"
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/products");
-                  }, 250)
-                }
-                sx={{ my:3, color: "white", display: "block" }}
-              >
-                Products
-              </Button>
+                <Button
+                  className="NavBar-buttons"
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/products");
+                    }, 250)
+                  }
+                  sx={{ my: 3, color: "white", display: "block" }}
+                >
+                  Products
+                </Button>
               </IconButton>
             ) : null}
             {user === null ? (
-             <IconButton>
-             <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/register");
-                  }, 250)
-                }
-                sx={{ my: 3, color: "white", display: "block" }}
-              >
-                Register
-              </Button>
+              <IconButton>
+                <Button
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/register");
+                    }, 250)
+                  }
+                  sx={{ my: 3, color: "white", display: "block" }}
+                >
+                  Register
+                </Button>
               </IconButton>
             ) : null}
             {admin !== null ? (
               <IconButton>
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/admin");
-                  }, 250)
-                }
-                sx={{ my: 3, color: "white", display: "block" }}
-              >
-                Admin
-              </Button>
+                <Button
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/admin");
+                    }, 250)
+                  }
+                  sx={{ my: 3, color: "white", display: "block" }}
+                >
+                  Admin
+                </Button>
               </IconButton>
             ) : null}
             {user !== null ? (
               <IconButton>
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    logOut();
-                  }, 250)
-                }
-                sx={{ my: 3, color: "white", display: "block" }}
-              >
-                Logout
-              </Button>
+                <Button
+                  onClick={() =>
+                    setTimeout(() => {
+                      logOut();
+                    }, 250)
+                  }
+                  sx={{ my: 3, color: "white", display: "block" }}
+                >
+                  Logout
+                </Button>
               </IconButton>
             ) : (
               <IconButton>
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/login");
-                  }, 250)
-                }
-                sx={{ my: 3, color: "white", display: "block" }}
-              >
-                {" "}
-                Login
-              </Button>
+                <Button
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 250)
+                  }
+                  sx={{ my: 3, color: "white", display: "block" }}
+                >
+                  {" "}
+                  Login
+                </Button>
               </IconButton>
             )}
           </Box>

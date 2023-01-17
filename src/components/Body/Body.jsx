@@ -10,6 +10,7 @@ import Admin from "../../containers/Admin/Admin";
 import UsersManagement from '../../containers/UsersManagement/UsersManagement';
 import CommentsManagement from '../../containers/CommentsManagement/CommentsManagement';
 import ProductsManagement from '../../containers/ProductsManagement/ProductsManagement';
+import './Body.css'
 
 const Body = () => {
   return (

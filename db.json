@@ -87,14 +87,15 @@
       "reported": false
     },
     {
-      "body": "not",
+      "body": "hhhh",
       "productId": 2,
       "user": "User1",
       "userID": 1,
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:56:00.555Z",
       "id": 18,
-      "reported": false
+      "reported": false,
+      "editedAt": "2023-01-17T22:25:40.554Z"
     },
     {
       "body": "que se passou? NN nnn",
@@ -161,13 +162,13 @@
       "id": 44
     },
     {
-      "body": "fsdfsdfsd",
+      "body": "dfsff",
       "productId": 1,
-      "user": "André",
-      "userID": 4,
+      "user": "User1",
+      "userID": 1,
       "reported": false,
       "badWordFlaged": false,
-      "createdAt": "2023-01-17T14:12:35.844Z",
+      "createdAt": "2023-01-17T22:20:18.647Z",
       "id": 45
     }
   ]

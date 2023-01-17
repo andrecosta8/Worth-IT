@@ -86,11 +86,8 @@ export default function CommentBox({
   };
 
   return (
-    <FormControl>
-      <FormLabel>
-        
-        {error === null ? <p>Your Comment:</p>  : <p className="errorMessage">{error}</p>}
-      </FormLabel>
+    <div className="commentBoxDesign">
+    <FormControl className="formControl">
       <Textarea
         name="commentBody"
         value={textAreaValue}
@@ -99,6 +96,7 @@ export default function CommentBox({
         }}
         placeholder="Type something here…"
         minRows={3}
+        background-color="white"
         endDecorator={
           <Box
             sx={{
@@ -110,47 +108,7 @@ export default function CommentBox({
               flex: "auto",
             }}
           >
-            <IconButton
-              variant="plain"
-              color="neutral"
-              onClick={(event) => setAnchorEl(event.currentTarget)}
-            >
-              <FormatBold />
-              <KeyboardArrowDown fontSize="md" />
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={() => setAnchorEl(null)}
-              size="sm"
-              placement="bottom-start"
-              sx={{ "--List-decorator-size": "24px" }}
-            >
-              {["200", "normal", "bold"].map((weight) => (
-                <MenuItem
-                  key={weight}
-                  selected={fontWeight === weight}
-                  onClick={() => {
-                    setFontWeight(weight);
-                    setAnchorEl(null);
-                  }}
-                  sx={{ fontWeight: weight }}
-                >
-                  <ListItemDecorator>
-                    {fontWeight === weight && <Check fontSize="sm" />}
-                  </ListItemDecorator>
-                  {weight === "200" ? "lighter" : weight}
-                </MenuItem>
-              ))}
-            </Menu>
-            <IconButton
-              variant={italic ? "soft" : "plain"}
-              color={italic ? "primary" : "neutral"}
-              aria-pressed={italic}
-              onClick={() => setItalic((bool) => !bool)}
-            >
-              <FormatItalic />
-            </IconButton>
+            {error === null ? "Do your comment" : <p className="errorMessage">{error}</p>}
             {comment ? (
               <Button
                 onClick={() => {
@@ -179,5 +137,6 @@ export default function CommentBox({
         }}
       />
     </FormControl>
+    </div>
   );
 }

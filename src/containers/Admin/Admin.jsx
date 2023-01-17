@@ -18,6 +18,7 @@ const Admin = () => {
 
   return (
     <div className="adminHomeDesign">
+      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <button onClick={() => togglePassForm()}>Change PASSWORD</button>
         {passForm === true ? <PasswordForm user={user} togglePassForm={togglePassForm}/>: null }
       <div
