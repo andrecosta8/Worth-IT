@@ -26,9 +26,6 @@ export default function CommentBox({
   toggleCommentBox,
   comment,
 }) {
-  const [italic, setItalic] = useState(false);
-  const [fontWeight, setFontWeight] = useState("normal");
-  const [anchorEl, setAnchorEl] = useState(null);
   const [textAreaValue, setTextAreaValue] = useState("");
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
@@ -108,7 +105,7 @@ export default function CommentBox({
               flex: "auto",
             }}
           >
-            {error === null ? "Do your comment" : <p className="errorMessage">{error}</p>}
+            {error === null ? "Your Comment" : <p className="errorMessage">{error}</p>}
             {comment ? (
               <Button
                 onClick={() => {
@@ -132,8 +129,6 @@ export default function CommentBox({
         }
         sx={{
           minWidth: 300,
-          fontWeight,
-          fontStyle: italic ? "italic" : "initial",
         }}
       />
     </FormControl>

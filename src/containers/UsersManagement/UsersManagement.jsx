@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
+
 const UsersManagement = () => {
 
     const [users, setUsers] = useState([]);
@@ -57,21 +58,21 @@ const UsersManagement = () => {
 
   return (
     <div className="adminDesign">
-      <div>LIST OF USERS:</div>
       {users.map((user) => {
         return (
-    <Card sx={{ width: 350 }}>
-      <CardContent>
+    <Card className="card" >
+      <CardContent className="cardContent">
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {user.name}
+          <h3>User: {user.name}</h3>
+          <h5>ID: {user.id}</h5>
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {user.email}
+          <h5>E-mail: {user.email}</h5>
         </Typography>
       </CardContent>
-      <CardActions>
-        {user.isAdmin === true ? <Button className="redButton" onClick={() => makeAdmin(user)} size="small">Remove from admin</Button> : <Button className="greenButton" onClick={() => makeAdmin(user)} size="small">Set as Admin</Button> }
-        <Button onClick={() => deleteThisUser(user)} size="small">Delete User</Button>
+      <CardActions className="cardActions">
+        {user.isAdmin === true ? <Button variant="outlined"  color="error" onClick={() => makeAdmin(user)} size="small">Remove from admin</Button> : <Button variant="contained" color="success"  onClick={() => makeAdmin(user)} size="small">Set as Admin</Button> }
+        <Button variant="contained" color="error" onClick={() => deleteThisUser(user)} size="small">Delete User</Button>
       </CardActions>
     </Card>
     );

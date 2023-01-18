@@ -1,4 +1,19 @@
-.adminDesign{
+.adminCommentsDesign{
     padding-top: 15vh;
     padding-bottom: 8vh;
+    display:flex;
+    justify-content: space-around;
+}
+
+.badWordsCommentsDesign {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    
+    
+}
+
+.reportedCommentsDesign {
+    display: flex;
+    flex-direction: column;
 }

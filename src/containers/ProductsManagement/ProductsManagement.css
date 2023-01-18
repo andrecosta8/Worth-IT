@@ -1,4 +1,15 @@
-.adminHomeDesign{
+.productsManagement {
     padding-top: 15vh;
     padding-bottom: 8vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#productCard{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

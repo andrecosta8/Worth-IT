@@ -1,9 +1,36 @@
 .adminDesign{
     padding-top: 15vh;
     padding-bottom: 8vh;
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    
 }
 
-.greenButton {
-    background-color:  green;
+.card {
+    width: 350px;
+    margin-left:2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+.cardActions {
+    display: flex;
+    justify-content: center;
+    background-color: lightgrey;
+    
+}
+
+.cardContent:hover {
+    transition: 1s;
+    opacity: 1;
+}
+
+.cardContent {
+    background-color: lightgrey;
+    opacity: 0.5;
+    transition: 1s;
 }
 

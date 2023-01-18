@@ -43,7 +43,8 @@
       "model": "Pro 14",
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "id": 1
+      "id": 1,
+      "overallRating": 5
     },
     {
       "name": "Mouse Steelseries Rival 3",
@@ -61,8 +62,7 @@
       "brand": "Apple",
       "model": "Magic Keyboard",
       "url": "https://m.media-amazon.com/images/I/718oX4EkcGL._AC_SL1500_.jpg",
-      "id": 3,
-      "rating": ""
+      "id": 3
     }
   ],
   "comments": [
@@ -74,7 +74,7 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-10T14:05:26.658Z",
       "id": 13,
-      "reported": true
+      "reported": false
     },
     {
       "body": "is working\n",
@@ -87,15 +87,15 @@
       "reported": false
     },
     {
-      "body": "hhhh",
+      "body": "fuck",
       "productId": 2,
       "user": "User1",
       "userID": 1,
-      "badWordFlaged": false,
+      "badWordFlaged": true,
       "createdAt": "2023-01-10T14:56:00.555Z",
       "id": 18,
       "reported": false,
-      "editedAt": "2023-01-17T22:25:40.554Z"
+      "editedAt": "2023-01-18T18:53:14.044Z"
     },
     {
       "body": "que se passou? NN nnn",

@@ -71,17 +71,20 @@ export const updateComment = async (comment) => {
 
 //RATINGS
 
-export const getAllRatings = async () => {
-  return await axios.get(`${API_BASE_URL}ratings`)
-}
+// export const getAllRatings = async () => {
+//   return await axios.get(`${API_BASE_URL}ratings`)
+// }
 
-export const createRating = async (newRating) => {
-  return await axios.post(`${API_BASE_URL}ratings`, newRating)
-}
+// export const updateRating = async (updatedRating) => {
+//   console.log(updatedRating)
+//   return await axios.patch(`${API_BASE_URL}products/${updatedRating.id}`, updatedRating)
+// }
 
-export const updateRating = async (newRating) => {
-  return await axios.patch(`${API_BASE_URL}ratings/${newRating.id}`, newRating)
-}
+// export const createRating = async (createThisRating) => {
+//   console.log(createThisRating)
+//   return await axios.patch(`${API_BASE_URL}products?${createThisRating.id}/ratings`, createThisRating)
+  
+// }
 
 
 //BAD WORDS CHECK

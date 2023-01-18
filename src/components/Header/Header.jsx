@@ -65,7 +65,8 @@ function Header() {
 
 
   return (
-    <AppBar position="fixed">
+    <div className="headerDesign">
+    <AppBar className="navBar" position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -216,7 +217,7 @@ function Header() {
             Worth IT?
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box className="box" sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               onClick={() =>
                 setTimeout(() => {
@@ -319,6 +320,7 @@ function Header() {
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
   );
 }
 export default Header;

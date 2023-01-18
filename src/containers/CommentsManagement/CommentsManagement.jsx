@@ -1,3 +1,6 @@
+import { IconButton, Typography } from "@mui/joy";
+import Button from '@mui/material/Button';
+import { Avatar, Card, CardActions, CardContent, CardHeader } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -7,6 +10,8 @@ import {
   updateComment,
 } from "../../services/apiCalls";
 import "./CommentsManagement.css";
+import { blue  } from "@mui/material/colors";
+import { formatDate } from "../../services/utils";
 
 const CommentsManagement = () => {
   const [comments, setComments] = useState([]);
@@ -20,6 +25,7 @@ const CommentsManagement = () => {
   useEffect(() => {
     if (admin === null) navigate("/");
   });
+
 
   const getCommentsList = async () => {
     try {
@@ -44,38 +50,60 @@ const CommentsManagement = () => {
   };
 
   return (
-    <div className="adminDesign">
-      <div>LIST OF FLAGED COMMENTS:</div>
+    <div className="adminCommentsDesign">
+      <div className="badWordsCommentsDesign">Bad words automatic flaged comments:
       {comments.map((comment) => {
         if (comment.badWordFlaged === true)
           return (
-            <div>
-              <div>{comment.user}</div>
-              <div>{comment.createdAt}</div>
-              <div>{comment.body}</div>
-              <button onClick={() => deleteThisComment(comment)}>DELETE</button>
-              <br></br>
-            </div>
+            <Card sx={{ width: 400 }}>
+          <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+                {comment.user.charAt(0)}
+              </Avatar>
+            }
+            title={comment.user}
+            subheader={formatDate(comment.createdAt)}
+          />
+          <CardContent>
+            <Typography>{comment.body}</Typography>
+          </CardContent>
+            <CardActions disableSpacing>
+            <Button variant="contained" color="error" onClick={() => deleteThisComment()} size="small">Delete</Button>
+            </CardActions>
+            </Card>
           );
       })}
-      <div>LIST OF REPORTED COMMENTS:</div>
+      </div>
+      <div className="reportedCommentsDesign">Reported comments:
       {comments.map((comment) => {
         if (comment.reported === true)
           return (
-            <div>
-              <div>{comment.user}</div>
-              <div>{comment.createdAt}</div>
-              <div>{comment.body}</div>
-              <button onClick={() => deleteThisComment(comment)}>DELETE</button>
-              <button onClick={() => approveThisComment(comment)}>
-                APPROVE
-              </button>
-              <br></br>
-            </div>
+            <Card sx={{ width: 400 }}>
+          <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+                {comment.user.charAt(0)}
+              </Avatar>
+            }
+            title={comment.user}
+            subheader={formatDate(comment.createdAt)}
+          />
+          <CardContent>
+            <Typography>{comment.body}</Typography>
+          </CardContent>
+            <CardActions disableSpacing>
+            <Button variant="contained" color="error" onClick={() => deleteThisComment(comment)} size="small">Delete</Button>
+            <Button variant="contained" color="success" onClick={() => approveThisComment(comment)} size="small">Approve</Button>
+            </CardActions>
+            </Card>
+           
           );
       })}
+      </div>
     </div>
   );
 };
 
 export default CommentsManagement;
+

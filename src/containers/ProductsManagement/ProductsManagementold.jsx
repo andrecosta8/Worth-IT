@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductForm from "../../components/ProductForm/ProductForm";
 import { AuthContext } from "../../providers/AuthProvider";
 import { getAllProducts, deleteProduct } from "../../services/apiCalls";
@@ -44,7 +43,7 @@ const ProductsManagement = () => {
     setForm(!form);
   };
   return (
-    <div className="productsManagement">
+    <div className="adminDesign">
       {form === true ? (
         <button onClick={() => toggleForm()}>Close</button>
       ) : (
@@ -60,10 +59,11 @@ const ProductsManagement = () => {
       <div>LIST OF PRODUCTS:</div>
       {products.map((product) => {
         return (
-          <div id="productCard">
-            <ProductCard product={product} toggleForm={toggleForm} deleteThisProduct={deleteThisProduct} />
-            {/* <button onClick={() => toggleForm(product)}>EDIT</button>
-            <button onClick={() => deleteThisProduct(product)}>DELETE</button> */}
+          <div>
+            <div>{product.name}</div>
+            <button onClick={() => toggleForm(product)}>EDIT</button>
+            <button onClick={() => deleteThisProduct(product)}>DELETE</button>
+            <br></br>
           </div>
         );
       })}

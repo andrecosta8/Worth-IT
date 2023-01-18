@@ -7,9 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { red } from "@mui/material/colors";
 
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, toggleForm, deleteThisProduct }) {
   const {user, admin} = useContext(AuthContext);
   const productSelect = useProductChangeContext();
 
@@ -25,7 +26,7 @@ export default function ProductCard({ product }) {
   return (
 
   <div className="productCardDesign">
-    <Card className="productCard" sx={{ maxWidth: 450 }}>
+    <Card className="productCard" >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -41,9 +42,17 @@ export default function ProductCard({ product }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={()=> setTimeout(()=> {goDetail()},200)} size="small" color="primary">
+        <Button  variant="contained" onClick={()=> setTimeout(()=> {goDetail()},200)} size="small" color="primary">
           See Details
         </Button>
+        {toggleForm  && deleteThisProduct ? 
+        <>
+        <Button  variant="outlined"  onClick={()=> setTimeout(()=> {toggleForm()},200)} size="small" color="primary">
+          Edit
+        </Button>
+        <Button color="error" variant="contained" onClick={()=> setTimeout(()=> {deleteThisProduct()},200)} size="small" >
+          Delete
+        </Button> </> : null }
       </CardActions>
     </Card>
   

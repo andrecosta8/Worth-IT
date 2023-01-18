@@ -5,6 +5,11 @@ import { deleteComment, getAllComments } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import CommentBox from "../../components/CommentBox/CommentBox";
 import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
+import { formatDate } from "../../services/utils";
+import { Avatar, Card, CardContent, Typography } from "@mui/joy";
+import { blue  } from "@mui/material/colors";
+import { Button, CardActions, CardHeader } from "@mui/material";
+
 
 const Profile = () => {
   const [comments, setComments] = useState([]);
@@ -61,15 +66,32 @@ const Profile = () => {
       {comments.map((comment) => {
         if (comment.badWordFlaged === true && comment.userID === user.id)
           return (
-            <div>
-              {" "}
-              <div>{comment.user}</div>
-              <div>{comment.createdAt}</div>
-              <div>{comment.body}</div>
-              <button onClick={() => deleteThisComment(comment)}>Delete</button>
-              <button onClick={() => toggleCommentBox(comment)}>Edit</button>
-              <br></br>
-            </div>
+            <Card sx={{ width: 400 }}>
+          <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+                {comment.user.charAt(0)}
+              </Avatar>
+            }
+            title={comment.user}
+            subheader={formatDate(comment.createdAt)}
+          />
+          <CardContent>
+            <Typography>{comment.body}</Typography>
+          </CardContent>
+            <CardActions disableSpacing>
+            <Button variant="contained" color="error" onClick={() => deleteThisComment()} size="small">Delete</Button>
+            <Button variant="contained" color="primary" onClick={() => toggleCommentBox()} size="small">Edit</Button>
+            </CardActions>
+            </Card>
+            // <div> 
+            //   <div>{comment.user}</div>
+            //   <div>{comment.createdAt}</div>
+            //   <div>{comment.body}</div>
+            //   <button onClick={() => deleteThisComment(comment)}>Delete</button>
+            //   <button onClick={() => toggleCommentBox(comment)}>Edit</button>
+            //   <br></br>
+            // </div>
           );
       })}
       {commentBox === true ? (
