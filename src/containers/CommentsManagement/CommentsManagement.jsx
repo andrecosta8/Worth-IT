@@ -41,18 +41,29 @@ const CommentsManagement = () => {
     getCommentsList();
   };
 
-  const approveThisComment = (comment) => {
-    updateComment({
+  const approveThisComment = async (comment) => {
+   await updateComment({
       id: comment.id,
       reported: false,
+      offline: false,
+      reportedCommmentEdit: false,
     });
     getCommentsList();
   };
 
+  const permissionToEdit = async (comment) => {
+    await updateComment({
+      id: comment.id,
+      reportedCommmentEdit: !comment.reportedCommmentEdit,
+    });
+    getCommentsList();
+  }
+
   return (
     <div className="adminCommentsDesign">
-      <div className="badWordsCommentsDesign">Bad words automatic flaged comments:
-      {comments.map((comment) => {
+      <div className="badWordsCommentsDesign">
+      <span className="title">BAD WORDS AUTOMATIC FLAGED COMMENTS:</span>
+      {comments.sort((a,b)=> b.createdAt > a.createdAt ? 1:-1).map((comment) => {
         if (comment.badWordFlaged === true)
           return (
             <Card sx={{ width: 400 }}>
@@ -75,8 +86,9 @@ const CommentsManagement = () => {
           );
       })}
       </div>
-      <div className="reportedCommentsDesign">Reported comments:
-      {comments.map((comment) => {
+      <div className="reportedCommentsDesign">
+        <span className="title">REPORTED COMMENTS:</span>
+      {comments.sort((a,b)=> b.createdAt > a.createdAt ? 1:-1).map((comment) => {
         if (comment.reported === true)
           return (
             <Card sx={{ width: 400 }}>
@@ -94,6 +106,7 @@ const CommentsManagement = () => {
           </CardContent>
             <CardActions disableSpacing>
             <Button variant="contained" color="error" onClick={() => deleteThisComment(comment)} size="small">Delete</Button>
+            {comment.reportedCommmentEdit === true ? <Button variant="contained" color="primary" onClick={() => permissionToEdit(comment)} size="small">Remove edit permissions</Button> :<Button variant="contained" color="primary" onClick={() => permissionToEdit(comment)} size="small">Allow user to edit</Button> }
             <Button variant="contained" color="success" onClick={() => approveThisComment(comment)} size="small">Approve</Button>
             </CardActions>
             </Card>

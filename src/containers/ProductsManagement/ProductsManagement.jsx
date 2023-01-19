@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -46,27 +47,32 @@ const ProductsManagement = () => {
   return (
     <div className="productsManagement">
       {form === true ? (
-        <button onClick={() => toggleForm()}>Close</button>
+       <ProductForm
+       productToEdit={productToEdit}
+       toggleForm={toggleForm}
+       getProductsList={getProductsList}
+     />
       ) : (
-        <button onClick={() => toggleForm()}>Create New Product</button>
+        <>
+        <div className="headerProductsManagement">
+          <Button className="createNewProductButton" variant="contained" color="primary" size="small" onClick={() => toggleForm()} >Create New Product</Button>
+          <span className="title">LIST OF PRODUCTS:</span>
+        </div>
+         <div className="productsList">
+         {products.map((product) => {
+           return (
+             <div id="productCard">
+               <ProductCard product={product} toggleForm={toggleForm} deleteThisProduct={deleteThisProduct} />
+               {/* <button onClick={() => toggleForm(product)}>EDIT</button>
+               <button onClick={() => deleteThisProduct(product)}>DELETE</button> */}
+             </div>
+           );
+         })}
+         </div>
+        </>
       )}
-      {form === true ? (
-        <ProductForm
-          productToEdit={productToEdit}
-          toggleForm={toggleForm}
-          getProductsList={getProductsList}
-        />
-      ) : null}
-      <div>LIST OF PRODUCTS:</div>
-      {products.map((product) => {
-        return (
-          <div id="productCard">
-            <ProductCard product={product} toggleForm={toggleForm} deleteThisProduct={deleteThisProduct} />
-            {/* <button onClick={() => toggleForm(product)}>EDIT</button>
-            <button onClick={() => deleteThisProduct(product)}>DELETE</button> */}
-          </div>
-        );
-      })}
+      
+   
     </div>
   );
 };

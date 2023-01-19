@@ -47,10 +47,10 @@ export default function ProductCard({ product, toggleForm, deleteThisProduct }) 
         </Button>
         {toggleForm  && deleteThisProduct ? 
         <>
-        <Button  variant="outlined"  onClick={()=> setTimeout(()=> {toggleForm()},200)} size="small" color="primary">
+        <Button  variant="outlined"  onClick={()=> setTimeout(()=> {toggleForm(product)},200)} size="small" color="primary">
           Edit
         </Button>
-        <Button color="error" variant="contained" onClick={()=> setTimeout(()=> {deleteThisProduct()},200)} size="small" >
+        <Button color="error" variant="contained" onClick={()=> setTimeout(()=> {deleteThisProduct(product)},200)} size="small" >
           Delete
         </Button> </> : null }
       </CardActions>

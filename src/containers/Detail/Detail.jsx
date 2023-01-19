@@ -96,11 +96,10 @@ const Detail = () => {
         )}
       </div>
       <div className="rightside">
-        {comments.map((comment) => {
+        {comments.sort((a,b)=> b.createdAt > a.createdAt ? 1:-1).map((comment) => {
           if (
             comment.productId === product.id &&
-            comment.badWordFlaged === false &&
-            comment.reported === false
+            comment.offline === false
           ) {
             return (
               <CommentCard

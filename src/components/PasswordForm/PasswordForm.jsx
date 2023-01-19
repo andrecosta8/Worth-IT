@@ -6,6 +6,8 @@ import TextField from "@mui/joy/TextField";
 import Button from "@mui/joy/Button";
 import { validateForm } from "../../services/validate";
 import { updateUser } from "../../services/apiCalls";
+import CloseIcon from '@mui/icons-material/Close';
+import { red  } from "@mui/material/colors";
 
 export const PasswordForm = ({ user, togglePassForm }) => {
   const [error, setError] = useState("");
@@ -40,6 +42,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
   return (
     <CssVarsProvider>
       <main>
+        
         <Sheet
           sx={{
             width: 300,
@@ -55,6 +58,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
           }}
           variant="outlined"
         >
+          <CloseIcon  onClick={()=> togglePassForm()} sx={{ color: red[500], fontSize: 30 }} />
           <div>
             <Typography level="h4" component="h1">
               <b>{user.name}</b>

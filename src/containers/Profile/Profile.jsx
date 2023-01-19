@@ -53,15 +53,6 @@ const Profile = () => {
   return (
     <div className="profileDesign">
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-      {/* <div>
-        USER INFO:
-        <div>{user.name}</div>
-        <div>{user.email}</div>
-        <button onClick={() => togglePassForm()}>Change PASSWORD</button>
-        {passForm === true ? (
-          <PasswordForm user={user} togglePassForm={togglePassForm} />
-        ) : null}
-      </div> */}
       <Card className="card" >
       <CardContent className="cardContent">
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -112,14 +103,6 @@ const Profile = () => {
             <Button variant="contained" color="primary" onClick={() => toggleCommentBox(comment)} size="small">Edit</Button>
             </CardActions>
             </Card>
-            // <div> 
-            //   <div>{comment.user}</div>
-            //   <div>{comment.createdAt}</div>
-            //   <div>{comment.body}</div>
-            //   <button onClick={() => deleteThisComment(comment)}>Delete</button>
-            //   <button onClick={() => toggleCommentBox(comment)}>Edit</button>
-            //   <br></br>
-            // </div>
           );
       })}
       {commentBox === true ? (
@@ -136,12 +119,11 @@ const Profile = () => {
         if (comment.reported === true && comment.userID === user.id)
           return (
             <div>
-              {" "}
               <div>{comment.user}</div>
               <div>{comment.createdAt}</div>
               <div>{comment.body}</div>
               <button onClick={() => deleteThisComment(comment)}>Delete</button>
-              <span>Waiting Admin aproval</span>
+              {comment.reportedCommmentEdit === true ?  <button onClick={() => toggleCommentBox(comment)}>Edit</button> : <span>Waiting for Admin review</span>}
               <br></br>
             </div>
           );

@@ -21,6 +21,9 @@ const Admin = () => {
 
   return (
     <div className="adminHomeDesign">
+       {passForm === true ? (
+        <PasswordForm user={user} togglePassForm={togglePassForm} />
+      ) : <>
       <div class="wave"></div>
       <div class="wave"></div>
       <div class="wave"></div>
@@ -53,9 +56,7 @@ const Admin = () => {
       
       </div>
       <div className="managementSelectors">
-      {passForm === true ? (
-        <PasswordForm user={user} togglePassForm={togglePassForm} />
-      ) : null}
+     
       <Button
         className="managementButton"
          variant="contained"
@@ -96,6 +97,7 @@ const Admin = () => {
         Users Management
       </Button>
       </div>
+      </>}
     </div>
   );
 };

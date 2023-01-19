@@ -13,6 +13,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { deleteComment, updateComment } from "../../services/apiCalls";
 import { formatDate } from "../../services/utils";
 import ReportIcon from '@mui/icons-material/Report';
+import { Tooltip } from "@mui/joy";
 
 export default function CommentCard({ comment, getComments, isEditing }) {
   const { admin, user } = useContext(AuthContext);
@@ -34,6 +35,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   const reportThisComment = async (comment) => {
     const reportedComment = {
       reported: true,
+      offline: true,
       id: comment.id,
     };
     try {
@@ -46,32 +48,6 @@ export default function CommentCard({ comment, getComments, isEditing }) {
 
   return (
     <div className="commentCardDesign">
-      {admin !== null ? (
-        <Card sx={{ width: 400 }}>
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                {comment.user.charAt(0)} 
-              </Avatar>
-            }
-            title={comment.user}
-            subheader={formatedDate}
-          />
-          <CardContent>
-            <Typography>{comment.body}</Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            {user.id === comment.userID ? (
-              <IconButton>
-                <EditIcon onClick={() => editThisComment(comment)} />
-              </IconButton>
-            ) : null}
-            <IconButton>
-              <DeleteIcon onClick={() => deleteThisComment(comment)} />
-            </IconButton>
-          </CardActions>
-        </Card>
-      ) : (
         <Card sx={{ width: 400 }}>
           <CardHeader
             avatar={
@@ -87,22 +63,28 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           </CardContent>
           {user.id === comment.userID ? (
             <CardActions disableSpacing>
+              <Tooltip title="Delete this comment" placement="top-start">
               <IconButton>
                 <DeleteIcon onClick={() => deleteThisComment(comment)} />
               </IconButton>
+              </Tooltip>
+              <Tooltip title="Edit this comment" placement="right">
               <IconButton>
                 <EditIcon onClick={() => editThisComment(comment)} />
               </IconButton>
+              </Tooltip>
             </CardActions>
           ) : (
             <CardActions disableSpacing>
+              <Tooltip title="Report this comment" placement="right">
               <IconButton>
                 <ReportIcon onClick={() => reportThisComment(comment)} />
               </IconButton>
+              </Tooltip>
             </CardActions>
           )}
         </Card>
-      )}
     </div>
   );
 }
+

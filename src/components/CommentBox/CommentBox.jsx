@@ -48,6 +48,7 @@ export default function CommentBox({
         userID: user.id,
         reported: false,
         badWordFlaged: badWordCheck.data,
+        offline: badWordCheck.data,
         createdAt: new Date(Date.now()),
       };
       try {
@@ -69,9 +70,10 @@ export default function CommentBox({
       const updatedComment = {
         body: textAreaValue,
         badWordFlaged: badWordCheck.data,
-        reported: false,
+        offline: badWordCheck.data,
         editedAt: new Date(Date.now()),
         id: comment.id,
+        reportedCommmentEdit: false,
       };
       try {
         await updateComment(updatedComment);

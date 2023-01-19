@@ -6,6 +6,9 @@ import TextField from "@mui/joy/TextField";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
+import CloseIcon from '@mui/icons-material/Close';
+import { red  } from "@mui/material/colors";
+
 
  const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
   const [product, setProduct] = useState("");
@@ -59,13 +62,13 @@ import { createNewProduct, updateProduct } from "../../services/apiCalls";
             boxShadow: "md",
           }}
           variant="outlined"
-        >
+        > 
+          <CloseIcon  onClick={()=> toggleForm()} sx={{ color: red[500], fontSize: 30 }} />
           <div>
             <Typography level="h4" component="h1">
             {productToEdit ? <b>{product.name}</b> : null}
             </Typography>
             {productToEdit ? <Typography level="body2">Please edit this product:</Typography> : <Typography level="body2">Create a new product:</Typography> }
-            
           </div>
           <TextField
             // html input attribute
