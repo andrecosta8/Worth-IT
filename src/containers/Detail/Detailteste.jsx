@@ -35,8 +35,10 @@ const Detail = () => {
     }
   };
 
-  const toggleCommentBox = () => {
+  const toggleCommentBox = (comment) => {
     setCommentBox(!commentBox);
+    if (comment) setEdit(true)
+    setCommentToEdit(comment);
   };
 
   const isEditing = (editingComment) => {
@@ -45,33 +47,11 @@ const Detail = () => {
     setEdit(true);
   };
 
-  const isNotEditing = () => {
-    setCommentToEdit(null)
-    toggleCommentBox()
-    setEdit(false)
-  }
-
   return (
     <div className="detailProductDesign">
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <div className="lefside">
-        {edit === true ? (
-          <>
-            <img src={product.url} alt={product.name}></img>
-            <div>{product.name}</div>
-            <div>{product.description}</div>
-            {/* <Rating user={user} product={product} /> */}
-            <button onClick={()=> isNotEditing()}>Close</button>
-            <CommentBox
-              comment={commentToEdit}
-              toggleCommentBox={toggleCommentBox}
-              productId={product.id}
-              getComments={getComments}
-              edit={edit}
-            />
-          </>
-        ) : (
-          <>
+      <>
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
@@ -83,20 +63,22 @@ const Detail = () => {
             ) : (
               <button onClick={() => toggleCommentBox()} >Close</button>
             )}
-            {commentBox === true ? (
+            {commentBox === true && edit === false ?  (
               <CommentBox
-                comment={commentToEdit}
                 toggleCommentBox={toggleCommentBox}
-                productId={product.id}
+                product={product}
                 getComments={getComments}
-                edit={edit}
               />
-            ) : null}
+            ) : <CommentBox
+            comment={commentToEdit}
+            toggleCommentBox={toggleCommentBox}
+            product={product}
+            getComments={getComments}
+          />}
           </>
-        )}
       </div>
       <div className="rightside">
-        {comments.map((comment) => {
+      {comments.map((comment) => {
           if (
             comment.productId === product.id &&
             comment.badWordFlaged === false &&

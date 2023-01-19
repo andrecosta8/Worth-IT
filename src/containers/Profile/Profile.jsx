@@ -53,7 +53,7 @@ const Profile = () => {
   return (
     <div className="profileDesign">
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-      <div>
+      {/* <div>
         USER INFO:
         <div>{user.name}</div>
         <div>{user.email}</div>
@@ -61,7 +61,35 @@ const Profile = () => {
         {passForm === true ? (
           <PasswordForm user={user} togglePassForm={togglePassForm} />
         ) : null}
-      </div>
+      </div> */}
+      <Card className="card" >
+      <CardContent className="cardContent">
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <h3>User: {user.name}</h3>
+          <h5>ID: {user.id}</h5>
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          <h5>E-mail: {user.email}</h5>
+        </Typography>
+      </CardContent>
+      <CardActions className="cardActions">
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        onClick={() =>
+          setTimeout(() => {
+            togglePassForm();
+          }, 250)
+        }
+      >
+        Change Password
+      </Button>
+      </CardActions>
+    </Card>
+    {passForm === true ? (
+          <PasswordForm user={user} togglePassForm={togglePassForm} />
+        ) : null}
       <div>FLAGED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.badWordFlaged === true && comment.userID === user.id)
@@ -80,8 +108,8 @@ const Profile = () => {
             <Typography>{comment.body}</Typography>
           </CardContent>
             <CardActions disableSpacing>
-            <Button variant="contained" color="error" onClick={() => deleteThisComment()} size="small">Delete</Button>
-            <Button variant="contained" color="primary" onClick={() => toggleCommentBox()} size="small">Edit</Button>
+            <Button variant="contained" color="error" onClick={() => deleteThisComment(comment)} size="small">Delete</Button>
+            <Button variant="contained" color="primary" onClick={() => toggleCommentBox(comment)} size="small">Edit</Button>
             </CardActions>
             </Card>
             // <div> 
@@ -96,9 +124,11 @@ const Profile = () => {
       })}
       {commentBox === true ? (
         <CommentBox
-          getComments={getCommentsList}
           comment={commentToEdit}
-          aproval={"aproval"}
+          toggleCommentBox={toggleCommentBox}
+          productId={commentToEdit.productId}
+          getComments={getCommentsList}
+          edit={true}
         />
       ) : null}
       <div>REPORTED COMMENTS:</div>

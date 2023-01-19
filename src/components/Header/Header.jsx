@@ -17,7 +17,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import "./Header.css";
 
 
-function Header() {
+ export const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [notifications, setNotifications] = useState(0);
   
@@ -323,4 +323,4 @@ function Header() {
     </div>
   );
 }
-export default Header;
+

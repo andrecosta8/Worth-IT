@@ -130,17 +130,6 @@
       "reported": false
     },
     {
-      "body": "asdasd",
-      "productId": 2,
-      "user": "André",
-      "userID": 4,
-      "badWordFlaged": false,
-      "createdAt": "2023-01-12T17:39:26.902Z",
-      "id": 38,
-      "editedAt": "2023-01-12T17:41:52.313Z",
-      "reported": false
-    },
-    {
       "body": "this",
       "productId": 2,
       "user": "André",
@@ -170,6 +159,36 @@
       "badWordFlaged": false,
       "createdAt": "2023-01-17T22:20:18.647Z",
       "id": 45
+    },
+    {
+      "body": "fdgdgd",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-19T12:09:25.972Z",
+      "id": 46
+    },
+    {
+      "body": "correção",
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-19T12:19:01.574Z",
+      "id": 47
+    },
+    {
+      "body": "testing se volta",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": false,
+      "createdAt": "2023-01-19T12:39:35.914Z",
+      "id": 48,
+      "editedAt": "2023-01-19T12:40:06.478Z"
     }
   ]
 }
