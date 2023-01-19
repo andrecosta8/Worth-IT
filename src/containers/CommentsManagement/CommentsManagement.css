@@ -1,22 +1,48 @@
 .adminCommentsDesign{
-    padding-top: 15vh;
-    padding-bottom: 8vh;
+    margin-top: 15vh;
+    margin-bottom: 8vh;
     display:flex;
     justify-content: space-around;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    justify-content: center;
+    overflow: scroll; 
 }
 
 .badWordsCommentsDesign {
     display: flex;
     flex-direction: column;
     align-items:  center;
-    
-    
+    margin-top: 3em;
+}
+
+.badWordsCommentsDesign::-webkit-scrollbar{
+    display:none;
+}
+
+.rightside {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    overflow: scroll; 
+   
 }
 
 .reportedCommentsDesign {
     display: flex;
     flex-direction: column;
+    align-items:  center;
+    margin-top: 3em;
 }
+
+.reportedCommentsDesign::-webkit-scrollbar{
+    display:none;
+}
+
 .title {
     background-color: lightgray;
     border-radius: 5px;
@@ -27,4 +53,14 @@
     padding-right: 50px;
     margin-top: 1em;
     opacity: 0.75;
+    position: fixed;
+}
+
+.commentCard {
+    margin-top: 1em;
+    min-height: 100px;
+}
+
+.reason{
+   background-color: lightgray;
 }

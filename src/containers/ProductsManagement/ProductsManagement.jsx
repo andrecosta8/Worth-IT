@@ -55,8 +55,7 @@ const ProductsManagement = () => {
       ) : (
         <>
         <div className="headerProductsManagement">
-          <Button className="createNewProductButton" variant="contained" color="primary" size="small" onClick={() => toggleForm()} >Create New Product</Button>
-          <span className="title">LIST OF PRODUCTS:</span>
+          <Button className="createNewProductButton" variant="contained" color="primary" size="small" onClick={() => setTimeout(()=> {toggleForm()},250)} >Create New Product</Button>
         </div>
          <div className="productsList">
          {products.map((product) => {

@@ -1,12 +1,10 @@
 .adminDesign{
-    padding-top: 15vh;
-    padding-bottom: 8vh;
+    margin-top: 17vh;
+    margin-bottom: 8vh;
     display: flex;  
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin-top: 3em;
-    
+    align-items: center;   
 }
 
 .card {

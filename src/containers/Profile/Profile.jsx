@@ -52,6 +52,10 @@ const Profile = () => {
 
   return (
     <div className="profileDesign">
+      {passForm === true ? (
+          <PasswordForm user={user} togglePassForm={togglePassForm} />
+        ) : (
+          <>
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <Card className="card" >
       <CardContent className="cardContent">
@@ -78,9 +82,6 @@ const Profile = () => {
       </Button>
       </CardActions>
     </Card>
-    {passForm === true ? (
-          <PasswordForm user={user} togglePassForm={togglePassForm} />
-        ) : null}
       <div>FLAGED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.badWordFlaged === true && comment.userID === user.id)
@@ -128,6 +129,7 @@ const Profile = () => {
             </div>
           );
       })}
+     </> )}
     </div>
   );
 };

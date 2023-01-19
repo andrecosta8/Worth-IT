@@ -60,91 +60,15 @@
   ],
   "comments": [
     {
-      "body": "a",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-19T16:02:20.665Z",
-      "id": 1,
-      "reportCommmentEdit": false
-    },
-    {
-      "body": "s ff",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-19T16:02:23.026Z",
-      "id": 2,
-      "reportCommmentEdit": false,
-      "editedAt": "2023-01-19T17:19:38.985Z",
-      "reportedCommmentEdit": false
-    },
-    {
-      "body": "fuck",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": true,
-      "offline": true,
-      "createdAt": "2023-01-19T16:02:50.344Z",
-      "id": 5,
-      "reportCommmentEdit": false
-    },
-    {
-      "body": "ssss",
+      "body": "bzczcz",
       "productId": 1,
       "user": "André",
       "userID": 4,
       "reported": false,
       "badWordFlaged": false,
       "offline": false,
-      "createdAt": "2023-01-19T16:03:33.500Z",
-      "id": 6,
-      "reportCommmentEdit": false
-    },
-    {
-      "body": "ssss",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-19T16:03:36.143Z",
-      "id": 7,
-      "reportCommmentEdit": false
-    },
-    {
-      "body": "editado após report",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-19T16:03:38.967Z",
-      "id": 8,
-      "editedAt": "2023-01-19T17:18:18.972Z",
-      "reportedCommmentEdit": false
-    },
-    {
-      "body": "shit",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": false,
-      "badWordFlaged": true,
-      "offline": true,
-      "createdAt": "2023-01-19T16:03:50.816Z",
-      "id": 10,
-      "reportCommmentEdit": false
+      "createdAt": "2023-01-19T23:28:33.178Z",
+      "id": 3
     }
   ]
 }
