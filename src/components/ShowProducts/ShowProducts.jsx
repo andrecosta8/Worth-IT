@@ -1,9 +1,10 @@
+import "./ShowProducts.css";
+import ProductCard from "../ProductCard/ProductCard";
 import React, { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/apiCalls";
-import ProductCard from "../ProductCard/ProductCard";
-import "./ShowProducts.css";
 
 const ShowProducts = ({ searchProducts }) => {
+  const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -11,12 +12,15 @@ const ShowProducts = ({ searchProducts }) => {
   }, []);
 
   const getProductsList = async () => {
-    let response = await getAllProducts();
-    setProducts(response.data);
+    try {
+      let response = await getAllProducts();
+      setProducts(response.data);
+    } catch (error) {
+      setError(error);
+    }
   };
-
   return (
-    <div>
+    <div className="showProducts">
       {!searchProducts
         ? products.map((product) => {
             return (

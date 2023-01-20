@@ -3,12 +3,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import React, { useEffect, useState } from "react";
-import ReactDOM  from "react-dom";
+import ReactDOM from "react-dom";
 
 const PortalModal = ({ children, wrapperId }) => {
   return ReactDOM.createPortal(children, document.getElementById(wrapperId));
 };
-
 export const Alert = ({
   action,
   approveThisComment,
@@ -21,17 +20,6 @@ export const Alert = ({
   product,
   user,
 }) => {
-  console.log(action);
-
-  // TO USE IN THE COMPONENT:
-  //   const [open, setOpen] = useState(false);
-  //   const handleClickOpen = () => {
-  //     setOpen(true);
-  //   };
-  //     const handleClose = () => {
-  //     setOpen(false);
-  //   };
-
   return (
     <PortalModal wrapperId="portal-root">
       <Dialog
@@ -45,7 +33,7 @@ export const Alert = ({
         </DialogTitle>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          {action === "deleteComment" ? (
+          {action === "deleteComment" && (
             <Button
               onClick={() => deleteThisComment(commentToAction)}
               autoFocus
@@ -53,8 +41,8 @@ export const Alert = ({
               {" "}
               Confirm
             </Button>
-          ) : null}
-          {action === "approveComment" ? (
+          )}
+          {action === "approveComment" && (
             <Button
               onClick={() => approveThisComment(commentToAction)}
               autoFocus
@@ -62,29 +50,23 @@ export const Alert = ({
               {" "}
               Confirm
             </Button>
-          ) : null}
+          )}
 
-{action === "deleteProduct" ? (
-            <Button
-              onClick={() => deleteThisProduct(product)}
-              autoFocus
-            >
+          {action === "deleteProduct" && (
+            <Button onClick={() => deleteThisProduct(product)} autoFocus>
               {" "}
               Confirm
             </Button>
-          ) : null}
+          )}
 
-{action === "deleteUser" ? (
-            <Button
-              onClick={() => deleteThisUser(user)}
-              autoFocus
-            >
+          {action === "deleteUser" && (
+            <Button onClick={() => deleteThisUser(user)} autoFocus>
               {" "}
               Confirm
             </Button>
-          ) : null}
+          )}
         </DialogActions>
       </Dialog>
-      </PortalModal>
+    </PortalModal>
   );
 };

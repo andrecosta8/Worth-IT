@@ -1,69 +1,64 @@
-.adminCommentsDesign{
-    margin-top: 15vh;
-    margin-bottom: 8vh;
-    display:flex;
-    justify-content: space-around;
-    width: 100vw;
+.adminCommentsDesign {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8vh;
+  margin-top: 15vh;
+  width: 100vw;
 }
 
-.leftside {
-    display: flex;
-    flex-direction: column;
-    align-items:  center;
-    justify-content: center;
+.commentsDiv {
+  display: flex;
+  justify-content: space-around;
 }
 
 .badWordsCommentsDesign {
-    display: flex;
-    flex-direction: column;
-    align-items:  center;
-    justify-content: center;
-    margin-top: 1.5em; 
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
-.badWordsCommentsDesign::-webkit-scrollbar{
-    display:none;
-}
-
-.rightside {
-    display: flex;
-    flex-direction: column;
-    align-items:  center;
-    justify-content: center; 
+.badWordsCommentsDesign::-webkit-scrollbar {
+  display: none;
 }
 
 .reportedCommentsDesign {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:  center;
-    margin-top: 1.5em; 
-
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
-.reportedCommentsDesign::-webkit-scrollbar{
-    display:none;
+.reportedCommentsDesign::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
-    background-color: lightgray;
-    border-radius: 5px;
-    width:300px;
-    height: 30px;
-    padding-top: 8px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 1em;
-    opacity: 0.75;  
-    position:sticky;
-    top:17vh;
+  background-color: lightgray;
+  border-radius: 5px;
+  height: 30px;
+  opacity: 0.75;
+  padding-left: 50px;
+  padding-right: 50px;
+  position: sticky;
+  top: 17vh;
+  width: 300px;
 }
 
 .commentCard {
-    margin-top: 1em;
-    min-height: 100px;
+  margin-top: 1em;
+  min-height: 100px;
 }
 
-.reason{
-   background-color: lightgray;
+.reason {
+  background-color: lightgray;
+}
+
+@media only screen and (max-width: 900px) {
+  .commentsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2vh;
+  }
 }

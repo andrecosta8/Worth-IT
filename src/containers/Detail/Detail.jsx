@@ -1,28 +1,28 @@
+import "./Detail.css";
+import CommentBox from "../../components/CommentBox/CommentBox";
+import CommentCard from "../../components/CommentCard/CommentCard";
 import { AuthContext } from "../../providers/AuthProvider";
 import { getAllComments } from "../../services/apiCalls";
-import { useNavigate } from "react-router-dom";
-import "./Detail.css";
-import { useProductContext } from "../../providers/ProductProvider";
 import { useContext, useEffect, useState } from "react";
-import CommentCard from "../../components/CommentCard/CommentCard";
-import CommentBox from "../../components/CommentBox/CommentBox";
-import Rating from "../../components/Rating/Rating";
+import { useNavigate } from "react-router-dom";
+import { useProductContext } from "../../providers/ProductProvider";
 
 const Detail = () => {
-  const product = useProductContext();
-  const [comments, setComments] = useState([]);
   const [commentBox, setCommentBox] = useState(false);
-  const [edit, setEdit] = useState(false);
   const [commentToEdit, setCommentToEdit] = useState({});
-  const { user, admin } = useContext(AuthContext);
+  const [comments, setComments] = useState([]);
+  const [edit, setEdit] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const product = useProductContext();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     getComments();
   }, []);
 
   useEffect(() => {
-    if (user === null) navigate("/");
+    if (!user) navigate("/");
   });
 
   const getComments = async () => {
@@ -31,7 +31,7 @@ const Detail = () => {
       setComments(response.data);
       setEdit(false);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -55,12 +55,11 @@ const Detail = () => {
     <div className="detailProductDesign">
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
       <div className="lefside">
-        {edit === true ? (
+        {edit ? (
           <>
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            {/* <Rating user={user} product={product} /> */}
             <button onClick={()=> isNotEditing()}>Close</button>
             <CommentBox
               comment={commentToEdit}
@@ -74,8 +73,7 @@ const Detail = () => {
           <>
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
-            <div>{product.description}</div>
-             <Rating user={user} product={product} /> 
+            <div>{product.description}</div> 
             {commentBox === false ? (
               <button onClick={() => toggleCommentBox()}>
                 Create new comment

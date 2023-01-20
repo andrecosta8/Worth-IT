@@ -21,19 +21,20 @@ import { formatDate } from "../../services/utils";
 import { Alert } from "../../components/Alert/Alert";
 
 const CommentsManagement = () => {
-  const [comments, setComments] = useState([]);
-  const [open, setOpen] = useState(false);
   const [action, setAction] = useState("");
   const [commentToAction, setCommentToAction] = useState({});
-  const { admin } = useContext(AuthContext);
+  const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { admin } = useContext(AuthContext);
 
   useEffect(() => {
     getCommentsList();
   }, []);
 
   useEffect(() => {
-    if (admin === null) navigate("/");
+    if (!admin) navigate("/");
   });
 
   const getCommentsList = async () => {
@@ -41,7 +42,7 @@ const CommentsManagement = () => {
       let response = await getAllComments();
       setComments(response.data);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -51,19 +52,19 @@ const CommentsManagement = () => {
     handleClose();
   };
 
-  const approveThisComment = async (comment) => {
-    await updateComment({
+  const approveThisComment = (comment) => {
+    updateComment({
       id: comment.id,
-      reported: false,
       offline: false,
+      reported: false,
       reportedCommmentEdit: false,
     });
     getCommentsList();
     handleClose();
   };
 
-  const permissionToEdit = async (comment) => {
-    await updateComment({
+  const permissionToEdit = (comment) => {
+    updateComment({
       id: comment.id,
       reportedCommmentEdit: !comment.reportedCommmentEdit,
     });
@@ -83,14 +84,13 @@ const CommentsManagement = () => {
 
   return (
     <div className="adminCommentsDesign">
-      
-      <div className="leftSide">
-        <div className="title">BAD WORDS FLAGED COMMENTS:</div>
+      <div className="commentsDiv">
         <div className="badWordsCommentsDesign">
+          <div className="title">BAD WORDS FLAGED COMMENTS:</div>
           {comments
             .sort((a, b) => (b.createdAt > a.createdAt ? 1 : -1))
             .map((comment) => {
-              if (comment.badWordFlaged === true)
+              if (comment.badWordFlaged)
                 return (
                   <Card className="commentCard" sx={{ width: 400 }}>
                     <CardHeader
@@ -109,7 +109,9 @@ const CommentsManagement = () => {
                       <Button
                         variant="contained"
                         color="error"
-                        onClick={() => handleClickOpen("deleteComment", comment)}
+                        onClick={() =>
+                          handleClickOpen("deleteComment", comment)
+                        }
                         size="small"
                       >
                         Delete
@@ -119,14 +121,12 @@ const CommentsManagement = () => {
                 );
             })}
         </div>
-      </div>
-      <div className="rightSide">
-        <div className="title">REPORTED COMMENTS:</div>
         <div className="reportedCommentsDesign">
+          <div className="title">REPORTED COMMENTS:</div>
           {comments
             .sort((a, b) => (b.createdAt > a.createdAt ? 1 : -1))
             .map((comment) => {
-              if (comment.reported === true)
+              if (comment.reported)
                 return (
                   <Card className="commentCard" sx={{ width: 400 }}>
                     <CardHeader
@@ -148,12 +148,14 @@ const CommentsManagement = () => {
                       <Button
                         variant="contained"
                         color="error"
-                        onClick={() => handleClickOpen("deleteComment", comment)}
+                        onClick={() =>
+                          handleClickOpen("deleteComment", comment)
+                        }
                         size="small"
                       >
                         Delete
                       </Button>
-                      {comment.reportedCommmentEdit === true ? (
+                      {comment.reportedCommmentEdit ? (
                         <Button
                           variant="contained"
                           color="primary"
@@ -175,7 +177,9 @@ const CommentsManagement = () => {
                       <Button
                         variant="contained"
                         color="success"
-                        onClick={() => handleClickOpen("approveComment", comment)}
+                        onClick={() =>
+                          handleClickOpen("approveComment", comment)
+                        }
                         size="small"
                       >
                         Approve

@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import  ShowProducts  from "../../components/ShowProducts/ShowProducts";
 import "./Products.css";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import  ShowProducts  from "../../components/ShowProducts/ShowProducts";
 
 const Products = () => {
   const [searchProducts, setSearchProducts] = useState("");
-  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (user === null) navigate("/");
+    if (!user) navigate("/");
   });
 
   const inputSearchHandler = (e) => {

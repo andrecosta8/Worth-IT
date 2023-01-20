@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import FormControl from "@mui/joy/FormControl";
+import React, { useContext, useEffect, useState } from "react";
 import Textarea from "@mui/joy/Textarea";
-
 import {
   badWords,
   createNewComment,
@@ -19,7 +18,6 @@ export default function CommentBox({
   productId,
   toggleCommentBox,
 }) {
- 
   const [textAreaValue, setTextAreaValue] = useState("");
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
@@ -32,26 +30,30 @@ export default function CommentBox({
     setUpdate(edit);
   }, [comment, edit]);
 
+  const afterSubmitComment = () => {
+    getComments();
+    setTextAreaValue("");
+    toggleCommentBox();
+  };
+
   const createComment = async () => {
     if (textAreaValue.length === 0) {
       setError("Comment can not be empty");
     } else {
       let badWordCheck = await badWords(textAreaValue);
       const newComment = {
+        badWordFlaged: badWordCheck.data,
         body: textAreaValue,
+        createdAt: new Date(Date.now()),
+        offline: badWordCheck.data,
         productId: productId,
+        reported: false,
         user: user.name,
         userID: user.id,
-        reported: false,
-        badWordFlaged: badWordCheck.data,
-        offline: badWordCheck.data,
-        createdAt: new Date(Date.now()),
       };
       try {
         await createNewComment(newComment);
-        getComments();
-        setTextAreaValue("");
-        toggleCommentBox();
+        afterSubmitComment();
       } catch (error) {
         setError(error);
       }
@@ -64,18 +66,15 @@ export default function CommentBox({
     } else {
       let badWordCheck = await badWords(textAreaValue);
       const updatedComment = {
-        body: textAreaValue,
         badWordFlaged: badWordCheck.data,
-        offline: badWordCheck.data,
-        editedAt: new Date(Date.now()),
+        body: textAreaValue,
         id: comment.id,
+        offline: badWordCheck.data,
         reportedCommmentEdit: false,
       };
       try {
         await updateComment(updatedComment);
-        getComments();
-        setTextAreaValue("");
-        toggleCommentBox();
+        afterSubmitComment();
       } catch (error) {
         setError(error);
       }
@@ -106,9 +105,11 @@ export default function CommentBox({
               }}
             >
               {error && <p className="errorMessage">{error}</p>}
-               
-            
-              <Button sx={{ ml: "auto" }} onClick={() => toggleCommentBox()}> Cancel</Button>
+
+              <Button sx={{ ml: "auto" }} onClick={() => toggleCommentBox()}>
+                {" "}
+                Cancel
+              </Button>
               {update === true ? (
                 <Button
                   onClick={() => {

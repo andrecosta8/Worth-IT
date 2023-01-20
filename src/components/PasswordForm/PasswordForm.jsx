@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-import { CssVarsProvider } from "@mui/joy/styles";
-import Sheet from "@mui/joy/Sheet";
-import Typography from "@mui/joy/Typography";
-import TextField from "@mui/joy/TextField";
 import Button from "@mui/joy/Button";
-import { validateForm } from "../../services/validate";
-import { updateUser } from "../../services/apiCalls";
 import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import Sheet from "@mui/joy/Sheet";
+import TextField from "@mui/joy/TextField";
+import Typography from "@mui/joy/Typography";
 import { red  } from "@mui/material/colors";
+import { updateUser } from "../../services/apiCalls";
+import { validateForm } from "../../services/validate";
 
 export const PasswordForm = ({ user, togglePassForm }) => {
   const [error, setError] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const handleData = (e) => {
+  const handleData = e => {
     setNewPassword((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -23,14 +22,15 @@ export const PasswordForm = ({ user, togglePassForm }) => {
   const changePassword = () => {
     if (newPassword.newPassword === newPassword.repeatPassword) {
       let validationError = validateForm({
-        name: user.name,
         email: user.email,
+        name: user.name,
         password: newPassword.newPassword,
       });
-      if (validationError === null) {
+
+      if (!validationError) {
         updateUser({
-          password: newPassword.newPassword,
           id: user.id,
+          password: newPassword.newPassword,
         });
         togglePassForm();
       }
@@ -40,21 +40,19 @@ export const PasswordForm = ({ user, togglePassForm }) => {
     }
   };
   return (
-    <CssVarsProvider>
       <main>
-        
         <Sheet
           sx={{
-            width: 300,
-            mx: "auto", // margin left & right
-            my: 4, // margin top & botom
-            py: 3, // padding top & bottom
-            px: 2, // padding left & right
+            borderRadius: "sm",
+            boxShadow: "md",
             display: "flex",
             flexDirection: "column",
             gap: 2,
-            borderRadius: "sm",
-            boxShadow: "md",
+            mx: "auto", // margin left & right
+            my: 4, // margin top & botom
+            px: 2, // padding left & right
+            py: 3, // padding top & bottom
+            width: 300,
           }}
           variant="outlined"
         >
@@ -89,12 +87,10 @@ export const PasswordForm = ({ user, togglePassForm }) => {
             fontSize="sm"
             sx={{ alignSelf: "center" }}
           >
-            <div>{error === null ? null : error}</div>
+            <div>{error && error}</div>
           </Typography>
-          
         </Sheet>
       </main>
-    </CssVarsProvider>
   );
 };
 

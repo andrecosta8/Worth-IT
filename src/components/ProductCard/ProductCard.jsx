@@ -1,23 +1,24 @@
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import React, { useContext, useState } from "react";
-import { AuthContext } from '../../providers/AuthProvider';
+import Typography from "@mui/material/Typography";
+import { Alert } from "../Alert/Alert";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useProductChangeContext } from "../../providers/ProductProvider";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import { red } from "@mui/material/colors";
-import { Alert } from "../Alert/Alert";
 
-
-export default function ProductCard({ product, toggleForm, deleteThisProduct }) {
-  const [open, setOpen] = useState(false);
+export default function ProductCard({
+  product,
+  toggleForm,
+  deleteThisProduct,
+}) {
   const [action, setAction] = useState("");
-  const {user, admin} = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const productSelect = useProductChangeContext();
-
-  let navigate = useNavigate();
+  const { user, admin } = useContext(AuthContext);
 
   const goDetail = () => {
     setTimeout(() => {
@@ -26,7 +27,7 @@ export default function ProductCard({ product, toggleForm, deleteThisProduct }) 
     }, 200);
   };
 
-  const handleClickOpen = (actionToDo, comment) => {
+  const handleClickOpen = (actionToDo) => {
     setAction(actionToDo);
     setOpen(true);
   };
@@ -37,43 +38,76 @@ export default function ProductCard({ product, toggleForm, deleteThisProduct }) 
   };
 
   return (
-
-  <div className="productCardDesign">
-    <Alert action={action} handleClose={handleClose} deleteThisProduct={deleteThisProduct} product={product} open={open}/>
-    <Card className="productCard" >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image= {product.url} 
-          alt={product.name}
-          onClick={()=> setTimeout(()=> {goDetail()},200)}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button  variant="contained" onClick={()=> setTimeout(()=> {goDetail()},200)} size="small" color="primary">
-          See Details
-        </Button>
-        {toggleForm  && deleteThisProduct ? 
-        <>
-        <Button  variant="outlined"  onClick={()=> setTimeout(()=> {toggleForm(product)},200)} size="small" color="primary">
-          Edit
-        </Button>
-        <Button color="error" variant="contained" onClick={()=> setTimeout(()=> {handleClickOpen("deleteProduct")},200)} size="small" >
-          Delete
-        </Button> </> : null }
-      </CardActions>
-    </Card>
-  
-  </div>
+    <div className="productCardDesign">
+      <Alert
+        action={action}
+        handleClose={handleClose}
+        deleteThisProduct={deleteThisProduct}
+        product={product}
+        open={open}
+      />
+      <Card className="productCard">
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="140"
+            image={product.url}
+            alt={product.name}
+            onClick={() =>
+              setTimeout(() => {
+                goDetail();
+              }, 200)
+            }
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {product.name}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button
+            variant="contained"
+            onClick={() =>
+              setTimeout(() => {
+                goDetail();
+              }, 200)
+            }
+            size="small"
+            color="primary"
+          >
+            See Details
+          </Button>
+          {toggleForm && deleteThisProduct && (
+            <>
+              <Button
+                variant="outlined"
+                onClick={() =>
+                  setTimeout(() => {
+                    toggleForm(product);
+                  }, 200)
+                }
+                size="small"
+                color="primary"
+              >
+                Edit
+              </Button>
+              <Button
+                color="error"
+                variant="contained"
+                onClick={() =>
+                  setTimeout(() => {
+                    handleClickOpen("deleteProduct");
+                  }, 200)
+                }
+                size="small"
+              >
+                Delete
+              </Button>
+            </>
+          )}
+        </CardActions>
+      </Card>
+    </div>
   );
 }
-
-
-
-

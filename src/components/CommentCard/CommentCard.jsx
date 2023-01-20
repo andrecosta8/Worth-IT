@@ -1,43 +1,44 @@
-import React, { useContext, useState } from "react";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import { AuthContext } from "../../providers/AuthProvider";
-import { deleteComment, updateComment } from "../../services/apiCalls";
-import { formatDate } from "../../services/utils";
-import ReportIcon from "@mui/icons-material/Report";
-import { Tooltip } from "@mui/joy";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardHeader from "@mui/material/CardHeader";
+import DeleteIcon from "@mui/icons-material/Delete";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import EditIcon from "@mui/icons-material/Edit";
+import IconButton from "@mui/material/IconButton";
+import React, { useContext, useState } from "react";
+import ReportIcon from "@mui/icons-material/Report";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { Alert } from "../Alert/Alert";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Tooltip } from "@mui/joy";
+import { blue } from "@mui/material/colors";
+import { deleteComment, updateComment } from "../../services/apiCalls";
+import { formatDate } from "../../services/utils";
 
 export default function CommentCard({ comment, getComments, isEditing }) {
-  const [open, setOpen] = useState(false);
-  const [reason, setReason] = useState(null)
-   const[openReport, setOpenReport] = useState(false);
   const [action, setAction] = useState("");
-  const { admin, user } = useContext(AuthContext);
-  let formatedDate = formatDate(comment.createdAt);
+  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [reason, setReason] = useState(null);
+  const formatedDate = formatDate(comment.createdAt);
+  const { user } = useContext(AuthContext);
+  const [openReport, setOpenReport] = useState(false);
 
-  const deleteThisComment = async (comment) => {
+  const deleteThisComment = (comment) => {
     try {
-      await deleteComment(comment);
+      deleteComment(comment);
       getComments();
       handleClose();
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -45,19 +46,19 @@ export default function CommentCard({ comment, getComments, isEditing }) {
     isEditing(comment);
   };
 
-  const reportThisComment = async (comment, reason) => {
+  const reportThisComment = (comment, reason) => {
     const reportedComment = {
-      reported: true,
-      offline: true,
       id: comment.id,
+      offline: true,
       reportReason: reason,
+      reported: true,
     };
     try {
-      await updateComment(reportedComment);
+      updateComment(reportedComment);
       getComments();
       setReason(null);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -70,10 +71,10 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   };
 
   const handleReason = (e) => {
-    setReason(e.target.value)
+    setReason(e.target.value);
   };
 
-   const handleClickOpen = (actionToDo, comment) => {
+  const handleClickOpen = (actionToDo) => {
     setAction(actionToDo);
     setOpen(true);
   };
@@ -85,7 +86,13 @@ export default function CommentCard({ comment, getComments, isEditing }) {
 
   return (
     <div className="commentCardDesign">
-      <Alert action={action} open={open} handleClose={handleClose} deleteThisComment={deleteThisComment} commentToAction={comment}/>
+      <Alert
+        action={action}
+        open={open}
+        handleClose={handleClose}
+        deleteThisComment={deleteThisComment}
+        commentToAction={comment}
+      />
       <Card sx={{ width: 400 }}>
         <CardHeader
           avatar={
@@ -142,7 +149,11 @@ export default function CommentCard({ comment, getComments, isEditing }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseReport}>Cancel</Button>
-          {!reason ? null : <Button onClick={() => reportThisComment(comment, reason)}>Report</Button> }
+          {reason && (
+            <Button onClick={() => reportThisComment(comment, reason)}>
+              Report
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </div>

@@ -1,27 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Admin.css";
-import { AuthContext } from "../../providers/AuthProvider";
-import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
 import Button from "@mui/material/Button";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 import { Card, CardActions, CardContent } from "@mui/material";
+import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
 import { Typography } from "@mui/joy";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
-  const { admin, user } = useContext(AuthContext);
   const [passForm, setPassForm] = useState(false);
   const navigate = useNavigate();
+  const { admin, user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (admin === null) navigate("/");
+    if (!admin) navigate("/");
   });
+
   const togglePassForm = () => {
     setPassForm(!passForm);
   };
 
   return (
     <div className="adminHomeDesign">
-       {passForm === true ? (
+       {passForm ? (
         <PasswordForm user={user} togglePassForm={togglePassForm} />
       ) : <>
       <div class="wave"></div>
@@ -53,10 +54,8 @@ const Admin = () => {
       </Button>
       </CardActions>
     </Card>
-      
       </div>
       <div className="managementSelectors">
-     
       <Button
         className="managementButton"
          variant="contained"

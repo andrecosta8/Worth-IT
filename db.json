@@ -49,14 +49,6 @@
       "overallRating": 3,
       "id": 2,
       "rating": ""
-    },
-    {
-      "name": "a",
-      "rating": "",
-      "brand": "a",
-      "description": "a",
-      "url": "a",
-      "id": 3
     }
   ],
   "comments": [
@@ -65,11 +57,12 @@
       "productId": 1,
       "user": "User1",
       "userID": 1,
-      "reported": false,
+      "reported": true,
       "badWordFlaged": false,
-      "offline": false,
+      "offline": true,
       "createdAt": "2023-01-20T12:33:46.925Z",
-      "id": 6
+      "id": 6,
+      "reportReason": "hgfhgg"
     },
     {
       "body": "asd",
@@ -111,12 +104,12 @@
       "productId": 1,
       "user": "André",
       "userID": 4,
-      "reported": false,
+      "reported": true,
       "badWordFlaged": false,
-      "offline": false,
+      "offline": true,
       "createdAt": "2023-01-20T14:23:17.907Z",
       "id": 13,
-      "reportReason": "s",
+      "reportReason": "ccc",
       "reportedCommmentEdit": false
     },
     {
@@ -134,7 +127,7 @@
       "reportReason": "d"
     },
     {
-      "body": "Helllo",
+      "body": "Helllo jjj",
       "productId": 1,
       "user": "André",
       "userID": 4,
@@ -143,9 +136,9 @@
       "offline": true,
       "createdAt": "2023-01-20T16:05:08.698Z",
       "id": 15,
-      "editedAt": "2023-01-20T18:06:51.548Z",
+      "editedAt": "2023-01-20T19:23:56.058Z",
       "reportedCommmentEdit": false,
-      "reportReason": "d"
+      "reportReason": "asas"
     },
     {
       "body": "fuck",
@@ -159,7 +152,7 @@
       "id": 16
     },
     {
-      "body": "fuckk",
+      "body": "fuckkkkkkkkkkkkk",
       "productId": 1,
       "user": "André",
       "userID": 4,
@@ -167,7 +160,9 @@
       "badWordFlaged": true,
       "offline": true,
       "createdAt": "2023-01-20T18:16:48.489Z",
-      "id": 17
+      "id": 17,
+      "editedAt": "2023-01-20T19:21:00.566Z",
+      "reportedCommmentEdit": false
     },
     {
       "body": "fuck\n",

@@ -1,11 +1,11 @@
 .profileDesign {
-  padding-top: 15vh;
-  padding-bottom: 8vh;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-width: 300px;
+  padding-bottom: 8vh;
+  padding-top: 15vh;
 }
 
 .commentsDiv {
@@ -35,11 +35,9 @@
   background-color: lightgray;
   border-radius: 5px;
   height: 30px;
-  margin-top: 1em;
   opacity: 0.75;
   padding-left: 50px;
   padding-right: 50px;
-  padding-top: 8px;
   position: sticky;
   top: 17vh;
   width: 300px;

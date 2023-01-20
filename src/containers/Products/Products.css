@@ -3,9 +3,9 @@
 }
 
 .productsPageDesign {
-    display: flex;
-    overflow-y: scroll; 
-    padding-bottom: 8vh;
-    padding-top: 15vh;
     z-index: -1;
+    padding-top: 15vh;
+    padding-bottom: 8vh;
+    overflow-y: scroll; 
+    display: flex;
 }

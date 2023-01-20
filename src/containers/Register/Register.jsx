@@ -1,29 +1,14 @@
-import React, { useState } from "react";
-import { CssVarsProvider, useColorScheme } from "@mui/joy/styles";
-import Sheet from "@mui/joy/Sheet";
-import Typography from "@mui/joy/Typography";
-import TextField from "@mui/joy/TextField";
+import "./Register.css";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import Sheet from "@mui/joy/Sheet";
+import TextField from "@mui/joy/TextField";
+import Typography from "@mui/joy/Typography";
+import { CssVarsProvider } from "@mui/joy/styles";
 import { checkEmail, registerNewUser } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 import { validateForm } from "../../services/validate";
-import "./Register.css";
-
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-
-  return (
-    <Button
-      variant="outlined"
-      onClick={() => {
-        setMode(mode === "light" ? "dark" : "light");
-      }}
-    >
-      {mode === "light" ? "Turn dark" : "Turn light"}
-    </Button>
-  );
-}
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -43,18 +28,22 @@ const Register = () => {
   };
 
   const register = async (user) => {
-    let validationError;
-    if ((await checkEmail(user.email)) === false) {
-      validationError = "E-mail is already in use";
-    } else {
-      validationError = validateForm(user);
-    }
-    setError(validationError);
-    if (error === null) {
-      registerNewUser(user);
-      setTimeout(() => {
-        navigate("/login");
-      }, 250)
+    try {
+      let validationError;
+      if ((await checkEmail(user.email)) === false) {
+        validationError = "E-mail is already in use";
+      } else {
+        validationError = validateForm(user);
+      }
+      setError(validationError);
+      if (!error) {
+        await registerNewUser(user);
+        setTimeout(() => {
+          navigate("/login");
+        }, 250);
+      }
+    } catch (error) {
+      setError(error);
     }
   };
 
@@ -67,16 +56,16 @@ const Register = () => {
         <main>
           <Sheet
             sx={{
-              width: "80vw",
-              mx: "auto", // margin left & right
-              my: 4, // margin top & botom
-              py: 3, // padding top & bottom
-              px: 2, // padding left & right
+              borderRadius: "sm",
+              boxShadow: "md",
               display: "flex",
               flexDirection: "column",
               gap: 2,
-              borderRadius: "sm",
-              boxShadow: "md",
+              mx: "auto", // margin left & right
+              my: 4, // margin top & botom
+              px: 2, // padding left & right
+              py: 3, // padding top & bottom
+              width: "80vw",
             }}
             variant="outlined"
           >
@@ -132,7 +121,7 @@ const Register = () => {
             >
               Already have an account?
             </Typography>
-            <div>{error === null ? null : error}</div>
+            <div>{error && error}</div>
           </Sheet>
         </main>
       </div>

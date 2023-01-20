@@ -1,8 +1,8 @@
-const uppercaseRegExp = /(?=.*?[A-Z])/;
-const lowercaseRegExp = /(?=.*?[a-z])/;
 const digitsRegExp = /(?=.*?[0-9])/;
-const minLengthRegExp = /.{6,}/;
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const lowercaseRegExp = /(?=.*?[a-z])/;
+const minLengthRegExp = /.{6,}/;
+const uppercaseRegExp = /(?=.*?[A-Z])/;
 
 
 export const validateForm = (user) => {

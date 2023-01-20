@@ -1,25 +1,26 @@
-import { Button } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "./ProductsManagement.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductForm from "../../components/ProductForm/ProductForm";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Button } from "@mui/material";
 import { getAllProducts, deleteProduct } from "../../services/apiCalls";
-import "./ProductsManagement.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductsManagement = () => {
-  const [products, setProducts] = useState([]);
-  const [productToEdit, setProductToEdit] = useState({});
+  const [error, setError] = useState(null);
   const [form, setForm] = useState(false);
-  const { admin } = useContext(AuthContext);
+  const [productToEdit, setProductToEdit] = useState({});
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const { admin } = useContext(AuthContext);
 
   useEffect(() => {
     getProductsList();
   }, []);
 
   useEffect(() => {
-    if (admin === null) navigate("/");
+    if (!admin) navigate("/");
   });
 
   const getProductsList = async () => {
@@ -27,16 +28,16 @@ const ProductsManagement = () => {
       let response = await getAllProducts();
       setProducts(response.data);
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
-  const deleteThisProduct = async (product) => {
+  const deleteThisProduct = (product) => {
     try {
-      await deleteProduct(product);
+      deleteProduct(product);
       getProductsList();
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -44,34 +45,47 @@ const ProductsManagement = () => {
     setProductToEdit(product);
     setForm(!form);
   };
+
   return (
     <div className="productsManagement">
-      {form === true ? (
-       <ProductForm
-       productToEdit={productToEdit}
-       toggleForm={toggleForm}
-       getProductsList={getProductsList}
-     />
+      {form ? (
+        <ProductForm
+          productToEdit={productToEdit}
+          toggleForm={toggleForm}
+          getProductsList={getProductsList}
+        />
       ) : (
         <>
-        <div className="headerProductsManagement">
-          <Button className="createNewProductButton" variant="contained" color="primary" size="small" onClick={() => setTimeout(()=> {toggleForm()},250)} >Create New Product</Button>
-        </div>
-         <div className="productsList">
-         {products.map((product) => {
-           return (
-             <div id="productCard">
-               <ProductCard product={product} toggleForm={toggleForm} deleteThisProduct={deleteThisProduct} />
-               {/* <button onClick={() => toggleForm(product)}>EDIT</button>
-               <button onClick={() => deleteThisProduct(product)}>DELETE</button> */}
-             </div>
-           );
-         })}
-         </div>
+          <div className="headerProductsManagement">
+            <Button
+              className="createNewProductButton"
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() =>
+                setTimeout(() => {
+                  toggleForm();
+                }, 250)
+              }
+            >
+              Create New Product
+            </Button>
+          </div>
+          <div className="productsList">
+            {products.map((product) => {
+              return (
+                <div id="productCard">
+                  <ProductCard
+                    product={product}
+                    toggleForm={toggleForm}
+                    deleteThisProduct={deleteThisProduct}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </>
       )}
-      
-   
     </div>
   );
 };

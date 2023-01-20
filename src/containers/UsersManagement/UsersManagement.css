@@ -1,29 +1,28 @@
 .adminDesign{
-    margin-top: 17vh;
-    margin-bottom: 8vh;
+    align-items: center;   
     display: flex;  
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;   
+    margin-bottom: 8vh;
+    margin-top: 17vh;
 }
 
 .card {
-    width: 350px;
+    margin-bottom: 2em;
     margin-left:2em;
     margin-right: 2em;
-    margin-bottom: 2em;
+    width: 350px;
 }
 
 .cardActions {
-    display: flex;
-    justify-content: center;
     background-color: lightgrey;
-    
+    display: flex;
+    justify-content: center;  
 }
 
 .cardContent:hover {
-    transition: 1s;
     opacity: 1;
+    transition: 1s;
 }
 
 .cardContent {
