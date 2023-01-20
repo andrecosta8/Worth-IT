@@ -52,7 +52,9 @@ const Register = () => {
     setError(validationError);
     if (error === null) {
       registerNewUser(user);
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 250)
     }
   };
 

@@ -8,10 +8,13 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Alert } from "../../components/Alert/Alert";
 
 const UsersManagement = () => {
-
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [userToAction, setUserToAction]= useState({})
+  const [action, setAction] = useState("");
   const { admin } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,6 +39,7 @@ const UsersManagement = () => {
     try {
       await deleteUser(user);
       getUsersList();
+      handleClose();
     } catch (error) {
       console.log(error);
     }
@@ -54,8 +58,20 @@ const UsersManagement = () => {
     }
   };
 
+  const handleClickOpen = (actionToDo, user) => {
+    setAction(actionToDo);
+    setUserToAction(user);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setAction("");
+  };
+
   return (
     <div className="adminDesign">
+      <Alert action={action} deleteThisUser={deleteThisUser} user={userToAction} handleClose={handleClose} open={open}/>
       {users.map((user) => {
         return (
     <Card className="card" >
@@ -70,7 +86,7 @@ const UsersManagement = () => {
       </CardContent>
       <CardActions className="cardActions">
         {user.isAdmin === true ? <Button variant="outlined"  color="error" onClick={() => makeAdmin(user)} size="small">Remove from admin</Button> : <Button variant="contained" color="success"  onClick={() => makeAdmin(user)} size="small">Set as Admin</Button> }
-        <Button variant="contained" color="error" onClick={() => deleteThisUser(user)} size="small">Delete User</Button>
+        <Button variant="contained" color="error" onClick={() => handleClickOpen("deleteUser", user)} size="small">Delete User</Button>
       </CardActions>
     </Card>
     );

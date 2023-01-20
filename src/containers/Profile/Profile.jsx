@@ -6,9 +6,14 @@ import { useNavigate } from "react-router-dom";
 import CommentBox from "../../components/CommentBox/CommentBox";
 import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
 import { formatDate } from "../../services/utils";
-import { Avatar, Card, CardContent, Typography } from "@mui/joy";
+import { Avatar, } from "@mui/joy";
 import { blue  } from "@mui/material/colors";
-import { Button, CardActions, CardHeader } from "@mui/material";
+import { Button } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Typography from "@mui/material/Typography";
 
 
 const Profile = () => {
@@ -57,6 +62,7 @@ const Profile = () => {
         ) : (
           <>
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
+      <div className="profileHeader">
       <Card className="card" >
       <CardContent className="cardContent">
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -82,6 +88,9 @@ const Profile = () => {
       </Button>
       </CardActions>
     </Card>
+    </div>
+    <div className="commentsDiv">
+      <div className="flagedComments">
       <div>FLAGED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.badWordFlaged === true && comment.userID === user.id)
@@ -106,7 +115,7 @@ const Profile = () => {
             </Card>
           );
       })}
-      {commentBox === true ? (
+      {/* {commentBox === true ? (
         <CommentBox
           comment={commentToEdit}
           toggleCommentBox={toggleCommentBox}
@@ -114,22 +123,50 @@ const Profile = () => {
           getComments={getCommentsList}
           edit={true}
         />
-      ) : null}
+      ) : null} */}
+      </div>
+      <div className="reportedComments">
       <div>REPORTED COMMENTS:</div>
       {comments.map((comment) => {
         if (comment.reported === true && comment.userID === user.id)
           return (
-            <div>
-              <div>{comment.user}</div>
-              <div>{comment.createdAt}</div>
-              <div>{comment.body}</div>
-              <button onClick={() => deleteThisComment(comment)}>Delete</button>
-              {comment.reportedCommmentEdit === true ?  <button onClick={() => toggleCommentBox(comment)}>Edit</button> : <span>Waiting for Admin review</span>}
-              <br></br>
-            </div>
+          <Card sx={{ width: 400 }}>
+          <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+                {comment.user.charAt(0)}
+              </Avatar>
+            }
+            title={comment.user}
+            subheader={formatDate(comment.createdAt)}
+          />
+          <CardContent>
+            <Typography>{comment.body}</Typography>
+            <div className="reason">
+                      <Typography>Reason: {comment.reportReason}</Typography>
+                    </div>
+          </CardContent>
+            <CardActions disableSpacing>
+            <Button variant="contained" color="error" onClick={() => deleteThisComment(comment)} size="small">Delete</Button>
+            {comment.reportedCommmentEdit === true ?  <Button variant="contained" color="primary" onClick={() => toggleCommentBox(comment)} size="small">Edit</Button> : <span>Waiting for Admin review</span>}
+            </CardActions>
+            </Card>
+           
           );
       })}
+      </div>
+      </div>
+      {/* {commentBox === true ? (
+        <CommentBox
+          comment={commentToEdit}
+          toggleCommentBox={toggleCommentBox}
+          productId={commentToEdit.productId}
+          getComments={getCommentsList}
+          edit={true}
+        />
+      ) : null} */}
      </> )}
+     
     </div>
   );
 };

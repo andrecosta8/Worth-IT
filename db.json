@@ -24,16 +24,9 @@
     {
       "name": "André",
       "email": "andre.costa@xing.com",
-      "password": "Hello123",
+      "password": "Hello321",
       "isAdmin": false,
       "id": 4
-    },
-    {
-      "name": "teste3",
-      "email": "emaildeteste@email.com",
-      "password": "Asd123",
-      "isAdmin": false,
-      "id": 5
     }
   ],
   "products": [
@@ -60,15 +53,131 @@
   ],
   "comments": [
     {
-      "body": "bzczcz",
+      "body": "s",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T09:58:47.616Z",
+      "id": 1,
+      "reportReason": "s"
+    },
+    {
+      "body": "s",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T09:58:49.752Z",
+      "id": 2,
+      "reportReason": "s"
+    },
+    {
+      "body": "sds",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": false,
+      "offline": false,
+      "createdAt": "2023-01-20T12:33:46.925Z",
+      "id": 6
+    },
+    {
+      "body": "asd",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": false,
+      "offline": false,
+      "createdAt": "2023-01-20T14:18:39.230Z",
+      "id": 7
+    },
+    {
+      "body": "fuck",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T14:18:44.919Z",
+      "id": 8
+    },
+    {
+      "body": "fuck fuc",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T14:19:00.083Z",
+      "id": 9
+    },
+    {
+      "body": "fuck",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T14:19:03.850Z",
+      "id": 10
+    },
+    {
+      "body": "fuck",
+      "productId": 1,
+      "user": "User1",
+      "userID": 1,
+      "reported": false,
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T14:19:08.015Z",
+      "id": 11
+    },
+    {
+      "body": "s",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T14:23:13.167Z",
+      "id": 12,
+      "reportReason": "s",
+      "reportedCommmentEdit": true
+    },
+    {
+      "body": "s",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T14:23:17.907Z",
+      "id": 13,
+      "reportReason": "s",
+      "reportedCommmentEdit": true
+    },
+    {
+      "body": "fuck",
       "productId": 1,
       "user": "André",
       "userID": 4,
       "reported": false,
-      "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-19T23:28:33.178Z",
-      "id": 3
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T15:22:16.737Z",
+      "id": 14
     }
   ]
 }

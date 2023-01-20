@@ -21,10 +21,13 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { Alert } from "../Alert/Alert";
 
 export default function CommentCard({ comment, getComments, isEditing }) {
   const [open, setOpen] = useState(false);
   const [reason, setReason] = useState(null)
+   const[openReport, setOpenReport] = useState(false);
+  const [action, setAction] = useState("");
   const { admin, user } = useContext(AuthContext);
   let formatedDate = formatDate(comment.createdAt);
 
@@ -32,6 +35,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
     try {
       await deleteComment(comment);
       getComments();
+      handleClose();
     } catch (error) {
       console.log(error);
     }
@@ -57,20 +61,31 @@ export default function CommentCard({ comment, getComments, isEditing }) {
     }
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpenReport = () => {
+    setOpenReport(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseReport = () => {
+    setOpenReport(false);
   };
 
   const handleReason = (e) => {
     setReason(e.target.value)
   };
 
+   const handleClickOpen = (actionToDo, comment) => {
+    setAction(actionToDo);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setAction("");
+  };
+
   return (
     <div className="commentCardDesign">
+      <Alert action={action} open={open} handleClose={handleClose} deleteThisComment={deleteThisComment} commentToAction={comment}/>
       <Card sx={{ width: 400 }}>
         <CardHeader
           avatar={
@@ -88,7 +103,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           <CardActions disableSpacing>
             <Tooltip title="Delete this comment" placement="top-start">
               <IconButton>
-                <DeleteIcon onClick={() => deleteThisComment(comment)} />
+                <DeleteIcon onClick={() => handleClickOpen("deleteComment")} />
               </IconButton>
             </Tooltip>
             <Tooltip title="Edit this comment" placement="right">
@@ -101,13 +116,13 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           <CardActions disableSpacing>
             <Tooltip title="Report this comment" placement="right">
               <IconButton>
-                <ReportIcon onClick={handleClickOpen} />
+                <ReportIcon onClick={handleClickOpenReport} />
               </IconButton>
             </Tooltip>
           </CardActions>
         )}
       </Card>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={openReport} onClose={handleCloseReport}>
         <DialogTitle>Do you want to report this comment?</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -126,7 +141,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleCloseReport}>Cancel</Button>
           {!reason ? null : <Button onClick={() => reportThisComment(comment, reason)}>Report</Button> }
         </DialogActions>
       </Dialog>
