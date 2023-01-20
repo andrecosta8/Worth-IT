@@ -1,25 +1,55 @@
-.profileDesign{
-    padding-top: 15vh;
-    padding-bottom: 8vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.profileDesign {
+  padding-top: 15vh;
+  padding-bottom: 8vh;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  min-width: 300px;
 }
 
-.commentsDiv{
-    display: flex;
-    justify-content: space-around;
+.commentsDiv {
+  display: flex;
+  justify-content: space-around;
 }
 
 .flagedComments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
 .reportedComments {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.profileCommentCard {
+  margin: 2em;
+}
+
+.title {
+  background-color: lightgray;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 1em;
+  opacity: 0.75;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 8px;
+  position: sticky;
+  top: 17vh;
+  width: 300px;
+}
+
+@media only screen and (max-width: 900px) {
+  .commentsDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+
+  }
 }

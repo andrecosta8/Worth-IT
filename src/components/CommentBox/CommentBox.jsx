@@ -13,17 +13,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 import "./CommentBox.css";
 
 export default function CommentBox({
-  productId,
-  getComments,
-  toggleCommentBox,
   comment,
   edit,
+  getComments,
+  productId,
+  toggleCommentBox,
 }) {
-  console.log( productId,
-    getComments,
-    toggleCommentBox,
-    comment,
-    edit )
+ 
   const [textAreaValue, setTextAreaValue] = useState("");
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
@@ -109,11 +105,10 @@ export default function CommentBox({
                 flex: "auto",
               }}
             >
-              {error === null ? (
-                "Your Comment"
-              ) : (
-                <p className="errorMessage">{error}</p>
-              )}
+              {error && <p className="errorMessage">{error}</p>}
+               
+            
+              <Button sx={{ ml: "auto" }} onClick={() => toggleCommentBox()}> Cancel</Button>
               {update === true ? (
                 <Button
                   onClick={() => {

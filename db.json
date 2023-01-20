@@ -49,33 +49,17 @@
       "overallRating": 3,
       "id": 2,
       "rating": ""
+    },
+    {
+      "name": "a",
+      "rating": "",
+      "brand": "a",
+      "description": "a",
+      "url": "a",
+      "id": 3
     }
   ],
   "comments": [
-    {
-      "body": "s",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T09:58:47.616Z",
-      "id": 1,
-      "reportReason": "s"
-    },
-    {
-      "body": "s",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T09:58:49.752Z",
-      "id": 2,
-      "reportReason": "s"
-    },
     {
       "body": "sds",
       "productId": 1,
@@ -92,22 +76,13 @@
       "productId": 1,
       "user": "User1",
       "userID": 1,
-      "reported": false,
+      "reported": true,
       "badWordFlaged": false,
-      "offline": false,
-      "createdAt": "2023-01-20T14:18:39.230Z",
-      "id": 7
-    },
-    {
-      "body": "fuck",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": true,
       "offline": true,
-      "createdAt": "2023-01-20T14:18:44.919Z",
-      "id": 8
+      "createdAt": "2023-01-20T14:18:39.230Z",
+      "id": 7,
+      "reportReason": "because",
+      "reportedCommmentEdit": true
     },
     {
       "body": "fuck fuc",
@@ -128,8 +103,49 @@
       "reported": false,
       "badWordFlaged": true,
       "offline": true,
-      "createdAt": "2023-01-20T14:19:03.850Z",
-      "id": 10
+      "createdAt": "2023-01-20T14:19:08.015Z",
+      "id": 11
+    },
+    {
+      "body": "s",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": false,
+      "offline": false,
+      "createdAt": "2023-01-20T14:23:17.907Z",
+      "id": 13,
+      "reportReason": "s",
+      "reportedCommmentEdit": false
+    },
+    {
+      "body": "sadasd",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T15:22:16.737Z",
+      "id": 14,
+      "editedAt": "2023-01-20T16:00:43.791Z",
+      "reportedCommmentEdit": false,
+      "reportReason": "d"
+    },
+    {
+      "body": "Helllo",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": true,
+      "badWordFlaged": false,
+      "offline": true,
+      "createdAt": "2023-01-20T16:05:08.698Z",
+      "id": 15,
+      "editedAt": "2023-01-20T18:06:51.548Z",
+      "reportedCommmentEdit": false,
+      "reportReason": "d"
     },
     {
       "body": "fuck",
@@ -139,45 +155,30 @@
       "reported": false,
       "badWordFlaged": true,
       "offline": true,
-      "createdAt": "2023-01-20T14:19:08.015Z",
-      "id": 11
+      "createdAt": "2023-01-20T17:06:11.664Z",
+      "id": 16
     },
     {
-      "body": "s",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T14:23:13.167Z",
-      "id": 12,
-      "reportReason": "s",
-      "reportedCommmentEdit": true
-    },
-    {
-      "body": "s",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T14:23:17.907Z",
-      "id": 13,
-      "reportReason": "s",
-      "reportedCommmentEdit": true
-    },
-    {
-      "body": "fuck",
+      "body": "fuckk",
       "productId": 1,
       "user": "André",
       "userID": 4,
       "reported": false,
       "badWordFlaged": true,
       "offline": true,
-      "createdAt": "2023-01-20T15:22:16.737Z",
-      "id": 14
+      "createdAt": "2023-01-20T18:16:48.489Z",
+      "id": 17
+    },
+    {
+      "body": "fuck\n",
+      "productId": 1,
+      "user": "André",
+      "userID": 4,
+      "reported": false,
+      "badWordFlaged": true,
+      "offline": true,
+      "createdAt": "2023-01-20T18:16:52.841Z",
+      "id": 18
     }
   ]
 }

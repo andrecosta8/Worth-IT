@@ -37,7 +37,7 @@ const Header = () => {
       let notificationsArr = [];
       comments.data.map((comment) => {
         if (
-          (comment.badWordFlaged === true || comment.reported === true) &&
+          (comment.badWordFlaged || comment.reported) &&
           comment.userID === user.id
         ) {
           notificationsArr.push(comment);

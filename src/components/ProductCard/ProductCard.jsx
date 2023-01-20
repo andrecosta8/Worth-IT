@@ -26,7 +26,7 @@ export default function ProductCard({ product, toggleForm, deleteThisProduct }) 
     }, 200);
   };
 
-  const handleClickOpen = (actionToDo) => {
+  const handleClickOpen = (actionToDo, comment) => {
     setAction(actionToDo);
     setOpen(true);
   };
