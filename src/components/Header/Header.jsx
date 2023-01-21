@@ -15,38 +15,37 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Badge } from "@mui/material";
 import { getAllComments } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-const Header = () => {
+const Header = ({notifications}) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [error, setError] = useState(null);
-  const [notifications, setNotifications] = useState(0);
+  
   const navigate = useNavigate();
   const { admin, user } = useContext(AuthContext);
   const { removeAdminFromContext } = useContext(AuthContext);
   const { removeUserFromContext } = useContext(AuthContext);
 
-  useEffect(() => {
-    getNotifications();
-  });
 
-  const getNotifications = async () => {
-    try {
-      let comments = await getAllComments();
-      let notificationsArr = [];
-      comments.data.map((comment) => {
+  // const getNotifications = async () => {
+  //   try {
+  //     let comments = await getAllComments();
+  //     let notificationsArr = [];
+  //     comments.data.map((comment) => {
         
-        if (
-          (comment.badWordFlaged || comment.reported) &&
-          comment.userID === user.id
-        ) {
-          notificationsArr.push(comment);
-        }
-      });
-      setNotifications(notificationsArr.length);
-    } catch (error) {
-      setError(error);
-    }
-  };
+  //       if (
+  //         (comment.badWordFlaged || comment.reported) &&
+  //         comment.userID === user.id
+  //       ) {
+  //         notificationsArr.push(comment);
+  //       }
+  //     });
+  //     setNotifications(notificationsArr.length);
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -214,6 +213,9 @@ const Header = () => {
             >
               Worth IT?
             </Typography>
+            <IconButton >
+                  <KeyboardBackspaceIcon onClick={() => navigate(-1)} />
+                </IconButton>
 
             <Box
               className="box"
@@ -232,6 +234,7 @@ const Header = () => {
               </Button>
               {user && !admin && (
                 <IconButton>
+                  <Badge badgeContent={notifications} color="error">
                   <Button
                     onClick={() =>
                       setTimeout(() => {
@@ -240,10 +243,11 @@ const Header = () => {
                     }
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    <Badge badgeContent={notifications} color="error">
+                    
                       Profile
-                    </Badge>
+                    
                   </Button>
+                  </Badge>
                 </IconButton>
               )}
               {user && (

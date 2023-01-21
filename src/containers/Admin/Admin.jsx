@@ -13,7 +13,7 @@ const Admin = () => {
   const { admin, user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!admin) navigate("/");
+    if (admin === null) navigate("/");
   });
 
   const togglePassForm = () => {

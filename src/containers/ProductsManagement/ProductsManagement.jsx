@@ -20,7 +20,7 @@ const ProductsManagement = () => {
   }, []);
 
   useEffect(() => {
-    if (!admin) navigate("/");
+    if (admin === null) navigate("/");
   });
 
   const getProductsList = async () => {

@@ -14,6 +14,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from '../NotFound/NotFound';
 
 const Body = () => {
+  
   return (
     <>
     <Routes>
@@ -24,7 +25,7 @@ const Body = () => {
       <Route path="/admin/users"  element={<UsersManagement/>} />
       <Route path="/login" element={<Login />} />
       <Route path="/productdetail" element={<Detail />} />
-      <Route path="/products" element={<Products/>} />
+      <Route path="/products" element={<Products />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFound />} />

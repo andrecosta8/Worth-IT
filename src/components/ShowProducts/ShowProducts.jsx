@@ -19,15 +19,18 @@ const ShowProducts = ({ searchProducts }) => {
       setError(error);
     }
   };
+
   return (
     <div className="showProducts">
       {!searchProducts
         ? products.map((product) => {
             return (
-              <ProductCard key={product.id}
-                product={product}
-                getProductsList={getProductsList}
-              />
+              <div key={product.id}  id="productCard">
+                  <ProductCard
+               product={product}
+               getProductsList={getProductsList}
+                  />
+                </div>
             );
           })
         : products
@@ -37,7 +40,7 @@ const ShowProducts = ({ searchProducts }) => {
                 .includes(searchProducts.trim().toLowerCase())
             )
             .map((filteredProduct) => {
-              return <ProductCard key={filteredProduct.id} product={filteredProduct} />;
+              return <div id="productCard"> <ProductCard key={filteredProduct.id} product={filteredProduct} /> </div>; 
             })}
     </div>
   );

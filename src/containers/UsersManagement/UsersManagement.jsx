@@ -24,7 +24,7 @@ const UsersManagement = () => {
   }, []);
 
   useEffect(() => {
-    if (!admin) navigate("/");
+    if (admin === null) navigate("/");
   });
 
   const getUsersList = async () => {

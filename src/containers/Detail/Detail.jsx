@@ -22,7 +22,7 @@ const Detail = () => {
   }, []);
 
   useEffect(() => {
-    if (!user) navigate("/");
+    if (user === null) navigate("/");
   });
 
   const getComments = async () => {
@@ -40,27 +40,28 @@ const Detail = () => {
   };
 
   const isEditing = (editingComment) => {
-    setCommentToEdit(editingComment);
-    toggleCommentBox();
-    setEdit(true);
+    if (editingComment) {
+      setCommentToEdit(editingComment);
+      toggleCommentBox();
+      setEdit(true);
+    }else {
+      setCommentToEdit(null)
+      toggleCommentBox()
+      setEdit(false)
+    }  
   };
-
-  const isNotEditing = () => {
-    setCommentToEdit(null)
-    toggleCommentBox()
-    setEdit(false)
-  }
 
   return (
     <div className="detailProductDesign">
       <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-      <div className="lefside">
         {edit ? (
-          <>
+          <div className="lefside">
+            <div className="productDetail">
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div>
-            <button onClick={()=> isNotEditing()}>Close</button>
+            </div>
+            <button onClick={()=> isEditing()}>Close</button>
             <CommentBox
               comment={commentToEdit}
               toggleCommentBox={toggleCommentBox}
@@ -68,12 +69,14 @@ const Detail = () => {
               getComments={getComments}
               edit={edit}
             />
-          </>
+          </div>
         ) : (
-          <>
+          <div className="lefside">
+            <div className="productDetail">
             <img src={product.url} alt={product.name}></img>
             <div>{product.name}</div>
             <div>{product.description}</div> 
+            </div>
             {commentBox === false ? (
               <button onClick={() => toggleCommentBox()}>
                 Create new comment
@@ -90,9 +93,8 @@ const Detail = () => {
                 edit={edit}
               />
             ) : null}
-          </>
-        )}
-      </div>
+          </div>
+        )} 
       <div className="rightside">
         {comments.sort((a,b)=> b.createdAt > a.createdAt ? 1:-1).map((comment) => {
           if (

@@ -19,6 +19,10 @@ import "./CommentsManagement.css";
 import { blue } from "@mui/material/colors";
 import { formatDate } from "../../services/utils";
 import { Alert } from "../../components/Alert/Alert";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import DoneIcon from '@mui/icons-material/Done';
+
 
 const CommentsManagement = () => {
   const [action, setAction] = useState("");
@@ -28,13 +32,14 @@ const CommentsManagement = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { admin } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getCommentsList();
   }, []);
 
   useEffect(() => {
-    if (!admin) navigate("/");
+    if (admin === null) navigate("/");
   });
 
   const getCommentsList = async () => {
@@ -114,6 +119,7 @@ const CommentsManagement = () => {
                         }
                         size="small"
                       >
+                        <DeleteIcon />
                         Delete
                       </Button>
                     </CardActions>
@@ -144,7 +150,7 @@ const CommentsManagement = () => {
                     <div className="reason">
                       <Typography>Reason: {comment.reportReason}</Typography>
                     </div>
-                    <CardActions disableSpacing>
+                    <CardActions sx={{display:"flex", justifyContent: "center"}}>
                       <Button
                         variant="contained"
                         color="error"
@@ -153,6 +159,7 @@ const CommentsManagement = () => {
                         }
                         size="small"
                       >
+                        <DeleteIcon /> 
                         Delete
                       </Button>
                       {comment.reportedCommmentEdit ? (
@@ -162,7 +169,8 @@ const CommentsManagement = () => {
                           onClick={() => permissionToEdit(comment)}
                           size="small"
                         >
-                          Remove edit permissions
+                         <EditIcon /> 
+                          Deny Edit
                         </Button>
                       ) : (
                         <Button
@@ -171,7 +179,8 @@ const CommentsManagement = () => {
                           onClick={() => permissionToEdit(comment)}
                           size="small"
                         >
-                          Allow user to edit
+                          <EditIcon />
+                          Allow edit
                         </Button>
                       )}
                       <Button
@@ -182,6 +191,7 @@ const CommentsManagement = () => {
                         }
                         size="small"
                       >
+                         <DoneIcon />
                         Approve
                       </Button>
                     </CardActions>

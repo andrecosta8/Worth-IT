@@ -29,7 +29,7 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    if (!user) navigate("/");
+    if (user === null) navigate("/");
   });
 
   const getCommentsList = async () => {

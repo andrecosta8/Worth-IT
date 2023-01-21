@@ -1,40 +1,49 @@
-import  ShowProducts  from "../../components/ShowProducts/ShowProducts";
+import ShowProducts from "../../components/ShowProducts/ShowProducts";
 import "./Products.css";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Products = () => {
   const [searchProducts, setSearchProducts] = useState("");
+  const[loading, setLoading]= useState(false);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!user) navigate("/");
+    if (user === null) navigate("/");
   });
 
   const inputSearchHandler = (e) => {
+    setLoading(true);
     let timeOutId;
     if (timeOutId) {
       clearTimeout(timeOutId);
     }
     timeOutId = setTimeout(() => {
+      setLoading(false);
       setSearchProducts(e.target.value);
-    }, 500);
+    }, 750);
   };
 
   return (
     <div className="productsPageDesign">
-      <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-      <div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="search-container">
         <input
           name="product"
           placeholder="Search your product..."
-          className="searchInput"
+          className="search-input"
           onChange={(e) => inputSearchHandler(e)}
         />
-        <ShowProducts searchProducts={searchProducts} />
+        <SearchIcon color="primary"/>
       </div>
+      {loading ? <span className="loader"></span> : <div className="showProducts">
+        <ShowProducts searchProducts={searchProducts} />
+      </div>  }
     </div>
   );
 };

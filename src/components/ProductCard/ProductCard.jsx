@@ -8,6 +8,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useProductChangeContext } from "../../providers/ProductProvider";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function ProductCard({
   product,
@@ -46,18 +49,15 @@ export default function ProductCard({
         product={product}
         open={open}
       />
-      <Card className="productCard">
+
+      <Card sx={{ width: 375, margin: 3}}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
+            height="150"
+            width="150"
             image={product.url}
             alt={product.name}
-            onClick={() =>
-              setTimeout(() => {
-                goDetail();
-              }, 200)
-            }
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -65,7 +65,7 @@ export default function ProductCard({
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions sx={{display:"flex", justifyContent: "center"}}>
           <Button
             variant="contained"
             onClick={() =>
@@ -76,6 +76,7 @@ export default function ProductCard({
             size="small"
             color="primary"
           >
+            <KeyboardArrowUpIcon />
             See Details
           </Button>
           {toggleForm && deleteThisProduct && (
@@ -90,6 +91,7 @@ export default function ProductCard({
                 size="small"
                 color="primary"
               >
+                <EditIcon />
                 Edit
               </Button>
               <Button
@@ -102,6 +104,7 @@ export default function ProductCard({
                 }
                 size="small"
               >
+                <DeleteIcon />
                 Delete
               </Button>
             </>

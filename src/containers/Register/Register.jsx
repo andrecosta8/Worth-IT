@@ -1,7 +1,7 @@
 import "./Register.css";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
@@ -9,6 +9,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import { checkEmail, registerNewUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { validateForm } from "../../services/validate";
+
 
 const Register = () => {
   const [user, setUser] = useState({

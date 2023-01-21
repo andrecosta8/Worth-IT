@@ -42,10 +42,6 @@ export default function CommentCard({ comment, getComments, isEditing }) {
     }
   };
 
-  const editThisComment = (comment) => {
-    isEditing(comment);
-  };
-
   const reportThisComment = async (comment, reason) => {
     const reportedComment = {
       id: comment.id,
@@ -93,7 +89,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
         deleteThisComment={deleteThisComment}
         commentToAction={comment}
       />
-      <Card sx={{ width: 400 }}>
+      <Card sx={{ width: 375,  margin:1 }}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -107,23 +103,23 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           <Typography>{comment.body}</Typography>
         </CardContent>
         {user.id === comment.userID ? (
-          <CardActions disableSpacing>
+          <CardActions >
             <Tooltip title="Delete this comment" placement="top-start">
               <IconButton>
-                <DeleteIcon onClick={() => handleClickOpen("deleteComment")} />
+                <DeleteIcon color="error" onClick={() => handleClickOpen("deleteComment")} />
               </IconButton>
             </Tooltip>
             <Tooltip title="Edit this comment" placement="right">
               <IconButton>
-                <EditIcon onClick={() => editThisComment(comment)} />
+                <EditIcon color="primary"  onClick={() => isEditing(comment)} />
               </IconButton>
             </Tooltip>
           </CardActions>
         ) : (
-          <CardActions disableSpacing>
-            <Tooltip title="Report this comment" placement="right">
+          <CardActions sx={{display:"flex", justifyContent: "flex-end"}}>
+            <Tooltip title="Report this comment" placement="left">
               <IconButton>
-                <ReportIcon onClick={handleClickOpenReport} />
+                <ReportIcon color="error" onClick={handleClickOpenReport} />
               </IconButton>
             </Tooltip>
           </CardActions>
