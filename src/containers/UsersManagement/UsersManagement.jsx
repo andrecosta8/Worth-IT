@@ -81,7 +81,7 @@ const UsersManagement = () => {
       />
       {users.map((user) => {
         return (
-          <Card className="card">
+          <Card key={user.id} className="card">
             <CardContent className="cardContent">
               <Typography
                 sx={{ fontSize: 14 }}

@@ -101,6 +101,7 @@ const Detail = () => {
           ) {
             return (
               <CommentCard
+                key={comment.id} 
                 isEditing={isEditing}
                 comment={comment}
                 getComments={getComments}

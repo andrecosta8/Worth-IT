@@ -32,9 +32,9 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   const { user } = useContext(AuthContext);
   const [openReport, setOpenReport] = useState(false);
 
-  const deleteThisComment = (comment) => {
+  const deleteThisComment = async (comment) => {
     try {
-      deleteComment(comment);
+      await deleteComment(comment);
       getComments();
       handleClose();
     } catch (error) {
@@ -46,7 +46,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
     isEditing(comment);
   };
 
-  const reportThisComment = (comment, reason) => {
+  const reportThisComment = async (comment, reason) => {
     const reportedComment = {
       id: comment.id,
       offline: true,
@@ -54,7 +54,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
       reported: true,
     };
     try {
-      updateComment(reportedComment);
+      await updateComment(reportedComment);
       getComments();
       setReason(null);
     } catch (error) {

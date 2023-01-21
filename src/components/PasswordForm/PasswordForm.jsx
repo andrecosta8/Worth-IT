@@ -7,6 +7,7 @@ import Typography from "@mui/joy/Typography";
 import { red  } from "@mui/material/colors";
 import { updateUser } from "../../services/apiCalls";
 import { validateForm } from "../../services/validate";
+import { CssVarsProvider } from "@mui/joy";
 
 export const PasswordForm = ({ user, togglePassForm }) => {
   const [error, setError] = useState("");
@@ -40,6 +41,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
     }
   };
   return (
+    <CssVarsProvider>
       <main>
         <Sheet
           sx={{
@@ -91,6 +93,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
           </Typography>
         </Sheet>
       </main>
+      </CssVarsProvider>
   );
 };
 

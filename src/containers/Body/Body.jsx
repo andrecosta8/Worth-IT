@@ -11,6 +11,7 @@ import React from 'react'
 import Register from "../Register/Register";
 import UsersManagement from '../UsersManagement/UsersManagement';
 import { Route, Routes } from "react-router-dom";
+import NotFound from '../NotFound/NotFound';
 
 const Body = () => {
   return (
@@ -26,6 +27,7 @@ const Body = () => {
       <Route path="/products" element={<Products/>} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </>
   )

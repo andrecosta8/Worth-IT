@@ -74,7 +74,7 @@ const ProductsManagement = () => {
           <div className="productsList">
             {products.map((product) => {
               return (
-                <div id="productCard">
+                <div key={product.id}  id="productCard">
                   <ProductCard
                     product={product}
                     toggleForm={toggleForm}

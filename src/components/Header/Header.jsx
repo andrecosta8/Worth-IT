@@ -34,6 +34,7 @@ const Header = () => {
       let comments = await getAllComments();
       let notificationsArr = [];
       comments.data.map((comment) => {
+        
         if (
           (comment.badWordFlaged || comment.reported) &&
           comment.userID === user.id

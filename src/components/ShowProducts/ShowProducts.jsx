@@ -24,7 +24,7 @@ const ShowProducts = ({ searchProducts }) => {
       {!searchProducts
         ? products.map((product) => {
             return (
-              <ProductCard
+              <ProductCard key={product.id}
                 product={product}
                 getProductsList={getProductsList}
               />
@@ -37,7 +37,7 @@ const ShowProducts = ({ searchProducts }) => {
                 .includes(searchProducts.trim().toLowerCase())
             )
             .map((filteredProduct) => {
-              return <ProductCard product={filteredProduct} />;
+              return <ProductCard key={filteredProduct.id} product={filteredProduct} />;
             })}
     </div>
   );

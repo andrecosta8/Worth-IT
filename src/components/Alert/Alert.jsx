@@ -2,7 +2,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
-import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 const PortalModal = ({ children, wrapperId }) => {

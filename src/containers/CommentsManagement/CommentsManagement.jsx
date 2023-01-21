@@ -92,7 +92,7 @@ const CommentsManagement = () => {
             .map((comment) => {
               if (comment.badWordFlaged)
                 return (
-                  <Card className="commentCard" sx={{ width: 400 }}>
+                  <Card key={comment.id} className="commentCard" sx={{ width: 400 }}>
                     <CardHeader
                       avatar={
                         <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -128,7 +128,7 @@ const CommentsManagement = () => {
             .map((comment) => {
               if (comment.reported)
                 return (
-                  <Card className="commentCard" sx={{ width: 400 }}>
+                  <Card  key={comment.id} className="commentCard" sx={{ width: 400 }}>
                     <CardHeader
                       avatar={
                         <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">

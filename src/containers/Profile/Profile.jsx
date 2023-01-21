@@ -110,7 +110,7 @@ const Profile = () => {
                 {comments.map((comment) => {
                   if (comment.badWordFlaged && comment.userID === user.id)
                     return (
-                      <Card className="profileCommentCard" sx={{ width: 400 }}>
+                      <Card key={comment.id} className="profileCommentCard" sx={{ width: 400 }}>
                         <CardHeader
                           avatar={
                             <Avatar
@@ -153,7 +153,7 @@ const Profile = () => {
                 {comments.map((comment) => {
                   if (comment.reported && comment.userID === user.id)
                     return (
-                      <Card className="profileCommentCard" sx={{ width: 400 }}>
+                      <Card key={comment.id} className="profileCommentCard" sx={{ width: 400 }}>
                         <CardHeader
                           avatar={
                             <Avatar
