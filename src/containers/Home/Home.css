@@ -17,12 +17,14 @@
 .block {
   height: 100px;
   width: 100px;
-  background-color: blue;
+ 
 }
 
 img {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 320px;
+  max-height: 320px;
+  border-radius: 10px;
+  opacity:0.75;
 }
 
 .welcome-message {

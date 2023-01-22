@@ -50,7 +50,8 @@ export default function ProductCard({
       />
 
       <Card sx={{ width: 375, margin: 3}}>
-        <CardActionArea>
+        <CardActionArea
+        sx={{display:"flex", justifyContent: "center", flexDirection: "column", marginTop:1}}>
           <CardMedia
             component="img"
             height="150"
@@ -59,7 +60,7 @@ export default function ProductCard({
             alt={product.name}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h6" component="div">
               {product.name}
             </Typography>
           </CardContent>

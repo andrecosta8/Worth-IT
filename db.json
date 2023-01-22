@@ -31,21 +31,11 @@
   ],
   "products": [
     {
-      "name": "MacBook Pro M1",
-      "brand": "Apple",
-      "model": "Pro 14",
-      "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
-      "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
-      "id": 1,
-      "rating": 4.5
-    },
-    {
       "name": "Mouse Steelseries Rival 3",
       "brand": "Steelseries",
       "model": "Rival 3 Wireless Bluetooth",
       "description": "Mouse Steelseries Rival 3 Wireless, dual connection, bluetooth and 2.4Ghz switch, up to 400 hours of battery",
-      "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/1400-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro.jpg",
-      "overallRating": 3,
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/4787-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro-especificaciones.jpg",
       "id": 2,
       "rating": 3.5
     },
@@ -54,15 +44,26 @@
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
-      "id": 4
+      "rating": "5",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/33/335377/1575-apple-macbook-air-apple-m1-8gb-256gb-ssd-gpu-hepta-core-133-gris-espacial.jpg",
+      "id": 3
     },
     {
       "name": "a",
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
+      "rating": "0",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1039/10392475/1708-apple-macbook-pro-apple-m2-8gb-256gb-ssd-gpu-deca-core-133-gris-espacial.jpg",
+      "id": 4
+    },
+    {
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1034/10347976/1382-logitech-mx-master-3s-performance-raton-inalambrico-8000-dpi-grafito-9205e5c4-4126-47ed-aa39-26ad1df14282.jpg",
+      "rating": "2",
+      "description": "s",
+      "model": "s",
+      "brand": "s",
+      "name": "s",
       "id": 5
     },
     {
@@ -70,7 +71,7 @@
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/58/588544/1736-logitech-mx-keys-mini-teclado-inalambrico-bluetooth-grafito.jpg",
       "id": 6
     },
     {
@@ -78,7 +79,7 @@
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/61/616335/1101-xiaomi-mi-curved-gaming-monitor-34-wqhd-144hz-freesync-premium-curva-caracteristicas.jpg",
       "id": 7
     },
     {
@@ -86,15 +87,7 @@
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
-      "id": 8
-    },
-    {
-      "name": "a",
-      "brand": "a",
-      "model": "a",
-      "description": "a",
-      "url": "a",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1006/10068096/1219-equip-lampara-led-usb-para-monitor.jpg",
       "id": 9
     },
     {
@@ -102,206 +95,39 @@
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
+      "rating": "1",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/57/579778/2222-apple-magic-mouse-plata-comprar.jpg",
       "id": 10
     },
     {
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/57/574332/1363-apple-magic-keyboard-blanco.jpg",
+      "rating": "3",
+      "description": "a",
+      "model": "a",
+      "brand": "a",
+      "name": "a",
+      "id": 11
+    },
+    {
       "name": "a",
       "brand": "a",
       "model": "a",
       "description": "a",
-      "url": "a",
-      "id": 11,
-      "rating": "3.5"
+      "rating": "2",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1029/10294665/1952-dell-xps-15-9520-intel-core-i7-12700h-32gb-1tb-ssd-rtx3050-ti-156-tactil.jpg",
+      "id": 12
+    },
+    {
+      "name": "a",
+      "brand": "a",
+      "model": "a",
+      "description": "a",
+      "rating": "2",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1026/10267770/1100-razer-blackwidow-v3-mini-hyperspeed-teclado-mecanico-inalambrico-gming-rgb-switch-green-us-layout.jpg",
+      "id": 13
     }
   ],
   "comments": [
-    {
-      "body": "fuck fuc",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": true,
-      "offline": true,
-      "createdAt": "2023-01-20T14:19:00.083Z",
-      "id": 9
-    },
-    {
-      "body": "fuck",
-      "productId": 1,
-      "user": "User1",
-      "userID": 1,
-      "reported": false,
-      "badWordFlaged": true,
-      "offline": true,
-      "createdAt": "2023-01-20T14:19:08.015Z",
-      "id": 11
-    },
-    {
-      "body": "sadasd",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T15:22:16.737Z",
-      "id": 14,
-      "editedAt": "2023-01-20T16:00:43.791Z",
-      "reportedCommmentEdit": true,
-      "reportReason": "d"
-    },
-    {
-      "body": "Helllo jjj",
-      "productId": 1,
-      "user": "André",
-      "userID": 4,
-      "reported": true,
-      "badWordFlaged": false,
-      "offline": true,
-      "createdAt": "2023-01-20T16:05:08.698Z",
-      "id": 15,
-      "editedAt": "2023-01-20T19:23:56.058Z",
-      "reportedCommmentEdit": false,
-      "reportReason": "zxczczczxczzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-    },
-    {
-      "badWordFlaged": true,
-      "body": "fuck",
-      "createdAt": "2023-01-21T12:12:41.211Z",
-      "offline": true,
-      "productId": 1,
-      "reported": false,
-      "user": "André",
-      "userID": 4,
-      "id": 28
-    },
-    {
-      "badWordFlaged": true,
-      "body": "fuck",
-      "createdAt": "2023-01-21T12:13:53.813Z",
-      "offline": true,
-      "productId": 1,
-      "reported": false,
-      "user": "André",
-      "userID": 4,
-      "id": 29
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:25.132Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 31
-    },
-    {
-      "badWordFlaged": false,
-      "body": "abc",
-      "createdAt": "2023-01-21T16:03:25.343Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 32,
-      "reportedCommmentEdit": false
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:27.748Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 33
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:29.845Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 34
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:32.622Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 35
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:34.902Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 36
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:36.956Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 37
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:38.913Z",
-      "offline": true,
-      "productId": 1,
-      "reported": true,
-      "user": "User1",
-      "userID": 1,
-      "id": 38,
-      "reportReason": "zxcxzc"
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:41.602Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 39,
-      "reportedCommmentEdit": false
-    },
-    {
-      "badWordFlaged": false,
-      "body": "a",
-      "createdAt": "2023-01-21T16:03:44.057Z",
-      "offline": true,
-      "productId": 1,
-      "reported": true,
-      "user": "User1",
-      "userID": 1,
-      "id": 40,
-      "reportReason": "dsdfsf"
-    },
     {
       "badWordFlaged": false,
       "body": "sadasdad",
@@ -347,17 +173,6 @@
       "id": 45,
       "reportReason": "dfsfsf",
       "reportedCommmentEdit": false
-    },
-    {
-      "badWordFlaged": false,
-      "body": "novo comentário",
-      "createdAt": "2023-01-22T16:38:05.666Z",
-      "offline": false,
-      "productId": 1,
-      "reported": false,
-      "user": "André",
-      "userID": 4,
-      "id": 47
     }
   ]
 }
