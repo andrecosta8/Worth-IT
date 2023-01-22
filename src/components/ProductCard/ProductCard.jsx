@@ -21,7 +21,6 @@ export default function ProductCard({
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const productSelect = useProductChangeContext();
-  const { user, admin } = useContext(AuthContext);
 
   const goDetail = () => {
     setTimeout(() => {

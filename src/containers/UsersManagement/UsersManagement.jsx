@@ -9,6 +9,9 @@ import { Alert } from "../../components/Alert/Alert";
 import { AuthContext } from "../../providers/AuthProvider";
 import { deleteUser, getAllUsers, updateUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
+import DoneIcon from '@mui/icons-material/Done';
+import CloseIcon from '@mui/icons-material/Close';
 
 const UsersManagement = () => {
   const [action, setAction] = useState("");
@@ -31,31 +34,34 @@ const UsersManagement = () => {
     try {
       let response = await getAllUsers();
       setUsers(response.data);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error)
     }
   };
 
-  const deleteThisUser = (user) => {
+  const deleteThisUser = async (user) => {
     try {
-      deleteUser(user);
+      await deleteUser(user);
       getUsersList();
       handleClose();
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
-  const makeAdmin = (user) => {
+  const makeAdmin = async (user) => {
     let updatedUser = {
       id: user.id,
       isAdmin: !user.isAdmin,
     };
     try {
-      updateUser(updatedUser);
+      await updateUser(updatedUser);
       getUsersList();
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
@@ -71,7 +77,10 @@ const UsersManagement = () => {
   };
 
   return (
-    <div className="adminDesign">
+    <div className="adminUsersDesign">
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
       <Alert
         action={action}
         deleteThisUser={deleteThisUser}
@@ -103,7 +112,8 @@ const UsersManagement = () => {
                   onClick={() => makeAdmin(user)}
                   size="small"
                 >
-                  Remove from admin
+                  <CloseIcon />
+                  Remove admin
                 </Button>
               ) : (
                 <Button
@@ -112,6 +122,7 @@ const UsersManagement = () => {
                   onClick={() => makeAdmin(user)}
                   size="small"
                 >
+                  <DoneIcon />
                   Set as Admin
                 </Button>
               )}
@@ -121,6 +132,7 @@ const UsersManagement = () => {
                 onClick={() => handleClickOpen("deleteUser", user)}
                 size="small"
               >
+                 <DeleteIcon />
                 Delete User
               </Button>
             </CardActions>

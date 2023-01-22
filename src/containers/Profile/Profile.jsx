@@ -14,6 +14,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
 
 const Profile = () => {
   const [comments, setComments] = useState([]);
@@ -36,17 +37,23 @@ const Profile = () => {
     try {
       let response = await getAllComments();
       setComments(response.data);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
-  const deleteThisComment = comment => {
-    deleteComment(comment);
-    getCommentsList();
+  const deleteThisComment = async (comment) => {
+    try {
+      await deleteComment(comment);
+      getCommentsList();
+    } catch (err) {
+      setError(err);
+      console.error(error);
+    }
   };
 
-  const toggleCommentBox = comment => {
+  const toggleCommentBox = (comment) => {
     setCommentBox(!commentBox);
     setCommentToEdit(comment);
   };
@@ -61,9 +68,9 @@ const Profile = () => {
         <PasswordForm user={user} togglePassForm={togglePassForm} />
       ) : (
         <>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
           <div className="profileHeader">
             <Card className="card">
               <CardContent className="cardContent">
@@ -106,11 +113,20 @@ const Profile = () => {
           ) : (
             <div className="commentsDiv">
               <div className="flagedComments">
-                <div className="title">FLAGED COMMENTS:</div>
+                <Tooltip
+                  title="These comments were automatically flagged for using profanity."
+                  placement="bottom"
+                >
+                  <div className="title">FLAGGED COMMENTS:</div>
+                </Tooltip>
                 {comments.map((comment) => {
                   if (comment.badWordFlaged && comment.userID === user.id)
                     return (
-                      <Card key={comment.id} className="profileCommentCard" sx={{ width: 400 }}>
+                      <Card
+                        key={comment.id}
+                        className="profileCommentCard"
+                        sx={{ width: 400 }}
+                      >
                         <CardHeader
                           avatar={
                             <Avatar
@@ -149,11 +165,20 @@ const Profile = () => {
                 })}
               </div>
               <div className="reportedComments">
-                <div className="title">REPORTED COMMENTS:</div>
+                <Tooltip
+                  title="These comments were reported by some user"
+                  placement="bottom"
+                >
+                  <div className="title">REPORTED COMMENTS:</div>
+                </Tooltip>
                 {comments.map((comment) => {
                   if (comment.reported && comment.userID === user.id)
                     return (
-                      <Card key={comment.id} className="profileCommentCard" sx={{ width: 400 }}>
+                      <Card
+                        key={comment.id}
+                        className="profileCommentCard"
+                        sx={{ width: 400 }}
+                      >
                         <CardHeader
                           avatar={
                             <Avatar

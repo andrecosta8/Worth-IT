@@ -27,8 +27,9 @@ const ProductsManagement = () => {
     try {
       let response = await getAllProducts();
       setProducts(response.data);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
@@ -36,8 +37,9 @@ const ProductsManagement = () => {
     try {
       deleteProduct(product);
       getProductsList();
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
@@ -48,6 +50,9 @@ const ProductsManagement = () => {
 
   return (
     <div className="productsManagement">
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
       {form ? (
         <ProductForm
           productToEdit={productToEdit}

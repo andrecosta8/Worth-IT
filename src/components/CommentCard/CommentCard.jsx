@@ -18,7 +18,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Alert } from "../Alert/Alert";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Tooltip } from "@mui/joy";
+import Tooltip from '@mui/material/Tooltip';
 import { blue } from "@mui/material/colors";
 import { deleteComment, updateComment } from "../../services/apiCalls";
 import { formatDate } from "../../services/utils";
@@ -37,8 +37,9 @@ export default function CommentCard({ comment, getComments, isEditing }) {
       await deleteComment(comment);
       getComments();
       handleClose();
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
@@ -53,8 +54,8 @@ export default function CommentCard({ comment, getComments, isEditing }) {
       await updateComment(reportedComment);
       getComments();
       setReason(null);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
     }
   };
 
@@ -89,7 +90,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
         deleteThisComment={deleteThisComment}
         commentToAction={comment}
       />
-      <Card sx={{ width: 375,  margin:1 }}>
+      <Card sx={{ width: 375, margin: 1 }}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -103,20 +104,23 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           <Typography>{comment.body}</Typography>
         </CardContent>
         {user.id === comment.userID ? (
-          <CardActions >
+          <CardActions>
             <Tooltip title="Delete this comment" placement="top-start">
               <IconButton>
-                <DeleteIcon color="error" onClick={() => handleClickOpen("deleteComment")} />
+                <DeleteIcon
+                  color="error"
+                  onClick={() => handleClickOpen("deleteComment")}
+                />
               </IconButton>
             </Tooltip>
             <Tooltip title="Edit this comment" placement="right">
               <IconButton>
-                <EditIcon color="primary"  onClick={() => isEditing(comment)} />
+                <EditIcon color="primary" onClick={() => isEditing(comment)} />
               </IconButton>
             </Tooltip>
           </CardActions>
         ) : (
-          <CardActions sx={{display:"flex", justifyContent: "flex-end"}}>
+          <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Tooltip title="Report this comment" placement="left">
               <IconButton>
                 <ReportIcon color="error" onClick={handleClickOpenReport} />

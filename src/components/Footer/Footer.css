@@ -1,14 +1,22 @@
 .footerDesign {
-  height: 8vh;
+  height: 6vh;
   width: 100vw;
-  background-color: black;
+  background-color: rgb(43, 39, 39);
   position: fixed;
   bottom: 0;
-  color: wheat;
+  color: white;
+  z-index:3;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 900px) {
   .footerDesign {
     display: none;
   }
+}
+
+.madeby{
+  margin-right: 10em;
+  margin-top: 0.5em;
 }

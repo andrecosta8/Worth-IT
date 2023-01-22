@@ -1,11 +1,22 @@
-.adminDesign{
+.adminUsersDesign{
     align-items: center;   
     display: flex;  
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 8vh;
-    margin-top: 10vh;
-}
+    margin-top: 18vh;
+    animation: fadeIn 2s;
+    opacity: 1;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+     opacity: 1;
+    }
+  }
 
 .card {
     margin-bottom: 2em;

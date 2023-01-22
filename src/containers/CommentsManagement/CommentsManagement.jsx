@@ -1,4 +1,4 @@
-import { IconButton, Typography } from "@mui/joy";
+import { Typography } from "@mui/joy";
 import Button from "@mui/material/Button";
 import {
   Avatar,
@@ -21,8 +21,7 @@ import { formatDate } from "../../services/utils";
 import { Alert } from "../../components/Alert/Alert";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import DoneIcon from '@mui/icons-material/Done';
-
+import DoneIcon from "@mui/icons-material/Done";
 
 const CommentsManagement = () => {
   const [action, setAction] = useState("");
@@ -32,7 +31,7 @@ const CommentsManagement = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { admin } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getCommentsList();
@@ -46,34 +45,50 @@ const CommentsManagement = () => {
     try {
       let response = await getAllComments();
       setComments(response.data);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 
-  const deleteThisComment = (comment) => {
-    deleteComment(comment);
-    getCommentsList();
-    handleClose();
+  const deleteThisComment = async (comment) => {
+    try {
+      await deleteComment(comment);
+      getCommentsList();
+      handleClose();
+    } catch (err) {
+      setError(err);
+      console.error(error);
+    }
   };
 
-  const approveThisComment = (comment) => {
-    updateComment({
-      id: comment.id,
-      offline: false,
-      reported: false,
-      reportedCommmentEdit: false,
-    });
-    getCommentsList();
-    handleClose();
+  const approveThisComment = async (comment) => {
+    try {
+      await updateComment({
+        id: comment.id,
+        offline: false,
+        reported: false,
+        reportedCommmentEdit: false,
+      });
+      getCommentsList();
+      handleClose();
+    } catch (err) {
+      setError(err);
+      console.error(error);
+    }
   };
 
-  const permissionToEdit = (comment) => {
-    updateComment({
-      id: comment.id,
-      reportedCommmentEdit: !comment.reportedCommmentEdit,
-    });
-    getCommentsList();
+  const permissionToEdit = async (comment) => {
+    try {
+      await updateComment({
+        id: comment.id,
+        reportedCommmentEdit: !comment.reportedCommmentEdit,
+      });
+      getCommentsList();
+    } catch (err) {
+      setError(err);
+      console.error(error);
+    }
   };
 
   const handleClickOpen = (actionToDo, comment) => {
@@ -89,15 +104,22 @@ const CommentsManagement = () => {
 
   return (
     <div className="adminCommentsDesign">
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
       <div className="commentsDiv">
         <div className="badWordsCommentsDesign">
-          <div className="title">BAD WORDS FLAGED COMMENTS:</div>
+          <div className="title">BAD WORDS FLAGGED COMMENTS:</div>
           {comments
             .sort((a, b) => (b.createdAt > a.createdAt ? 1 : -1))
             .map((comment) => {
               if (comment.badWordFlaged)
                 return (
-                  <Card key={comment.id} className="commentCard" sx={{ width: 400 }}>
+                  <Card
+                    key={comment.id}
+                    className="commentCard"
+                    sx={{ width: 400 }}
+                  >
                     <CardHeader
                       avatar={
                         <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -134,7 +156,11 @@ const CommentsManagement = () => {
             .map((comment) => {
               if (comment.reported)
                 return (
-                  <Card  key={comment.id} className="commentCard" sx={{ width: 400 }}>
+                  <Card
+                    key={comment.id}
+                    className="commentCard"
+                    sx={{ width: 400 }}
+                  >
                     <CardHeader
                       avatar={
                         <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -150,7 +176,9 @@ const CommentsManagement = () => {
                     <div className="reason">
                       <Typography>Reason: {comment.reportReason}</Typography>
                     </div>
-                    <CardActions sx={{display:"flex", justifyContent: "center"}}>
+                    <CardActions
+                      sx={{ display: "flex", justifyContent: "center" }}
+                    >
                       <Button
                         variant="contained"
                         color="error"
@@ -159,7 +187,7 @@ const CommentsManagement = () => {
                         }
                         size="small"
                       >
-                        <DeleteIcon /> 
+                        <DeleteIcon />
                         Delete
                       </Button>
                       {comment.reportedCommmentEdit ? (
@@ -169,7 +197,7 @@ const CommentsManagement = () => {
                           onClick={() => permissionToEdit(comment)}
                           size="small"
                         >
-                         <EditIcon /> 
+                          <EditIcon />
                           Deny Edit
                         </Button>
                       ) : (
@@ -191,7 +219,7 @@ const CommentsManagement = () => {
                         }
                         size="small"
                       >
-                         <DoneIcon />
+                        <DoneIcon />
                         Approve
                       </Button>
                     </CardActions>

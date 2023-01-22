@@ -1,36 +1,102 @@
 .detailProductDesign {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 12vh;
-    width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16vh;
+  margin-bottom: 8vh;
+  animation: fadeIn 2s;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+   opacity: 1;
+  }
 }
 
 .rightside {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 77vh;
-    overflow: scroll;   
-    width: 50vw;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 77vh;
 }
 
-.rightside::-webkit-scrollbar{
-    display:none;
+.rightside::-webkit-scrollbar {
+  display: none;
 }
 
 .leftside {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    align-items: center;
-    justify-content: center;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .productDetail {
-    width: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
 }
 
-img {
-    max-width: 600px;
+.product-image {
+  max-width: 500px;
+  max-height: 300px;
+  border: 5px solid;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
+
+.createNewCommentButton {
+  position: sticky;
+  z-index: 1;
+}
+
+.product-name {
+  width: 300px;
+  height: 25px;
+  background-color: lightgray;
+  opacity: 0.75;
+  border-radius: 5px;
+  font-size: x-large;
+  margin-bottom: 1em;
+}
+
+.brand-and-model {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 0.5em;
+  background-color: lightgray;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+.product-brand {
+  margin-right: 1em;
+}
+
+.product-description {
+  text-align: justify;
+  width: 300px;
+  height: auto;
+  background-color: lightgray;
+  opacity: 0.75;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+
+@media only screen and (max-width: 900px) {
+  .detailProductDesign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+  }
+  .rightside {
+    margin-top: 1em;
+  }
+}
+

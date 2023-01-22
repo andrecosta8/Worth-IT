@@ -10,10 +10,11 @@ import {
 } from "../../services/apiCalls";
 import { AuthContext } from "../../providers/AuthProvider";
 import "./CommentBox.css";
+import SendIcon from "@mui/icons-material/Send";
+import { IconButton } from "@mui/material";
 
 export default function CommentBox({
   comment,
-  edit,
   getComments,
   productId,
   toggleCommentBox,
@@ -21,14 +22,12 @@ export default function CommentBox({
   const [textAreaValue, setTextAreaValue] = useState("");
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
-  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     if (comment) {
       setTextAreaValue(comment.body);
     }
-    setUpdate(edit);
-  }, [comment, edit]);
+  }, [comment]);
 
   const afterSubmitComment = () => {
     getComments();
@@ -54,8 +53,9 @@ export default function CommentBox({
       try {
         await createNewComment(newComment);
         afterSubmitComment();
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err);
+        console.error(error);
       }
     }
   };
@@ -75,15 +75,15 @@ export default function CommentBox({
       try {
         await updateComment(updatedComment);
         afterSubmitComment();
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err);
       }
     }
   };
 
   return (
     <div className="commentBoxDesign">
-      <FormControl className="formControl">
+      <FormControl sx={{ maxWidth: 500 }} className="formControl">
         <Textarea
           name="commentBody"
           value={textAreaValue}
@@ -96,38 +96,37 @@ export default function CommentBox({
           endDecorator={
             <Box
               sx={{
-                display: "flex",
-                gap: "var(--Textarea-paddingBlock)",
-                pt: "var(--Textarea-paddingBlock)",
                 borderTop: "1px solid",
                 borderColor: "divider",
                 flex: "auto",
               }}
             >
               {error && <p className="errorMessage">{error}</p>}
-
-              <Button sx={{ ml: "auto" }} onClick={() => toggleCommentBox()}>
-                {" "}
-                Cancel
-              </Button>
-              {update === true ? (
-                <Button
+              <IconButton onClick={() => afterSubmitComment()}>
+                <Button sx={{ ml: "auto" }}>Cancel</Button>
+              </IconButton>
+              {comment ? (
+                <IconButton
                   onClick={() => {
                     updateThisComment();
                   }}
-                  sx={{ ml: "auto" }}
                 >
-                  Send
-                </Button>
+                  <Button sx={{ ml: "auto" }}>
+                    Send
+                    <SendIcon />
+                  </Button>
+                </IconButton>
               ) : (
-                <Button
+                <IconButton
                   onClick={() => {
                     createComment();
                   }}
-                  sx={{ ml: "auto" }}
                 >
-                  Send
-                </Button>
+                  <Button sx={{ ml: "auto" }}>
+                    Send
+                    <SendIcon />
+                  </Button>
+                </IconButton>
               )}
             </Box>
           }

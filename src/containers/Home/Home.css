@@ -1,10 +1,50 @@
-.homeDesign{
-    padding-top: 15vh;
-    padding-bottom: 8vh;
+.homeDesign {
+  padding-top: 15vh;
+  padding-bottom: 8vh;
+  animation: fadeIn 2s;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+   opacity: 1;
+  }
 }
 
 .block {
-    height: 100px;
-    width: 100px;
-    background-color: blue;
+  height: 100px;
+  width: 100px;
+  background-color: blue;
 }
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.welcome-message {
+  text-align: justify;
+  height: auto;
+  background-color: lightgray;
+  opacity: 0.75;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding:0.5em;
+  margin-bottom: 3em;
+}
+
+@media only screen and (max-width: 900px) {
+    .homeDesign {
+        padding-top: 10vh; 
+    }
+
+    .welcome-message {
+    margin-bottom: 1em; 
+    }
+  }
+  

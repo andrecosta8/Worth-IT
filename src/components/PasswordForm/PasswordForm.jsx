@@ -20,7 +20,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
     }));
   };
 
-  const changePassword = () => {
+  const changePassword = async () => {
     if (newPassword.newPassword === newPassword.repeatPassword) {
       let validationError = validateForm({
         email: user.email,
@@ -29,7 +29,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
       });
 
       if (!validationError) {
-        updateUser({
+       await updateUser({
           id: user.id,
           password: newPassword.newPassword,
         });

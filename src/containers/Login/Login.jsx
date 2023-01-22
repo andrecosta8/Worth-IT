@@ -47,17 +47,18 @@ const Login = () => {
             navigate("/profile");
           }, 250);
       }
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.log(error)
     }
   };
 
   return (
     <CssVarsProvider>
       <div className="loginDesign">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
         <main>
           <Sheet
             sx={{

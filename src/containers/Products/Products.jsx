@@ -29,10 +29,10 @@ const Products = () => {
 
   return (
     <div className="productsPageDesign">
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="search-container">
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="search-container">
         <input
           name="product"
           placeholder="Search your product..."

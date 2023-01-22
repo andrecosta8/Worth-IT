@@ -12,40 +12,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Badge } from "@mui/material";
-import { getAllComments } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
-const Header = ({notifications}) => {
+const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [error, setError] = useState(null);
-  
   const navigate = useNavigate();
   const { admin, user } = useContext(AuthContext);
   const { removeAdminFromContext } = useContext(AuthContext);
   const { removeUserFromContext } = useContext(AuthContext);
-
-
-  // const getNotifications = async () => {
-  //   try {
-  //     let comments = await getAllComments();
-  //     let notificationsArr = [];
-  //     comments.data.map((comment) => {
-        
-  //       if (
-  //         (comment.badWordFlaged || comment.reported) &&
-  //         comment.userID === user.id
-  //       ) {
-  //         notificationsArr.push(comment);
-  //       }
-  //     });
-  //     setNotifications(notificationsArr.length);
-  //   } catch (error) {
-  //     setError(error);
-  //   }
-  // };
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -94,14 +69,14 @@ const Header = ({notifications}) => {
               >
                 <MenuIcon />
               </IconButton>
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/");
-                  }, 250)
-                }
-              >
-                <IconButton>
+              <Button>
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/");
+                    }, 250)
+                  }
+                >
                   <HomeIcon />
                 </IconButton>
               </Button>
@@ -213,52 +188,35 @@ const Header = ({notifications}) => {
             >
               Worth IT?
             </Typography>
-            <IconButton >
-                  <KeyboardBackspaceIcon onClick={() => navigate(-1)} />
-                </IconButton>
+            <IconButton onClick={() => navigate(-1)}>
+              <KeyboardBackspaceIcon />
+            </IconButton>
 
             <Box
               className="box"
               sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             >
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    navigate("/");
-                  }, 250)
-                }
-              >
-                <IconButton>
+              <Button>
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/");
+                    }, 250)
+                  }
+                >
                   <HomeIcon />
                 </IconButton>
               </Button>
-              {user && !admin && (
-                <IconButton>
-                  <Badge badgeContent={notifications} color="error">
-                  <Button
-                    onClick={() =>
-                      setTimeout(() => {
-                        navigate("/profile");
-                      }, 250)
-                    }
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    
-                      Profile
-                    
-                  </Button>
-                  </Badge>
-                </IconButton>
-              )}
               {user && (
-                <IconButton>
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/products");
+                    }, 250)
+                  }
+                >
                   <Button
                     className="NavBar-buttons"
-                    onClick={() =>
-                      setTimeout(() => {
-                        navigate("/products");
-                      }, 250)
-                    }
                     sx={{ my: 3, color: "white", display: "block" }}
                   >
                     Products
@@ -266,56 +224,65 @@ const Header = ({notifications}) => {
                 </IconButton>
               )}
               {!user && (
-                <IconButton>
-                  <Button
-                    onClick={() =>
-                      setTimeout(() => {
-                        navigate("/register");
-                      }, 250)
-                    }
-                    sx={{ my: 3, color: "white", display: "block" }}
-                  >
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/register");
+                    }, 250)
+                  }
+                >
+                  <Button sx={{ my: 3, color: "white", display: "block" }}>
                     Register
                   </Button>
                 </IconButton>
               )}
+              {user && !admin && (
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/profile");
+                    }, 250)
+                  }
+                >
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Profile
+                  </Button>
+                </IconButton>
+              )}
               {admin && (
-                <IconButton>
-                  <Button
-                    onClick={() =>
-                      setTimeout(() => {
-                        navigate("/admin");
-                      }, 250)
-                    }
-                    sx={{ my: 3, color: "white", display: "block" }}
-                  >
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/admin");
+                    }, 250)
+                  }
+                >
+                  <Button sx={{ my: 3, color: "white", display: "block" }}>
                     Admin
                   </Button>
                 </IconButton>
               )}
               {user ? (
-                <IconButton>
-                  <Button
-                    onClick={() =>
-                      setTimeout(() => {
-                        logOut();
-                      }, 250)
-                    }
-                    sx={{ my: 3, color: "white", display: "block" }}
-                  >
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      logOut();
+                    }, 250)
+                  }
+                >
+                  <Button sx={{ my: 3, color: "white", display: "block" }}>
                     Logout
                   </Button>
                 </IconButton>
               ) : (
-                <IconButton>
-                  <Button
-                    onClick={() =>
-                      setTimeout(() => {
-                        navigate("/login");
-                      }, 250)
-                    }
-                    sx={{ my: 3, color: "white", display: "block" }}
-                  >
+                <IconButton
+                  onClick={() =>
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 250)
+                  }
+                >
+                  <Button sx={{ my: 3, color: "white", display: "block" }}>
                     {" "}
                     Login
                   </Button>

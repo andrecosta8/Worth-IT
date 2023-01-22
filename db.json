@@ -37,8 +37,7 @@
       "description": "Macbook Pro M1 14 inch, 512GB, 16GB RAM, Retina Screen",
       "url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/11/Thumbnail.jpg?w=1500&quality=82&strip=all&ssl=1",
       "id": 1,
-      "overallRating": 5,
-      "rating": ""
+      "rating": 4.5
     },
     {
       "name": "Mouse Steelseries Rival 3",
@@ -48,7 +47,7 @@
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/39/395797/1400-steelseries-rival-3-wireless-raton-gaming-inalambrico-18000-dpi-negro.jpg",
       "overallRating": 3,
       "id": 2,
-      "rating": ""
+      "rating": 3.5
     },
     {
       "name": "a",
@@ -112,7 +111,8 @@
       "model": "a",
       "description": "a",
       "url": "a",
-      "id": 11
+      "id": 11,
+      "rating": "3.5"
     }
   ],
   "comments": [
@@ -201,14 +201,15 @@
     },
     {
       "badWordFlaged": false,
-      "body": "a",
+      "body": "abc",
       "createdAt": "2023-01-21T16:03:25.343Z",
       "offline": false,
       "productId": 1,
       "reported": false,
       "user": "User1",
       "userID": 1,
-      "id": 32
+      "id": 32,
+      "reportedCommmentEdit": false
     },
     {
       "badWordFlaged": false,
@@ -269,12 +270,13 @@
       "badWordFlaged": false,
       "body": "a",
       "createdAt": "2023-01-21T16:03:38.913Z",
-      "offline": false,
+      "offline": true,
       "productId": 1,
-      "reported": false,
+      "reported": true,
       "user": "User1",
       "userID": 1,
-      "id": 38
+      "id": 38,
+      "reportReason": "zxcxzc"
     },
     {
       "badWordFlaged": false,
@@ -285,18 +287,77 @@
       "reported": false,
       "user": "User1",
       "userID": 1,
-      "id": 39
+      "id": 39,
+      "reportedCommmentEdit": false
     },
     {
       "badWordFlaged": false,
       "body": "a",
       "createdAt": "2023-01-21T16:03:44.057Z",
-      "offline": false,
+      "offline": true,
       "productId": 1,
+      "reported": true,
+      "user": "User1",
+      "userID": 1,
+      "id": 40,
+      "reportReason": "dsdfsf"
+    },
+    {
+      "badWordFlaged": false,
+      "body": "sadasdad",
+      "createdAt": "2023-01-22T15:36:47.610Z",
+      "offline": false,
+      "productId": 2,
       "reported": false,
       "user": "User1",
       "userID": 1,
-      "id": 40
+      "id": 42
+    },
+    {
+      "badWordFlaged": false,
+      "body": "asdasd",
+      "createdAt": "2023-01-22T15:36:52.515Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "User1",
+      "userID": 1,
+      "id": 43
+    },
+    {
+      "badWordFlaged": false,
+      "body": "sdfsdfsdf",
+      "createdAt": "2023-01-22T15:36:58.735Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "User1",
+      "userID": 1,
+      "id": 44
+    },
+    {
+      "badWordFlaged": false,
+      "body": "dsfsfdsfd",
+      "createdAt": "2023-01-22T15:37:04.117Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "User1",
+      "userID": 1,
+      "id": 45,
+      "reportReason": "dfsfsf",
+      "reportedCommmentEdit": false
+    },
+    {
+      "badWordFlaged": false,
+      "body": "novo comentário",
+      "createdAt": "2023-01-22T16:38:05.666Z",
+      "offline": false,
+      "productId": 1,
+      "reported": false,
+      "user": "André",
+      "userID": 4,
+      "id": 47
     }
   ]
 }

@@ -9,14 +9,15 @@ const ShowProducts = ({ searchProducts }) => {
 
   useEffect(() => {
     getProductsList();
-  }, []);
+  },[]);
 
   const getProductsList = async () => {
     try {
       let response = await getAllProducts();
       setProducts(response.data);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
 

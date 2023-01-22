@@ -18,16 +18,16 @@ const Admin = () => {
 
   const togglePassForm = () => {
     setPassForm(!passForm);
-  };
+  }
 
   return (
     <div className="adminHomeDesign">
        {passForm ? (
         <PasswordForm user={user} togglePassForm={togglePassForm} />
       ) : <>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
+      <div className="wave"></div>
       <div className="adminProfile">
       <Card className="card" >
       <CardContent className="cardContent">

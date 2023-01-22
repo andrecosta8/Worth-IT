@@ -30,6 +30,7 @@ const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
       getProductsList();
     } catch (error) {
       setError(error);
+      console.error(error);
     }
   };
 
@@ -38,8 +39,9 @@ const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
       updateProduct(product);
       toggleForm();
       getProductsList();
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.error(error);
     }
   };
   return (
@@ -114,6 +116,17 @@ const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
           label="Description:"
           value={product.description}
           placeholder="Description"
+          onChange={(e) => {
+            handleData(e);
+          }}
+        />
+        <TextField
+          // html input attribute
+          type="number"
+          name="rating"
+          label="Rating:"
+          value={product.rating}
+          placeholder="Rating"
           onChange={(e) => {
             handleData(e);
           }}
