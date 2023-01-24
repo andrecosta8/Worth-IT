@@ -9,7 +9,7 @@ const ShowProducts = ({ searchProducts }) => {
 
   useEffect(() => {
     getProductsList();
-  },[]);
+  }, []);
 
   const getProductsList = async () => {
     try {
@@ -26,12 +26,11 @@ const ShowProducts = ({ searchProducts }) => {
       {!searchProducts
         ? products.map((product) => {
             return (
-              <div key={product.id}  id="productCard">
-                  <ProductCard
-               product={product}
-               getProductsList={getProductsList}
-                  />
-                </div>
+              <ProductCard
+                key={product.id}
+                product={product}
+                getProductsList={getProductsList}
+              />
             );
           })
         : products
@@ -41,7 +40,15 @@ const ShowProducts = ({ searchProducts }) => {
                 .includes(searchProducts.trim().toLowerCase())
             )
             .map((filteredProduct) => {
-              return <div id="productCard"> <ProductCard key={filteredProduct.id} product={filteredProduct} /> </div>; 
+              return (
+                <div id="productCard">
+                  {" "}
+                  <ProductCard
+                    key={filteredProduct.id}
+                    product={filteredProduct}
+                  />{" "}
+                </div>
+              );
             })}
     </div>
   );

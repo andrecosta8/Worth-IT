@@ -276,6 +276,7 @@ const Header = () => {
                 </IconButton>
               ) : (
                 <IconButton
+                  data-testid="login-button"
                   onClick={() =>
                     setTimeout(() => {
                       navigate("/login");

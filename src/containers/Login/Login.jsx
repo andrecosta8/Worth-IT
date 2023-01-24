@@ -11,6 +11,7 @@ import { loginUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -53,9 +54,10 @@ const Login = () => {
     }
   };
 
+
   return (
     <CssVarsProvider>
-      <div className="loginDesign">
+      <div data-testeid="loginForm" className="loginDesign">
         <div className="wave"></div>
         <div className="wave"></div>
         <div className="wave"></div>
@@ -82,26 +84,29 @@ const Login = () => {
               <Typography level="body2">Sign in to continue.</Typography>
             </div>
             <TextField
-              // html input attribute
+              data-testid="email-input"
               name="email"
               type="email"
               placeholder="johndoe@email.com"
-              // pass down to FormLabel as children
               label="Email"
+              value={user.email}
               onChange={(e) => {
                 handleData(e);
               }}
             />
             <TextField
+              data-testid="password-input"
               name="password"
               type="password"
               placeholder="password"
               label="Password"
+              value={(e)=> e.email}
               onChange={(e) => {
                 handleData(e);
               }}
             />
             <Button
+              data-testid="confirm-login"
               onClick={() => {
                 login(user);
               }}

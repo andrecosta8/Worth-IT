@@ -31,7 +31,7 @@ const Home = () => {
     <div className='homeDesign'>
       <div className="wave"></div><div className="wave"></div><div className="wave"></div>
       <div className="welcome-message">
-      <p>Welcome to Worth IT?!</p>
+      <p data-testid="title">Welcome to Worth IT?!</p>
       Worth IT? is a application that allow the developers or tech lovers to comment dev products and give this opinion about it.
       See bellow some of the review products by worldwide developers. If you want to see details and join our discussions please register and log in.
       <p>You will realize that Worth IT!!!</p>
@@ -51,7 +51,7 @@ const Home = () => {
           slidesPerView: 2,
           spaceBetween:20,
         },
-        900: {
+        1000: {
           slidesPerView: 3,
           spaceBetween: 50,
         }

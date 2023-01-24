@@ -54,7 +54,6 @@ export const updateUser = async (user) => {
 
 //COMMENTS
 export const createNewComment = async (comment) => {
-  console.log("HERE")
   return await axios.post(`${API_BASE_URL}comments`, comment);
 };
 

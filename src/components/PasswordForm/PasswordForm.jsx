@@ -42,7 +42,6 @@ export const PasswordForm = ({ user, togglePassForm }) => {
   };
   return (
     <CssVarsProvider>
-      <main>
         <Sheet
           sx={{
             borderRadius: "sm",
@@ -92,7 +91,6 @@ export const PasswordForm = ({ user, togglePassForm }) => {
             <div>{error && error}</div>
           </Typography>
         </Sheet>
-      </main>
       </CssVarsProvider>
   );
 };

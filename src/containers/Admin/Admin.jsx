@@ -32,8 +32,10 @@ const Admin = () => {
       <Card className="card" >
       <CardContent className="cardContent">
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <div>
           <h3>Admin: {user.name}</h3>
           <h5>ID: {user.id}</h5>
+          </div>
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           <h5>E-mail: {user.email}</h5>
