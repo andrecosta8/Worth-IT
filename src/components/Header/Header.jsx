@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import "./Header.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import "./Header.css";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import HomeIcon from "@mui/icons-material/Home";
+import IconButton from "@mui/material/IconButton";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import React, { useContext, useState } from "react";
+import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);

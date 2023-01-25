@@ -19,8 +19,8 @@ export default function CommentBox({
   productId,
   toggleCommentBox,
 }) {
-  const [textAreaValue, setTextAreaValue] = useState("");
   const [error, setError] = useState(null);
+  const [textAreaValue, setTextAreaValue] = useState("");
   const { user } = useContext(AuthContext);
 
   useEffect(() => {

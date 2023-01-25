@@ -1,21 +1,20 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import React, { useContext, useState } from "react";
-import Typography from "@mui/material/Typography";
-import { Alert } from "../Alert/Alert";
-import { AuthContext } from "../../providers/AuthProvider";
-import { Button, CardActionArea, CardActions } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useProductChangeContext } from "../../providers/ProductProvider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import React, { useState } from "react";
+import Typography from "@mui/material/Typography";
+import { Alert } from "../Alert/Alert";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useProductChangeContext } from "../../providers/ProductProvider";
 
 export default function ProductCard({
+  deleteThisProduct,
   product,
   toggleForm,
-  deleteThisProduct,
 }) {
   const [action, setAction] = useState("");
   const [open, setOpen] = useState(false);
@@ -54,8 +53,8 @@ export default function ProductCard({
         sx={{display:"flex", justifyContent: "center", flexDirection: "column", marginTop:1}}>
           <CardMedia
             component="img"
-            height="150"
-            width="150"
+            height="200"
+            width="250"
             image={product.url}
             alt={product.name}
           />

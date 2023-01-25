@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
+import { CssVarsProvider } from "@mui/joy";
 import { createNewProduct, updateProduct } from "../../services/apiCalls";
 import { red } from "@mui/material/colors";
-import { CssVarsProvider } from "@mui/joy";
 
 const ProductForm = ({ productToEdit, toggleForm, getProductsList }) => {
   const [error, setError] = useState("");

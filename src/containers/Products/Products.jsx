@@ -3,13 +3,13 @@ import "./Products.css";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 const Products = () => {
   const [searchProducts, setSearchProducts] = useState("");
-  const[loading, setLoading]= useState(false);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (user === null) navigate("/");
@@ -39,11 +39,15 @@ const Products = () => {
           className="search-input"
           onChange={(e) => inputSearchHandler(e)}
         />
-        <SearchIcon color="primary"/>
+        <SearchIcon color="primary" />
       </div>
-      {loading ? <span className="loader"></span> : <div className="showProducts">
-        <ShowProducts searchProducts={searchProducts} />
-      </div>  }
+      {loading ? (
+        <span className="loader"></span>
+      ) : (
+        <div className="showProducts">
+          <ShowProducts searchProducts={searchProducts} />
+        </div>
+      )}
     </div>
   );
 };

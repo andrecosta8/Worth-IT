@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
+import { CssVarsProvider } from "@mui/joy";
 import { red  } from "@mui/material/colors";
 import { updateUser } from "../../services/apiCalls";
 import { validateForm } from "../../services/validate";
-import { CssVarsProvider } from "@mui/joy";
 
 export const PasswordForm = ({ user, togglePassForm }) => {
   const [error, setError] = useState("");
@@ -42,6 +42,7 @@ export const PasswordForm = ({ user, togglePassForm }) => {
   };
   return (
     <CssVarsProvider>
+      <div className="wave"></div><div className="wave"></div><div className="wave"></div>
         <Sheet
           sx={{
             borderRadius: "sm",

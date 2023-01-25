@@ -1,13 +1,13 @@
 .productsPageDesign {
   align-items: center;
-  width: 100vw;
+  animation: fadeIn 2s;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  opacity: 1;
   padding-bottom: 8vh;
   padding-top: 17vh;
-  animation: fadeIn 2s;
-  opacity: 1;
+  width: 100vw;
 }
 
 @keyframes fadeIn {
@@ -15,30 +15,30 @@
     opacity: 0;
   }
   to {
-   opacity: 1;
+    opacity: 1;
   }
 }
 
 .showProducts {
-  z-index: 1;
+  align-items: center;
   align-items: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  width: 100vw;
+  justify-content: center;
   overflow-x: hidden;
+  width: 100vw;
+  z-index: 1;
 }
 
 .search-container {
-  background: #fff;
-  height: 30px;
-  border-radius: 30px;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background: #fff;
+  border-radius: 30px;
   cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  padding: 10px 20px;
   transition: 0.8s;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
@@ -59,11 +59,11 @@
 .search-container .search-input {
   background: transparent;
   border: none;
-  outline: none;
-  width: 0px;
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
+  outline: none;
   transition: 0.8s;
+  width: 0px;
 }
 
 @keyframes hoverShake {
@@ -94,19 +94,19 @@
   height: 48px;
   margin: 20px auto;
   position: relative;
-  width: 48px;
   top: 8em;
+  width: 48px;
 }
 .loader::after {
-  content: "";
-  box-sizing: border-box;
-  width: 6px;
-  height: 24px;
   background: #fff;
-  transform: rotate(-45deg);
-  position: absolute;
   bottom: -20px;
+  box-sizing: border-box;
+  content: "";
+  height: 24px;
   left: 46px;
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 6px;
 }
 
 @keyframes animloader {

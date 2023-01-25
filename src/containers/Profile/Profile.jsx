@@ -1,32 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
 import "./Profile.css";
-import { AuthContext } from "../../providers/AuthProvider";
-import { deleteComment, getAllComments } from "../../services/apiCalls";
-import { useNavigate } from "react-router-dom";
-import CommentBox from "../../components/CommentBox/CommentBox";
-import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
-import { formatDate } from "../../services/utils";
-import { Avatar } from "@mui/joy";
-import { blue } from "@mui/material/colors";
-import { Button } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardHeader from "@mui/material/CardHeader";
+import CommentBox from "../../components/CommentBox/CommentBox";
+import React, { useContext, useEffect, useState } from "react";
 import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Avatar } from "@mui/joy";
+import { Button } from "@mui/material";
+import { PasswordForm } from "../../components/PasswordForm/PasswordForm";
+import { blue } from "@mui/material/colors";
+import { deleteComment, getAllComments } from "../../services/apiCalls";
+import { formatDate } from "../../services/utils";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [comments, setComments] = useState([]);
   const [commentBox, setCommentBox] = useState(false);
   const [commentToEdit, setCommentToEdit] = useState("");
+  const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
   const [passForm, setPassForm] = useState(false);
-  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     getCommentsList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -199,7 +200,13 @@ const Profile = () => {
                             </Typography>
                           </div>
                         </CardContent>
-                        <CardActions disableSpacing>
+                        <CardActions
+                          disableSpacing
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-around",
+                          }}
+                        >
                           <Button
                             variant="contained"
                             color="error"

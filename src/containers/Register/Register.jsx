@@ -1,7 +1,7 @@
 import "./Register.css";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
@@ -32,12 +32,12 @@ const Register = () => {
     try {
       let validationError;
       if ((await checkEmail(user.email)) === false) {
-        validationError = "E-mail is already in use";
+        validationError = "E-mail is already in use!";
       } else {
         validationError = validateForm(user);
       }
       setError(validationError);
-      if (!error) {
+      if (error === null) {
         await registerNewUser(user);
         setTimeout(() => {
           navigate("/login");
@@ -123,7 +123,7 @@ const Register = () => {
             >
               Already have an account?
             </Typography>
-            <div>{error && error}</div>
+            <div className="errorMessage">{error && error}</div>
           </Sheet>
         </main>
       </div>

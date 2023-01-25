@@ -15,13 +15,14 @@ const Detail = () => {
   const [commentToEdit, setCommentToEdit] = useState({});
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
+  const element = document.getElementById('scrollup');
   const navigate = useNavigate();
   const product = useProductContext();
   const { user } = useContext(AuthContext);
-  const element = document.getElementById('scrollup');
 
   useEffect(() => {
     getComments();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -1,44 +1,43 @@
-.adminUsersDesign{
-    align-items: center;   
-    display: flex;  
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 8vh;
-    margin-top: 18vh;
-    animation: fadeIn 2s;
+.adminUsersDesign {
+  align-items: center;
+  animation: fadeIn 2s;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 8vh;
+  margin-top: 18vh;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-     opacity: 1;
-    }
-  }
+}
 
 .card {
-    margin-bottom: 2em;
-    margin-left:2em;
-    margin-right: 2em;
-    width: 350px;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  width: 350px;
 }
 
 .cardActions {
-    background-color: lightgrey;
-    display: flex;
-    justify-content: center;  
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
 }
 
 .cardContent:hover {
-    opacity: 1;
-    transition: 1s;
+  opacity: 1;
+  transition: 1s;
 }
 
 .cardContent {
-    background-color: lightgrey;
-    opacity: 0.5;
-    transition: 1s;
+  background-color: lightgrey;
+  opacity: 0.5;
+  transition: 1s;
 }
-

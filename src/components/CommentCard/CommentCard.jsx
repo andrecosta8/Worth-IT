@@ -15,10 +15,10 @@ import IconButton from "@mui/material/IconButton";
 import React, { useContext, useState } from "react";
 import ReportIcon from "@mui/icons-material/Report";
 import TextField from "@mui/material/TextField";
+import Tooltip from '@mui/material/Tooltip';
 import Typography from "@mui/material/Typography";
 import { Alert } from "../Alert/Alert";
 import { AuthContext } from "../../providers/AuthProvider";
-import Tooltip from '@mui/material/Tooltip';
 import { blue } from "@mui/material/colors";
 import { deleteComment, updateComment } from "../../services/apiCalls";
 import { formatDate } from "../../services/utils";
@@ -27,10 +27,10 @@ export default function CommentCard({ comment, getComments, isEditing }) {
   const [action, setAction] = useState("");
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
+  const [openReport, setOpenReport] = useState(false);
   const [reason, setReason] = useState(null);
   const formatedDate = formatDate(comment.createdAt);
   const { user } = useContext(AuthContext);
-  const [openReport, setOpenReport] = useState(false);
 
   const deleteThisComment = async (comment) => {
     try {

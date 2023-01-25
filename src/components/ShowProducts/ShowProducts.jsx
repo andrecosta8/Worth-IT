@@ -9,6 +9,7 @@ const ShowProducts = ({ searchProducts }) => {
 
   useEffect(() => {
     getProductsList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProductsList = async () => {

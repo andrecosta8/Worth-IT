@@ -15,7 +15,6 @@ export const BasicRating = ({product}) => {
       <Stack >
       <Rating name="half-rating-read" value={product.rating} precision={0.5} readOnly />
     </Stack>
-      {/* <Rating name="read-only" value={product.rating} readOnly /> */}
     </Box>
   );
 }

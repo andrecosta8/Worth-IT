@@ -1,9 +1,9 @@
 .detailProductDesign {
+  animation: fadeIn 2s;
   display: flex;
   justify-content: space-around;
-  margin-top: 16vh;
   margin-bottom: 8vh;
-  animation: fadeIn 2s;
+  margin-top: 16vh;
   opacity: 1;
 }
 
@@ -12,15 +12,15 @@
     opacity: 0;
   }
   to {
-   opacity: 1;
+    opacity: 1;
   }
 }
 
 .rightside {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   height: 77vh;
+  overflow-y: scroll;
 }
 
 .rightside::-webkit-scrollbar {
@@ -28,25 +28,25 @@
 }
 
 .leftside {
-  max-width: 50vw;
   display: flex;
   flex-direction: column;
+  max-width: 50vw;
 }
 
 .productDetail {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 375px;
 }
 
 .product-image {
-  max-width: 500px;
-  max-height: 300px;
   border: 5px solid;
-  margin-right: 0.5em;
   margin-left: 0.5em;
+  margin-right: 0.5em;
+  max-height: 300px;
+  max-width: 500px;
 }
 
 .createNewCommentButton {
@@ -55,23 +55,23 @@
 }
 
 .product-name {
-  width: 300px;
-  height: 25px;
   background-color: lightgray;
-  opacity: 0.75;
   border-radius: 5px;
   font-size: x-large;
+  height: 25px;
   margin-bottom: 1em;
+  opacity: 0.75;
+  width: 300px;
 }
 
 .brand-and-model {
-  display: flex;
   align-items: center;
+  background-color: lightgray;
+  border-radius: 5px;
+  display: flex;
   justify-content: space-around;
   margin-top: 0.5em;
-  background-color: lightgray;
   opacity: 0.75;
-  border-radius: 5px;
 }
 
 .product-brand {
@@ -79,24 +79,23 @@
 }
 
 .product-description {
-  text-align: justify;
-  width: 300px;
-  height: auto;
   background-color: lightgray;
-  opacity: 0.75;
   border-radius: 5px;
+  height: auto;
   margin-top: 0.5em;
+  min-width: 300px;
+  opacity: 0.75;
+  text-align: justify;
 }
 
 @media only screen and (max-width: 900px) {
   .detailProductDesign {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 10vh;
   }
   .rightside {
     margin-top: 1em;
   }
 }
-

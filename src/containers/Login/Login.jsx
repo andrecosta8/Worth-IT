@@ -1,7 +1,7 @@
 import "./Login.css";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/joy/TextField";
 import Typography from "@mui/joy/Typography";
@@ -18,8 +18,7 @@ const Login = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { addAdminToContext } = useContext(AuthContext);
-  const { addUserToContext } = useContext(AuthContext);
+  const { addUserToContext, addAdminToContext } = useContext(AuthContext);
 
   const handleData = (e) => {
     setUser((prevState) => ({
@@ -33,7 +32,7 @@ const Login = () => {
       let response = await loginUser(user);
 
       if (response.length === 0 || response === false) {
-        setError("E-mail or password doesn't match");
+        setError("E-mail or password doesn't match!");
       } else {
         addUserToContext(response[0]);
         setError(null);
@@ -89,7 +88,6 @@ const Login = () => {
               type="email"
               placeholder="johndoe@email.com"
               label="Email"
-              value={user.email}
               onChange={(e) => {
                 handleData(e);
               }}
@@ -100,7 +98,6 @@ const Login = () => {
               type="password"
               placeholder="password"
               label="Password"
-              value={(e)=> e.email}
               onChange={(e) => {
                 handleData(e);
               }}
@@ -121,7 +118,7 @@ const Login = () => {
             >
               Don&apos;t have an account?
             </Typography>
-            <div>{error && error}</div>
+            <div className="errorMessage">{error && error}</div>
           </Sheet>
         </main>
       </div>

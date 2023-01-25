@@ -17,6 +17,7 @@ const ProductsManagement = () => {
 
   useEffect(() => {
     getProductsList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const ProductsManagement = () => {
           <div className="productsList">
             {products.map((product) => {
               return (
-                <div key={product.id}  id="productCard">
+                <div key={product.id} id="productCard">
                   <ProductCard
                     product={product}
                     toggleForm={toggleForm}

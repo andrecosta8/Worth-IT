@@ -1,10 +1,10 @@
-.adminHomeDesign{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 8vh;
-    padding-top: 15vh;
-    animation: fadeIn 2s;
-    opacity: 1;
+.adminHomeDesign {
+  animation: fadeIn 2s;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  padding-bottom: 8vh;
+  padding-top: 15vh;
 }
 
 @keyframes fadeIn {
@@ -12,59 +12,57 @@
     opacity: 0;
   }
   to {
-   opacity: 1;
+    opacity: 1;
   }
 }
 
-
 .adminProfile {
-    display: flex;
-    justify-content: center;
-    padding-top: 3em;
-    width: 50vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+  width: 50vw;
 }
 
 .managementSelectors {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-right: 3em;
-    padding-top: 1em;
-    width: 50vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 3em;
+  padding-top: 1em;
+  width: 50vw;
 }
 
-.card{
-    min-width: 300px;
+.card {
+  min-width: 300px;
 }
 
 .managementButton {
-    width: 300px;
+  width: 300px;
 }
 
 @media only screen and (max-width: 768px) {
-    
-    .adminHomeDesign{
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 8vh;
-        padding-top: 15vh;
-    }
+  .adminHomeDesign {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8vh;
+    padding-top: 15vh;
+  }
 
-    .adminProfile {
-        display: flex;
-        justify-content: center;
-        padding-top: 3em;
-    }
+  .adminProfile {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+  }
 
-    .managementSelectors {
-        display: flex;
-        flex-direction: column;
-        padding-left: 3em;
-    }
+  .managementSelectors {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3em;
+  }
 
-    .managementButton {
-        width: 300px;
-    }
+  .managementButton {
+    width: 300px;
+  }
 }

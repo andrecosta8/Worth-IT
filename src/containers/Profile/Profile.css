@@ -1,13 +1,13 @@
 .profileDesign {
   align-items: center;
+  animation: fadeIn 2s;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 300px;
+  opacity: 1;
   padding-bottom: 8vh;
   padding-top: 15vh;
-  animation: fadeIn 2s;
-  opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -15,7 +15,7 @@
     opacity: 0;
   }
   to {
-   opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -49,6 +49,7 @@
   opacity: 0.75;
   padding-left: 50px;
   padding-right: 50px;
+  padding-top: 10px;
   position: sticky;
   top: 17vh;
   width: 300px;
@@ -56,9 +57,8 @@
 
 @media only screen and (max-width: 900px) {
   .commentsDiv {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-
+    flex-direction: column;
+    display: flex;
   }
 }

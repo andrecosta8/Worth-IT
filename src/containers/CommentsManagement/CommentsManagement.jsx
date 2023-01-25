@@ -31,10 +31,10 @@ const CommentsManagement = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { admin } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getCommentsList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

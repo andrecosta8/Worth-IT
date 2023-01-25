@@ -1,11 +1,11 @@
-.notFound{
-    align-items: center;
-    background-color: red;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 100vw;
-    animation: fadeIn 2s;
+.notFound {
+  align-items: center;
+  animation: fadeIn 2s;
+  background-color: red;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
   opacity: 1;
 }
 
@@ -14,6 +14,6 @@
     opacity: 0;
   }
   to {
-   opacity: 1;
+    opacity: 1;
   }
 }

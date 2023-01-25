@@ -3,27 +3,28 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CloseIcon from '@mui/icons-material/Close';
+import DeleteIcon from "@mui/icons-material/Delete";
+import DoneIcon from '@mui/icons-material/Done';
 import React, { useContext, useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import { Alert } from "../../components/Alert/Alert";
 import { AuthContext } from "../../providers/AuthProvider";
 import { deleteUser, getAllUsers, updateUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
-import DeleteIcon from "@mui/icons-material/Delete";
-import DoneIcon from '@mui/icons-material/Done';
-import CloseIcon from '@mui/icons-material/Close';
 
 const UsersManagement = () => {
-  const [action, setAction] = useState("");
-  const [error, setError] = useState(null);
-  const [open, setOpen] = useState(false);
-  const [userToAction, setUserToAction] = useState({});
-  const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
   const { admin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const [userToAction, setUserToAction] = useState({});
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [action, setAction] = useState("");
 
   useEffect(() => {
     getUsersList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

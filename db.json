@@ -8,25 +8,60 @@
       "id": 1
     },
     {
-      "name": "asd",
-      "email": "email@email.com",
-      "password": "Asd123fff",
+      "name": "Diogo",
+      "email": "diogo@xing.com",
+      "password": "Hello321",
       "isAdmin": false,
       "id": 2
     },
     {
-      "name": "test",
-      "email": "email@emil.com",
-      "password": "Asdf123123",
+      "name": "Vanessa",
+      "email": "vanessa@xing.com",
+      "password": "Hello321",
       "isAdmin": false,
       "id": 3
+    },
+    {
+      "name": "Inigo",
+      "email": "inigo@xing.com",
+      "password": "Hello321",
+      "isAdmin": false,
+      "id": 4
+    },
+    {
+      "name": "Pablo",
+      "email": "pablo@xing.com",
+      "password": "Hello321",
+      "isAdmin": false,
+      "id": 5
+    },
+    {
+      "name": "Pau",
+      "email": "pau@xing.com",
+      "password": "Hello321",
+      "isAdmin": false,
+      "id": 6
+    },
+    {
+      "name": "Susana",
+      "email": "susana@xing.com",
+      "password": "Hello321",
+      "isAdmin": false,
+      "id": 7
     },
     {
       "name": "André",
       "email": "andre.costa@xing.com",
       "password": "Hello321",
       "isAdmin": false,
-      "id": 4
+      "id": 8
+    },
+    {
+      "name": "Pedro",
+      "email": "pedro@xing.com",
+      "password": "Hello321",
+      "isAdmin": false,
+      "id": 9
     }
   ],
   "products": [
@@ -70,7 +105,7 @@
       "name": "Logitech MX Keys Mini",
       "brand": "Logitech",
       "model": "MX Keys Mini",
-      "description": "Apresentamos o Logitech MX Keys Mini, um teclado menor, mais inteligente e mais poderoso para os criadores. Digite com segurança neste teclado eficiente, estável e preciso. O design ergonómico alinha os seus ombros. Posicione o rato mais perto do teclado, sem precisar de esticar o braço, para maior conforto e uma melhor posição corporal.",
+      "description": "ntroducing the Logitech MX Keys Mini, a smaller, smarter, more powerful keyboard for creators. Type confidently on this efficient, stable and accurate keyboard. The ergonomic design lines up with your shoulders. Position the mouse closer to the keyboard, without having to stretch your arm, for greater comfort and a better body position.",
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/58/588544/1736-logitech-mx-keys-mini-teclado-inalambrico-bluetooth-grafito.jpg",
       "id": 6,
       "rating": "4.5"
@@ -94,123 +129,260 @@
       "rating": "3.5"
     },
     {
-      "name": "a",
-      "brand": "a",
-      "model": "a",
-      "description": "a",
-      "rating": "1",
+      "name": "Apple Magic Mouse",
+      "brand": "Apple ",
+      "model": "Magic Mouse",
+      "description": "The Apple Magic Mouse is wireless and rechargeable, with a new base that slides seamlessly onto your desk.  And with the Multi-Touch surface, you can perform simple gestures like swiping between websites or scrolling through your documents. Thanks to its built-in long-lasting battery, you can forget about charging your Magic Mouse for a month or more.  It's ready to use right out of the box and automatically pairs with your Mac. Plus, it includes a braided USB-C to Lightning cable that lets you connect and charge it through your Mac's USB-C port.",
+      "rating": "5",
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/57/579778/2222-apple-magic-mouse-plata-comprar.jpg",
       "id": 10
     },
     {
       "url": "https://thumb.pccomponentes.com/w-530-530/articles/57/574332/1363-apple-magic-keyboard-blanco.jpg",
-      "rating": "3",
-      "description": "a",
-      "model": "a",
-      "brand": "a",
-      "name": "a",
+      "rating": "5",
+      "description": "The Apple Magic Keyboard lets you type with complete precision and comfort.  In addition, it is wireless and rechargeable, and incorporates a built-in long-lasting battery. So you can forget about recharging your keyboard for a month or more.  It automatically links to your Mac so you can use it right away. It also includes a braided USB-C to Lightning cable to connect and charge through your Mac's USB-C port.",
+      "model": "MAgic Keyboard",
+      "brand": "Apple",
+      "name": "Apple Magic Keyboard",
       "id": 11
     },
     {
-      "name": "a",
-      "brand": "a",
-      "model": "a",
-      "description": "a",
-      "rating": "2",
-      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1029/10294665/1952-dell-xps-15-9520-intel-core-i7-12700h-32gb-1tb-ssd-rtx3050-ti-156-tactil.jpg",
-      "id": 12
+      "name": "Tempest K20 Beast Keyboard",
+      "brand": "Tempest",
+      "model": "K20 Beast",
+      "description": "A new beast has arrived in the keyboard range - The new Tempest Keyboard K20 Beast. A keyboard with an exclusive design for games to offer you the best guarantee and success in your games. Removing the side numerical keyboard gives you greater freedom of movement so that your reaction and response times are considerably reduced, as you avoid the effect of a collision between the mouse and the keyboard. If you want to make a difference, buy this keyboard now.",
+      "rating": "4.5",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/43/433509/1747-tempest-k20-beast-teclado-mecanico-gaming-rgb-tkl-negro.jpg",
+      "id": 13
     },
     {
-      "name": "a",
-      "brand": "a",
-      "model": "a",
-      "description": "a",
-      "rating": "2",
-      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1026/10267770/1100-razer-blackwidow-v3-mini-hyperspeed-teclado-mecanico-inalambrico-gming-rgb-switch-green-us-layout.jpg",
-      "id": 13
+      "name": "Jabra PanaCast Hub USB-C",
+      "brand": "Jabra",
+      "model": "PanaCast",
+      "description": "Jabra PanaCast USB Hub USB-C. A central unit that connects the Jabra PanaCast and Jabra Speak to your computer using a single cable.",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/42/428775/1117-jabra-panacast-concentrador-usb-c-multipuerto.jpg",
+      "id": 14
+    },
+    {
+      "name": "Apple AirPods 3rd Generation",
+      "brand": "Apple",
+      "model": "AirPods",
+      "description": "AirPods weigh nothing and offer an anatomical fit. They are positioned at the perfect angle to give you greater comfort and bring the sound directly to your ears. In addition, they are 33% shorter than AirPods (2nd generation) and include a pressure sensor that allows you to easily control music and calls.",
+      "rating": "4",
+      "url": "https://thumb.pccomponentes.com/w-530-530/articles/1058/10581540/2898-apple-airpods-3a-generacion-con-estuche-de-carga-lightning-comprar.jpg",
+      "id": 15
     }
   ],
   "comments": [
     {
       "badWordFlaged": false,
-      "body": "sadasdad",
-      "createdAt": "2023-01-22T15:36:47.610Z",
+      "body": "The truth is that it is a very comfortable mouse. The touch is very good and the size too.",
+      "createdAt": "2023-01-24T23:11:34.919Z",
       "offline": false,
       "productId": 2,
       "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 42
-    },
-    {
-      "badWordFlaged": false,
-      "body": "asdasd",
-      "createdAt": "2023-01-22T15:36:52.515Z",
-      "offline": false,
-      "productId": 2,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 43
-    },
-    {
-      "badWordFlaged": false,
-      "body": "sdfsdfsdf",
-      "createdAt": "2023-01-22T15:36:58.735Z",
-      "offline": false,
-      "productId": 2,
-      "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 44,
-      "reportReason": "sadasd",
+      "user": "André",
+      "userID": 8,
+      "id": 1,
       "reportedCommmentEdit": false
     },
     {
       "badWordFlaged": false,
-      "body": "asas",
-      "createdAt": "2023-01-23T10:07:48.942Z",
+      "body": "I just received this laptop! And I highly recommend it, but if you have a heavy job you might want to get the professional",
+      "createdAt": "2023-01-24T23:13:55.836Z",
+      "offline": false,
+      "productId": 3,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 2
+    },
+    {
+      "badWordFlaged": false,
+      "body": "It's my first Mac. I always thought they were too expensive until the M1 chip. Then with the M2 they already embroidered. Very happy",
+      "createdAt": "2023-01-24T23:18:48.383Z",
       "offline": false,
       "productId": 4,
       "reported": false,
       "user": "André",
-      "userID": 4,
-      "id": 46
+      "userID": 8,
+      "id": 3
     },
     {
       "badWordFlaged": false,
-      "body": "asdasdas",
-      "createdAt": "2023-01-23T11:13:53.883Z",
+      "body": "I don't like it!",
+      "createdAt": "2023-01-24T23:20:20.367Z",
       "offline": false,
       "productId": 2,
       "reported": false,
-      "user": "André",
-      "userID": 4,
-      "id": 47
+      "user": "Diogo",
+      "userID": 2,
+      "id": 4
     },
     {
       "badWordFlaged": false,
-      "body": "sadas",
-      "createdAt": "2023-01-23T11:13:56.815Z",
+      "body": "I don't like it!",
+      "createdAt": "2023-01-24T23:20:35.590Z",
       "offline": false,
-      "productId": 2,
-      "reported": true,
-      "user": "André",
-      "userID": 4,
-      "id": 48,
-      "reportReason": "asdasd",
-      "reportedCommmentEdit": false
+      "productId": 14,
+      "reported": false,
+      "user": "Diogo",
+      "userID": 2,
+      "id": 5
     },
     {
-      "badWordFlaged": true,
-      "body": "fuck",
-      "createdAt": "2023-01-23T12:06:35.006Z",
-      "offline": true,
+      "badWordFlaged": false,
+      "body": "I don't like it!",
+      "createdAt": "2023-01-24T23:20:45.741Z",
+      "offline": false,
+      "productId": 7,
+      "reported": false,
+      "user": "Diogo",
+      "userID": 2,
+      "id": 6
+    },
+    {
+      "badWordFlaged": false,
+      "body": "I don't like it!",
+      "createdAt": "2023-01-24T23:20:57.577Z",
+      "offline": false,
+      "productId": 10,
+      "reported": false,
+      "user": "Diogo",
+      "userID": 2,
+      "id": 7
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Very good buy, it has a dual connection type, bluetooth and wireless. Perfect for use with NVIDIA SHIELD",
+      "createdAt": "2023-01-24T23:22:41.359Z",
+      "offline": false,
       "productId": 2,
       "reported": false,
-      "user": "User1",
-      "userID": 1,
-      "id": 49
+      "user": "Vanessa",
+      "userID": 3,
+      "id": 8
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Very good, the response time is instantaneous and the batteries last about 2 weeks if you play almost all day. The only thing is that the size is a little small, if you usually pick up your mouse with your entire palm, this is not the mouse for you. For the rest, this mouse is very good, I am quite satisfied that it does not have a cable and is light",
+      "createdAt": "2023-01-24T23:23:46.951Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "Pau",
+      "userID": 6,
+      "id": 9
+    },
+    {
+      "badWordFlaged": false,
+      "body": "The truth is that it is a very comfortable mouse. The touch is very good and the size too.",
+      "createdAt": "2023-01-24T23:25:48.202Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "Pablo",
+      "userID": 5,
+      "id": 10
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Comfortable, does not make noise when clicking. Weight is not bad.",
+      "createdAt": "2023-01-24T23:40:07.295Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "Susana",
+      "userID": 7,
+      "id": 11
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Amazing!!!",
+      "createdAt": "2023-01-24T23:42:04.835Z",
+      "offline": false,
+      "productId": 5,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 12
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Comfortable, does not make noise when clicking. Weight is not bad.",
+      "createdAt": "2023-01-24T23:42:33.933Z",
+      "offline": false,
+      "productId": 10,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 13
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Good resolution. ",
+      "createdAt": "2023-01-24T23:43:00.019Z",
+      "offline": false,
+      "productId": 7,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 14
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Really nice sound. Very comfortable. lightweight and very pretty.",
+      "createdAt": "2023-01-24T23:43:52.457Z",
+      "offline": false,
+      "productId": 15,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 15
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Very good gadget !!!",
+      "createdAt": "2023-01-24T23:44:13.117Z",
+      "offline": false,
+      "productId": 14,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 16
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Very good quality/price ratio.",
+      "createdAt": "2023-01-24T23:44:50.679Z",
+      "offline": false,
+      "productId": 9,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 17
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Makes lot of noise. If you don't mind with that is ok, but keep that in mind if you prefer quite keyboards...",
+      "createdAt": "2023-01-24T23:45:39.749Z",
+      "offline": false,
+      "productId": 13,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 18
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Masterpiece!",
+      "createdAt": "2023-01-24T23:45:55.442Z",
+      "offline": false,
+      "productId": 11,
+      "reported": false,
+      "user": "André",
+      "userID": 8,
+      "id": 19
     }
   ]
 }

@@ -1,8 +1,8 @@
 .box {
-    display:flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navBar {
-    border-radius: 5px;
+  border-radius: 5px;
 }

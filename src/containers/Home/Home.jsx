@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import './Home.css'
-import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import React, { useEffect, useState } from 'react'
+import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getAllProducts } from '../../services/apiCalls';
 
@@ -15,6 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     getProductsList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProductsList = async () => {
@@ -32,7 +31,7 @@ const Home = () => {
       <div className="wave"></div><div className="wave"></div><div className="wave"></div>
       <div className="welcome-message">
       <p data-testid="title">Welcome to Worth IT?!</p>
-      Worth IT? is a application that allow the developers or tech lovers to comment dev products and give this opinion about it.
+      Worth IT? is a application that allow the developers or tech lovers to comment dev products and give this opinion about .
       See bellow some of the review products by worldwide developers. If you want to see details and join our discussions please register and log in.
       <p>You will realize that Worth IT!!!</p>
       </div>
@@ -53,8 +52,8 @@ const Home = () => {
         },
         1000: {
           slidesPerView: 3,
-          spaceBetween: 50,
-        }
+          spaceBetween: 30,
+        },
       }}
       modules={[Autoplay]}
       className="mySwiper"

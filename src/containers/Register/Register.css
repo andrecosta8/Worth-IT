@@ -1,17 +1,20 @@
- .registerDesign{
-    height: 77vh;
-    padding-top: 15vh;
-    padding-bottom: 8vh;
-    animation: fadeIn 2s;
+.registerDesign {
+  animation: fadeIn 2s;
+  height: 77vh;
+  opacity: 1;
+  padding-bottom: 8vh;
+  padding-top: 15vh;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-     opacity: 1;
-    }
-  }
+}
 
+.errorMessage {
+  color: red;
+}
