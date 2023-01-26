@@ -27,7 +27,7 @@ const Profile = () => {
 
   useEffect(() => {
     getCommentsList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ const Profile = () => {
               <div className="flagedComments">
                 <Tooltip
                   title="These comments were automatically flagged for using profanity."
-                  placement="bottom"
+                  placement="top"
                 >
                   <div className="title">FLAGGED COMMENTS:</div>
                 </Tooltip>
@@ -168,7 +168,7 @@ const Profile = () => {
               <div className="reportedComments">
                 <Tooltip
                   title="These comments were reported by some user"
-                  placement="bottom"
+                  placement="top"
                 >
                   <div className="title">REPORTED COMMENTS:</div>
                 </Tooltip>

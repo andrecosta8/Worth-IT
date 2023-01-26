@@ -201,12 +201,14 @@
       "badWordFlaged": false,
       "body": "It's my first Mac. I always thought they were too expensive until the M1 chip. Then with the M2 they already embroidered. Very happy",
       "createdAt": "2023-01-24T23:18:48.383Z",
-      "offline": false,
+      "offline": true,
       "productId": 4,
-      "reported": false,
+      "reported": true,
       "user": "André",
       "userID": 8,
-      "id": 3
+      "id": 3,
+      "reportReason": "I don't agree!",
+      "reportedCommmentEdit": false
     },
     {
       "badWordFlaged": false,
@@ -341,15 +343,16 @@
       "id": 15
     },
     {
-      "badWordFlaged": false,
-      "body": "Very good gadget !!!",
+      "badWordFlaged": true,
+      "body": "Fuck this!",
       "createdAt": "2023-01-24T23:44:13.117Z",
-      "offline": false,
+      "offline": true,
       "productId": 14,
       "reported": false,
       "user": "André",
       "userID": 8,
-      "id": 16
+      "id": 16,
+      "reportedCommmentEdit": false
     },
     {
       "badWordFlaged": false,
@@ -383,6 +386,97 @@
       "user": "André",
       "userID": 8,
       "id": 19
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Great machine, I love it! ",
+      "createdAt": "2023-01-25T15:41:59.749Z",
+      "offline": false,
+      "productId": 3,
+      "reported": false,
+      "user": "Susana",
+      "userID": 7,
+      "id": 20
+    },
+    {
+      "badWordFlaged": false,
+      "body": "The computer works perfectly, it's for my daughter who is studying engineering and all the programs they give at the university work without any problems. Best of all is the €200 I saved buying from Pc Components compared to other stores. Very happy.",
+      "createdAt": "2023-01-25T15:43:30.666Z",
+      "offline": false,
+      "productId": 4,
+      "reported": false,
+      "user": "Susana",
+      "userID": 7,
+      "id": 21
+    },
+    {
+      "badWordFlaged": false,
+      "body": "The computer arrived promptly and very well packaged. I bought it here because it was cheaper than buying it in the official store",
+      "createdAt": "2023-01-25T16:17:33.814Z",
+      "offline": false,
+      "productId": 3,
+      "reported": false,
+      "user": "Pablo",
+      "userID": 5,
+      "id": 22
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Amazing!!",
+      "createdAt": "2023-01-25T16:18:22.954Z",
+      "offline": false,
+      "productId": 4,
+      "reported": false,
+      "user": "Pablo",
+      "userID": 5,
+      "id": 23
+    },
+    {
+      "badWordFlaged": false,
+      "body": "Best beer in Spain is Estrella Galicia! Not Super Bock!",
+      "createdAt": "2023-01-25T16:20:42.234Z",
+      "offline": true,
+      "productId": 2,
+      "reported": true,
+      "user": "Pablo",
+      "userID": 5,
+      "id": 24,
+      "reportReason": "This not a beer review application."
+    },
+    {
+      "badWordFlaged": false,
+      "body": "André is not nice!!!!",
+      "createdAt": "2023-01-25T16:23:19.685Z",
+      "offline": true,
+      "productId": 3,
+      "reported": true,
+      "user": "Inigo",
+      "userID": 4,
+      "id": 25,
+      "reportReason": "This comment mention a specific person name"
+    },
+    {
+      "badWordFlaged": true,
+      "body": "This product is a shit. Ask my rubber duck!!!!",
+      "createdAt": "2023-01-25T16:29:39.623Z",
+      "offline": true,
+      "productId": 3,
+      "reported": false,
+      "user": "Diogo",
+      "userID": 2,
+      "id": 26,
+      "reportedCommmentEdit": false
+    },
+    {
+      "badWordFlaged": false,
+      "body": "I think André will be fired!!",
+      "createdAt": "2023-01-25T16:34:13.863Z",
+      "offline": false,
+      "productId": 2,
+      "reported": false,
+      "user": "Pedro",
+      "userID": 9,
+      "id": 27
     }
   ]
 }

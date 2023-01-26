@@ -1,69 +1,89 @@
-# Getting Started with Create React App
+# Worth IT?
+
+![GitHub Dependencies](https://img.shields.io/badge/axios-1.2.1-blue) ![GitHub Dependencies](https://img.shields.io/badge/json--server-0.17.1-red) ![GitHub Dependencies](https://img.shields.io/badge/swiper-8.4.6-green) ![GitHub Dependencies](https://img.shields.io/badge/%40mui-5.11.0-green)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About 
+
+This application was build as a final project regarding Tech Academy from New Work.
+
+Worth IT? is a application that allow the developers or tech lovers to comment dev products and give this opinion about. As Admin you can manage all the aplication content (users, products and comments). 
+
 ## Available Scripts
+
+### First Step:
+
+To install all depencies that you will need to run the application:
+
+### `npm install`
+
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Opens [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Also opens a json server [http://localhost:5000](http://localhost:5000) to serve data to this application.
 
-### `npm test`
+### `npm run cy:open`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs intregations tests with cypress.
 
-### `npm run build`
+## Application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Routes:
+ 
+ - User:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    * Homepage - "/"
+    * Register - "/register"
+    * Login - "/login"
+    * Profile - "/profile"
+    * Products - "/products"
+    * Product Detail - "/productdetail"
+    * 404 Page - "*"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Admin:
 
-### `npm run eject`
+    * Admin Homepage - "/admin"
+    * Admin Products Management - "/admin/products"
+    * Admin Users Management - "/admin/users"
+    * Admin Comments Management - "admin/comments"
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Components:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Alert.jsx
+- BasicRating.jsx
+- CommentBox.jsx
+- CommentCard.jsx
+- Footer.jsx
+- Header.jsx
+- PasswordForm.jsx
+- ProductCard.jsx
+- ProductForm.jsx
+- ShowProducts.jsx
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Services:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- apiCalls.js
+    * axios api calls setup
 
-## Learn More
+- utils.js
+    * util functions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- validate.js
+    * input validations and regex
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Back-end and Database:
 
-### Code Splitting
+- db.json
+- json-server.json
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
+    
 

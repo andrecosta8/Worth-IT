@@ -17,7 +17,7 @@ const ProductsManagement = () => {
 
   useEffect(() => {
     getProductsList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./ShowProducts.css";
 import ProductCard from "../ProductCard/ProductCard";
 import React, { useEffect, useState } from "react";
@@ -9,7 +10,6 @@ const ShowProducts = ({ searchProducts }) => {
 
   useEffect(() => {
     getProductsList();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProductsList = async () => {

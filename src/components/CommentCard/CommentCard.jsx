@@ -101,7 +101,7 @@ export default function CommentCard({ comment, getComments, isEditing }) {
           subheader={formatedDate}
         />
         <CardContent>
-          <Typography>{comment.body}</Typography>
+          <Typography sx={{textAlign: "center"}}>{comment.body}</Typography>
         </CardContent>
         {user.id === comment.userID ? (
           <CardActions>

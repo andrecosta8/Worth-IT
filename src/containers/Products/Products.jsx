@@ -24,7 +24,7 @@ const Products = () => {
     timeOutId = setTimeout(() => {
       setLoading(false);
       setSearchProducts(e.target.value);
-    }, 750);
+    }, 1000);
   };
 
   return (
