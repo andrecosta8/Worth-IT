@@ -33,7 +33,7 @@ const Home = () => {
       <div className="welcome-message">
         <p data-testid="title">Welcome to Worth IT?!</p>
         Worth IT? is a application that allow the developers or tech lovers to
-        comment dev products and give this opinion about . See bellow some of
+        review dev products and give this opinion about . See bellow some of
         the review products by worldwide developers. If you want to see details
         and join our discussions please register and log in.
         <p>You will realize that Worth IT!!!</p>
