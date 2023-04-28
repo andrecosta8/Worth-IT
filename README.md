@@ -7,9 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About 
 
-This application was build as a final project regarding Tech Academy from New Work.
+This application was built as a final project regarding Tech Academy from New Work.
 
-Worth IT? is a application that allow the developers or tech lovers to comment dev products and give this opinion about. As Admin you can manage all the aplication content (users, products and comments). 
+Worth IT? is an application that allows developers or tech lovers to comment on dev products and give their opinion about them. As Admin you can manage all the application content (users, products and comments).
 
 ## Available Scripts
 
